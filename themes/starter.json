@@ -1,0 +1,82 @@
+{
+  "$schema": "../schemas/theme.schema.json",
+  "id": "starter",
+  "version": "1.0.0",
+  "label": "Starter pack — copy this, do not edit the engine",
+  "locale": "en-US",
+
+  "provenance": {
+    "default": {"status": "unverified"},
+    "fields": {
+      "": {"status": "unverified", "note": "Replace every value with one measured from your own design contract, then mark it `measured`. Anything still `unverified` is reported by fp_doctor."}
+    }
+  },
+
+  "canvas": {
+    "width": 1920,
+    "background": "neutral.950",
+    "safe": {"x": 120, "width": 1680},
+    "heights": {"mode": "auto", "min": 1080, "max": 2400, "roundTo": 8}
+  },
+
+  "typography": {
+    "family": "Inter",
+    "fallbacks": ["system-ui", "sans-serif"],
+    "minSize": 20,
+    "sizeGrid": 4,
+    "metrics": {"latin": 0.52, "digit": 0.56, "space": 0.26, "cjk": 1.0, "punct": 0.34, "lineHeightRatio": 1.45},
+    "roles": {
+      "h1":        {"size": 48, "weight": 700, "color": "neutral.100"},
+      "h2":        {"size": 32, "weight": 600, "color": "neutral.100"},
+      "dataTitle": {"size": 28, "weight": 600, "color": "neutral.200"},
+      "body":      {"size": 24, "weight": 400, "color": "neutral.200"},
+      "label":     {"size": 20, "weight": 500, "color": "neutral.300"},
+      "detail":    {"size": 20, "weight": 400, "color": "neutral.400"},
+      "footer":    {"size": 20, "weight": 400, "color": "neutral.500"}
+    }
+  },
+
+  "color": {
+    "neutral": {
+      "100": "#F5F5F5", "200": "#D9D9D9", "300": "#BFBFBF", "400": "#8C8C8C",
+      "500": "#737373", "600": "#4D4D4D", "700": "#333333", "800": "#242424",
+      "900": "#1A1A1A", "950": "#121212", "1000": "#0A0A0A"
+    },
+    "accent": {
+      "primary": "#4F86C6", "positive": "#4FA37A", "warning": "#C89B4A", "negative": "#C4604F"
+    },
+    "accentOrder": ["primary", "positive", "warning", "negative"]
+  },
+
+  "surface": {
+    "panel": {"fill": "neutral.900", "fillOpacity": 1, "stroke": "neutral.700", "strokeWidth": 1, "radius": 12, "padding": 24},
+    "header": {"fill": "neutral.800", "fillOpacity": 1},
+    "divider": {"color": "neutral.700", "width": 1, "opacity": 1},
+    "node": {"fill": "neutral.900", "fillOpacity": 1, "stroke": "neutral.700", "strokeWidth": 1, "radius": 8, "paddingX": 32, "paddingY": 20, "gapX": 56, "gapY": 36, "minWidth": 180}
+  },
+
+  "chart": {
+    "strokeWidth": 2,
+    "axis": {"color": "neutral.600", "width": 1.5},
+    "gridline": {"color": "neutral.700", "width": 1, "opacity": 0.6, "count": 5},
+    "connector": {"color": "neutral.500", "width": 1.5, "arrowSize": 9, "cornerRadius": 6},
+    "barGap": 20, "seriesGap": 6, "barRadius": 3, "pointRadius": 5, "donutThicknessRatio": 0.34
+  },
+
+  "chrome": {
+    "titleTop": 88, "contentTop": 200, "bottomBand": 140, "footerBaseline": 56,
+    "titleGap": 28, "sectionGap": 40
+  },
+
+  "rules": {
+    "singleWriter": true,
+    "cloneChromeNeverRebuild": false,
+    "bindTokensNeverRawHex": true,
+    "deleteEmptyFields": true,
+    "preserveInputFactsExactly": true,
+    "noInventedAccents": true,
+    "vectorStrokesOnly": true,
+    "targetDensity": 4,
+    "maxDensity": 6
+  }
+}

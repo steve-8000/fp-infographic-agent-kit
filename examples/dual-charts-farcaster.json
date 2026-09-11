@@ -1,0 +1,131 @@
+{
+ "title": "Decentralized Social Media Is Losing Its Narrative",
+ "source": "Dune (@pixelhack)",
+ "dateAsOf": "Sep 1, 2026",
+ "accents": {
+  "Uniq Reaction Fid": "coral",
+  "Uniq Cast Fid": "violet",
+  "Trailing AVG (7D)": "amber",
+  "Cast": "violet",
+  "Reaction": "coral",
+  "Link": "blue"
+ },
+ "blocks": [
+  {
+   "kind": "columns",
+   "gap": 72,
+   "columns": [
+    {
+     "blocks": [
+      {
+       "kind": "chart",
+       "title": "Farcaster DAU",
+       "template": "combo",
+       "fields": {
+        "line": "Trailing AVG (7D)"
+       },
+       "rows": [
+        {
+         "id": "2026-03",
+         "Month": "Mar 2026",
+         "Uniq Reaction Fid": 24000,
+         "Uniq Cast Fid": 3100,
+         "Trailing AVG (7D)": 25500
+        },
+        {
+         "id": "2026-04",
+         "Month": "Apr 2026",
+         "Uniq Reaction Fid": 15200,
+         "Uniq Cast Fid": 2600,
+         "Trailing AVG (7D)": 19800
+        },
+        {
+         "id": "2026-05",
+         "Month": "May 2026",
+         "Uniq Reaction Fid": 11800,
+         "Uniq Cast Fid": 2100,
+         "Trailing AVG (7D)": 14300
+        },
+        {
+         "id": "2026-06",
+         "Month": "Jun 2026",
+         "Uniq Reaction Fid": 8600,
+         "Uniq Cast Fid": 1700,
+         "Trailing AVG (7D)": 10200
+        },
+        {
+         "id": "2026-07",
+         "Month": "Jul 2026",
+         "Uniq Reaction Fid": 6400,
+         "Uniq Cast Fid": 1400,
+         "Trailing AVG (7D)": 7600
+        },
+        {
+         "id": "2026-08",
+         "Month": "Aug 2026",
+         "Uniq Reaction Fid": 5100,
+         "Uniq Cast Fid": 1200,
+         "Trailing AVG (7D)": 5900
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "blocks": [
+      {
+       "kind": "chart",
+       "title": "Farcaster Cast/Reaction/Link Volume",
+       "template": "area",
+       "rows": [
+        {
+         "id": "2026-03",
+         "Month": "Mar 2026",
+         "Cast": 620000,
+         "Reaction": 540000,
+         "Link": 1840000
+        },
+        {
+         "id": "2026-04",
+         "Month": "Apr 2026",
+         "Cast": 410000,
+         "Reaction": 360000,
+         "Link": 520000
+        },
+        {
+         "id": "2026-05",
+         "Month": "May 2026",
+         "Cast": 330000,
+         "Reaction": 300000,
+         "Link": 410000
+        },
+        {
+         "id": "2026-06",
+         "Month": "Jun 2026",
+         "Cast": 260000,
+         "Reaction": 240000,
+         "Link": 300000
+        },
+        {
+         "id": "2026-07",
+         "Month": "Jul 2026",
+         "Cast": 200000,
+         "Reaction": 190000,
+         "Link": 240000
+        },
+        {
+         "id": "2026-08",
+         "Month": "Aug 2026",
+         "Cast": 170000,
+         "Reaction": 160000,
+         "Link": 200000
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "accentSet": "guide"
+}

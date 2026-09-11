@@ -1,0 +1,135 @@
+{
+  "title": "Four properties no other network combines",
+  "subtitle": "What Ethereum offers as infrastructure, independent of the ETH price",
+  "source": "Four Pillars",
+  "dateAsOf": "2026-09-11",
+  "style": {
+    "roles": {
+      "h1": {
+        "size": 60,
+        "lineHeight": 1.15
+      },
+      "h2": {
+        "size": 34,
+        "weight": 700
+      }
+    }
+  },
+  "accents": {
+    "censorship": "blue",
+    "ecosystem": "blue"
+  },
+  "blocks": [
+    {
+      "kind": "cards",
+      "columns": 2,
+      "gap": 32,
+      "padding": 40,
+      "items": [
+        {
+          "id": "neutrality",
+          "eyebrow": "Neutrality",
+          "title": "No company sets the protocol's direction.",
+          "body": "The Foundation is a non-profit with no decision power, shrinking by choice.",
+          "note": "The only major platform competitors can share"
+        },
+        {
+          "id": "censorship",
+          "eyebrow": "Censorship resistance",
+          "title": "Transactions can be delayed, never blocked.",
+          "body": "No single party can permanently exclude anyone from the network.",
+          "note": "An infrastructure guarantee, not an ideology"
+        },
+        {
+          "id": "decentralization",
+          "eyebrow": "Decentralization",
+          "title": "No single party controls the network.",
+          "body": "~900K validators, nodes on home hardware, multiple independent clients.",
+          "note": "Nothing to capture, no one to coerce"
+        },
+        {
+          "id": "ecosystem",
+          "eyebrow": "Ecosystem size",
+          "title": "The largest builder and support network.",
+          "body": "Most developers, deepest audit talent, widest custody coverage.",
+          "note": "The lowest cost and risk of adoption"
+        }
+      ]
+    },
+    {
+      "kind": "panel",
+      "gapBefore": 48,
+      "padding": 40,
+      "blocks": [
+        {
+          "kind": "text",
+          "role": "body",
+          "color": "neutral.300",
+          "text": "Networks are more connected than ever; politics are more fragmented than ever. A system shared by everyone, including humans and AI, has to be neutral and trustless. No other network can play this role."
+        },
+        {
+          "kind": "text",
+          "gapBefore": 20,
+          "role": "h2",
+          "text": "Not the fastest chain. The most trusted settlement layer."
+        }
+      ]
+    }
+  ],
+  "direction": {
+    "statement": "Lead with the claim, not the chart: four properties as equal cards, colour reserved for the two guarantees an institution actually buys.",
+    "references": [
+      {
+        "source": "figma://fp-source/33404:10568",
+        "observedAt": "2026-09-11",
+        "observation": "2x2 cards, each eyebrow + claim + evidence + accent note; a rounded accent tab sits behind the left edge; only two of four cards carry colour; a full-width summary panel closes the frame",
+        "transform": "our card gradient and 15px rounded tab, blue from the FP Color System, and the summary written as a claim rather than a caption"
+      },
+      {
+        "source": "figma://fp-source/28868:13703",
+        "observedAt": "2026-09-11",
+        "observation": "the colour guide's 'one key figure / single highlight' row pairs one accent with a neutral base",
+        "transform": "extended from one highlight to two, because the story has two guarantees of equal weight"
+      },
+      {
+        "source": "https://www.aydesign.ai/blog/dark-mode-dashboard-design-patterns-2026",
+        "observedAt": "2026-09-11",
+        "observation": "dark surfaces are built from true greys rather than black, hierarchy comes from layered background lightness rather than borders, and exactly one or two saturated accents carry meaning while everything else stays neutral",
+        "transform": "our cards already sit on #141414 rather than black; adopt the layered-lightness idea by using the #1B1B1B to #373737 card gradient for elevation and keep blue on only two of the four cards"
+      },
+      {
+        "source": "https://midrocket.com/en/guides/ui-design-trends-2026/",
+        "observedAt": "2026-09-11",
+        "observation": "modular card groups with asymmetric proportions carry dense information without overload; larger cards read first and smaller ones supply supporting detail",
+        "transform": "rejected the asymmetry: these four properties are deliberately equal in weight, so an even 2x2 states that and a bento grid would imply a ranking that does not exist"
+      }
+    ],
+    "decisions": [
+      {
+        "target": "style.roles.h1.size",
+        "value": "60",
+        "from": "figma://fp-source/33404:10568"
+      },
+      {
+        "target": "style.roles.h2.weight",
+        "value": "700",
+        "from": "figma://fp-source/33404:10568"
+      },
+      {
+        "target": "blocks.shape",
+        "value": "2x2 cards then a full-width summary panel",
+        "from": "figma://fp-source/33404:10568"
+      },
+      {
+        "target": "accents",
+        "value": "blue on the two institutional guarantees only",
+        "from": "figma://fp-source/28868:13703"
+      },
+      {
+        "target": "blocks.shape",
+        "value": "even 2x2, no size hierarchy, closed by a full-width summary panel",
+        "from": "https://midrocket.com/en/guides/ui-design-trends-2026/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fp.local/schemas/theme.schema.json",
+  "title": "Infographic Theme Pack",
+  "description": "A self-contained visual contract. The renderer holds no hardcoded colours, sizes or spacing; every value it draws with comes from a pack validated by this schema. Third parties ship their own pack instead of forking the engine.",
+  "type": "object",
+  "required": ["id", "version", "provenance", "canvas", "typography", "color", "surface", "chart", "rules"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "version": {"type": "string"},
+    "label": {"type": "string"},
+    "locale": {"type": "string", "default": "ko-KR"},
+
+    "provenance": {
+      "description": "Per-field evidence. A value marked `unverified` may not be used to invent content; the engine reports it and the host must resolve it against the live design contract.",
+      "type": "object",
+      "required": ["default", "fields"],
+      "additionalProperties": false,
+      "properties": {
+        "default": {"$ref": "#/$defs/evidence"},
+        "sources": {"type": "array", "items": {"type": "object", "required": ["id", "kind"], "properties": {
+          "id": {"type": "string"}, "kind": {"enum": ["figma-file", "svg-export", "design-doc", "measured-output"]},
+          "ref": {"type": "string"}, "capturedAt": {"type": "string"}
+        }}},
+        "fields": {
+          "type": "object",
+          "description": "JSON-pointer-ish dotted path -> evidence record.",
+          "additionalProperties": {"$ref": "#/$defs/evidence"}
+        }
+      }
+    },
+
+    "canvas": {
+      "type": "object",
+      "required": ["width", "background", "safe", "heights"],
+      "additionalProperties": false,
+      "properties": {
+        "width": {"type": "integer", "minimum": 320},
+        "background": {"$ref": "#/$defs/colorRef"},
+        "backgroundAlt": {"$ref": "#/$defs/colorRef"},
+        "safe": {
+          "type": "object",
+          "required": ["x", "width"],
+          "additionalProperties": false,
+          "properties": {
+            "x": {"type": "integer", "minimum": 0},
+            "width": {"type": "integer", "minimum": 1},
+            "variants": {"type": "array", "items": {"type": "object", "required": ["id", "x", "width"], "properties": {
+              "id": {"type": "string"}, "x": {"type": "integer"}, "width": {"type": "integer"}
+            }}}
+          }
+        },
+        "heights": {
+          "type": "object",
+          "required": ["mode", "min"],
+          "additionalProperties": false,
+          "properties": {
+            "mode": {"enum": ["fixed", "auto", "snap"]},
+            "min": {"type": "integer"},
+            "max": {"type": "integer"},
+            "steps": {"type": "array", "items": {"type": "integer"}},
+            "roundTo": {"type": "integer", "minimum": 1}
+          }
+        }
+      }
+    },
+
+    "typography": {
+      "type": "object",
+      "required": ["family", "minSize", "sizeGrid", "roles"],
+      "additionalProperties": false,
+      "properties": {
+        "family": {"type": "string"},
+        "fallbacks": {"type": "array", "items": {"type": "string"}},
+        "minSize": {"type": "number", "minimum": 1},
+        "sizeGrid": {"type": "number", "minimum": 1},
+        "metrics": {
+          "description": "Advance-width model used for deterministic offline layout, in em units per character class.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "latin": {"type": "number"}, "digit": {"type": "number"}, "space": {"type": "number"},
+            "cjk": {"type": "number"}, "punct": {"type": "number"}, "lineHeightRatio": {"type": "number"}
+          }
+        },
+        "roles": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "object",
+            "required": ["size", "weight", "color"],
+            "additionalProperties": false,
+            "properties": {
+              "size": {"type": "number"}, "weight": {"type": "integer"},
+              "color": {"$ref": "#/$defs/colorRef"},
+              "lineHeight": {"type": "number"},
+              "letterSpacing": {"type": "number"},
+              "transform": {"enum": ["none", "upper"]}
+            }
+          }
+        }
+      }
+    },
+
+    "color": {
+      "type": "object",
+      "required": ["neutral", "accent"],
+      "additionalProperties": false,
+      "properties": {
+        "neutral": {"type": "object", "minProperties": 2, "additionalProperties": {"$ref": "#/$defs/hex"}},
+        "accent": {
+          "description": "Categorical/semantic accents. An empty set is legal and means the pack has no authorised accent palette: accents must then come from the input brief, and the engine will refuse to invent one.",
+          "type": "object",
+          "additionalProperties": {"$ref": "#/$defs/hex"}
+        },
+        "accentOrder": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+
+    "surface": {
+      "type": "object",
+      "required": ["panel", "divider"],
+      "additionalProperties": false,
+      "properties": {
+        "panel": {
+          "type": "object",
+          "required": ["fill", "fillOpacity", "stroke", "strokeWidth", "radius", "padding"],
+          "additionalProperties": false,
+          "properties": {
+            "fill": {"$ref": "#/$defs/colorRef"}, "fillOpacity": {"type": "number"},
+            "stroke": {"$ref": "#/$defs/colorRef"}, "strokeWidth": {"type": "number"},
+            "strokeOpacity": {"type": "number"},
+            "radius": {"type": "number"}, "padding": {"type": "number"}
+          }
+        },
+        "header": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {"fill": {"$ref": "#/$defs/colorRef"}, "fillOpacity": {"type": "number"}}
+        },
+        "divider": {
+          "type": "object",
+          "required": ["color", "width"],
+          "additionalProperties": false,
+          "properties": {"color": {"$ref": "#/$defs/colorRef"}, "width": {"type": "number"}, "opacity": {"type": "number"}}
+        },
+        "node": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "fill": {"$ref": "#/$defs/colorRef"}, "fillOpacity": {"type": "number"},
+            "stroke": {"$ref": "#/$defs/colorRef"}, "strokeWidth": {"type": "number"},
+            "radius": {"type": "number"}, "paddingX": {"type": "number"}, "paddingY": {"type": "number"},
+            "gapX": {"type": "number"}, "gapY": {"type": "number"}, "minWidth": {"type": "number"}
+          }
+        }
+      }
+    },
+
+    "chart": {
+      "type": "object",
+      "required": ["strokeWidth", "axis", "gridline", "connector", "barGap", "seriesGap"],
+      "additionalProperties": false,
+      "properties": {
+        "strokeWidth": {"type": "number"},
+        "axis": {"type": "object", "required": ["color", "width"], "properties": {
+          "color": {"$ref": "#/$defs/colorRef"}, "width": {"type": "number"}, "opacity": {"type": "number"}}},
+        "gridline": {"type": "object", "required": ["color", "width"], "properties": {
+          "color": {"$ref": "#/$defs/colorRef"}, "width": {"type": "number"}, "opacity": {"type": "number"}, "count": {"type": "integer"}}},
+        "connector": {"type": "object", "required": ["color", "width"], "properties": {
+          "color": {"$ref": "#/$defs/colorRef"}, "width": {"type": "number"}, "opacity": {"type": "number"},
+          "arrowSize": {"type": "number"}, "cornerRadius": {"type": "number"}}},
+        "barGap": {"type": "number"},
+        "seriesGap": {"type": "number"},
+        "barRadius": {"type": "number"},
+        "pointRadius": {"type": "number"},
+        "donutThicknessRatio": {"type": "number"}
+      }
+    },
+
+    "chrome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "titleTop": {"type": "number"},
+        "contentTop": {"type": "number"},
+        "bottomBand": {"type": "number"},
+        "footerBaseline": {"type": "number"},
+        "titleGap": {"type": "number"},
+        "sectionGap": {"type": "number"},
+        "watermark": {"type": "object", "additionalProperties": false, "properties": {
+          "text": {"type": "string"}, "required": {"type": "boolean"},
+          "nodeName": {"type": "string"}, "preserve": {"type": "boolean"}}},
+        "guideLayerNames": {"type": "array", "items": {"type": "string"}},
+        "frameGuide": {"type": "object", "additionalProperties": false, "properties": {
+          "fileKey": {"type": "string"}, "pageNodeId": {"type": "string"},
+          "contractNodeId": {"type": "string"}, "nodeNames": {"type": "array", "items": {"type": "string"}}}}
+      }
+    },
+
+    "rules": {
+      "type": "object",
+      "required": ["singleWriter", "preserveInputFactsExactly", "noInventedAccents", "vectorStrokesOnly"],
+      "additionalProperties": false,
+      "properties": {
+        "singleWriter": {"type": "boolean"},
+        "cloneChromeNeverRebuild": {"type": "boolean"},
+        "bindTokensNeverRawHex": {"type": "boolean"},
+        "deleteEmptyFields": {"type": "boolean"},
+        "preserveInputFactsExactly": {"type": "boolean"},
+        "noInventedAccents": {"type": "boolean"},
+        "vectorStrokesOnly": {"type": "boolean"},
+        "targetDensity": {"type": "number", "minimum": 1, "maximum": 10},
+        "maxDensity": {"type": "number", "minimum": 1, "maximum": 10}
+      }
+    }
+  },
+
+  "$defs": {
+    "hex": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+    "colorRef": {
+      "description": "Either a literal hex or a `group.key` reference into `color`.",
+      "type": "string",
+      "pattern": "^(#[0-9A-Fa-f]{6}|(neutral|accent)\\.[A-Za-z0-9_-]+)$"
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {"enum": ["measured", "declared", "unverified"]},
+        "source": {"type": "string"},
+        "note": {"type": "string"}
+      }
+    }
+  }
+}

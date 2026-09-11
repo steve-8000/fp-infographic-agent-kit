@@ -1,0 +1,1030 @@
+{
+  "$schema": "../schemas/theme.schema.json",
+  "id": "fp-v1",
+  "version": "1.0.0",
+  "label": "FOUR PILLARS Infographic v1",
+  "locale": "ko-KR",
+  "provenance": {
+    "default": {
+      "status": "unverified"
+    },
+    "sources": [
+      {
+        "id": "tpl-1080",
+        "kind": "svg-export",
+        "ref": "FP Infographic/Template 1_1_H_1080px.svg"
+      },
+      {
+        "id": "tpl-1200",
+        "kind": "svg-export",
+        "ref": "FP Infographic/Template 2_1_H_1200px.svg"
+      },
+      {
+        "id": "tpl-1400",
+        "kind": "svg-export",
+        "ref": "FP Infographic/Template 3_1_H_1400px.svg"
+      },
+      {
+        "id": "out-vitalik",
+        "kind": "measured-output",
+        "ref": "[260811] Vitalik's roadmap/Ten years of Vitalik's roadmap posts.svg"
+      },
+      {
+        "id": "out-taxonomy",
+        "kind": "measured-output",
+        "ref": "[260820] Investor Taxonomy/Investor Taxonomy.svg"
+      },
+      {
+        "id": "fp-contract",
+        "kind": "figma-file",
+        "ref": "[CLAUDE] Infographic Template"
+      },
+      {
+        "id": "fp-report",
+        "kind": "figma-file",
+        "ref": "[260908] 2026년, 그리고 그 이후의 이더리움 / Rejamong 33249:3601"
+      },
+      {
+        "id": "tpl-svg",
+        "kind": "svg-export",
+        "ref": "Template 1_1_H_1080px.svg"
+      }
+    ],
+    "fields": {
+      "canvas.width": {
+        "status": "measured",
+        "source": "tpl-1080,tpl-1200,tpl-1400,out-vitalik,out-taxonomy",
+        "note": "1920 in every export"
+      },
+      "canvas.background": {
+        "status": "measured",
+        "source": "fp-report",
+        "note": "published report frames fill #0C0D0F and layer a horizontal edge gradient over it, then add the corner-blob decoration layer. The bare '26 ver template uses a flat #141414 with the blobs only; the report combination is the working standard."
+      },
+      "canvas.backgroundAlt": {
+        "status": "measured",
+        "source": "out-taxonomy",
+        "note": "#0C0D0F with an overlay gradient"
+      },
+      "canvas.safe": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "Frame guide layout grids: COLUMNS MIN 112, COLUMNS MAX 112, ROWS MAX 164"
+      },
+      "canvas.heights.steps": {
+        "status": "measured",
+        "source": "tpl-1080,tpl-1200,tpl-1400"
+      },
+      "canvas.heights.mode": {
+        "status": "measured",
+        "source": "out-vitalik,out-taxonomy",
+        "note": "produced frames are 1484 and 1511, so height is content-driven rather than snapped"
+      },
+      "color.neutral": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "FP Color System Slate ramp plus the Foundation/BW paint styles read from the live file"
+      },
+      "color.accent": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "'Color System Guide' 28868:13703 — eleven ordered hues: Violet #9A86FF, Indigo #6E8BFF, Blue #4FA3FF, Cyan #2FC9D6, Teal #2FD6A8, Green #5FD96B, Lime #B6D24E, Amber #F2B84C, Orange #F59154, Coral #FF7A6B, Pink #FF6FA5"
+      },
+      "surface.panel": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "'Table' 28868:15151 — container #1A1B1D at 30% with a #51555C 1px stroke, radius 16; header row #3C3E44 at 25%"
+      },
+      "chrome.contentTop": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "title block ends at y=174; content starts below the 174px top band"
+      },
+      "chrome.bottomBand": {
+        "status": "measured",
+        "source": "out-vitalik",
+        "note": "footer mark starts 66px above the frame bottom"
+      },
+      "typography": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "Text styles: MIN SIZE 16/24.2, MAX SIZE 52/57.2, Title 30/37.4, Regular 28/32, Details 18/26, Text_24pt 24/110%, Text_28pt 28/38. h1 and h2 are taken from the Frame guide title block itself: 50/50 Bold centred and 32/38 SemiBold centred."
+      },
+      "typography.roles.hero.weight": {
+        "status": "declared",
+        "source": "fp-contract"
+      },
+      "typography.family": {
+        "status": "declared",
+        "source": "fp-contract",
+        "note": "not readable from the styles panel; confirm against a live text node"
+      },
+      "chart": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "'Bar Chart' 28868:15047 and 'Line Chart' 28868:15320 — gridlines #232B32 at 80% weight 1.5, axes #777B80 weight 2, bars filled with a vertical accent gradient 0.4 to 0.05 plus a 50% accent stroke, highlighted bars 0.34 to 0.09 with a 100% accent stroke weight 1.5, line series weight 4 with 14px points haloed by a 3px canvas-coloured stroke, area fill at 16%"
+      },
+      "chrome.topMark": {
+        "status": "measured",
+        "source": "tpl-svg",
+        "note": "Template 1_1_H_1080px.svg: four groups clipped to 24x49 windows at x 895/931/966/1002 with opacity 1/0.7/0.4/0.2. Inside every window the stroke centres are +1.049/7.123/12.635/18.143/23.65 with widths 6/5/4/3/2, so the widest bar is clipped on its left. The strokes run y -8..41 and the frame clips them to a visible height of 41."
+      },
+      "chrome.titleBlock": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "Frame 1991501281 at x=89 w=1743; H1 y=88, H2 y=151"
+      },
+      "chrome.footer": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "Frame 1991501022: 2x66 gradient tick #222324 to #82868A at 0.8, label +26 at 22 Bold #51555C, value +124 at 28 Regular #8D929A"
+      },
+      "chrome.decoration": {
+        "status": "measured",
+        "source": "tpl-svg",
+        "note": "four 720.23 circles on a 1912.23 layer centred on the frame, each #FFFFFF to #333131 at 0.06; gradient handles read left-to-right, top-to-bottom, bottom-to-top and right-to-left for TL/TR/BL/BR"
+      },
+      "chrome.watermark": {
+        "status": "measured",
+        "source": "tpl-svg",
+        "note": "Template 1_1_H_1080px.svg: 15 paths spanning x 166..1754, y 461..610 (1588x149). Each glyph carries its own left-to-right #1D1D1D to #2B2B2B ramp at 0.5, not one ramp across the lockup. y=461 is 877 inside the 1912.23 decoration layer, so the wordmark anchors to that layer rather than to the frame."
+      },
+      "surface.header": {
+        "status": "declared",
+        "source": "fp-contract"
+      },
+      "chrome.brandMark": {
+        "status": "measured",
+        "source": "tpl-svg",
+        "note": "15 paths, 257.43x24.45 filled #898989. The bare template centres it 32.55 above the bottom; report frames right-align it in the footer row."
+      },
+      "color.pairs": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "'Contrast pairs for comparison': Blue/Amber, Violet/Lime, Teal/Coral, Cyan/Pink"
+      },
+      "color.ramps": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "'Three ways a scale can work': SEQUENTIAL one hue dim to bright; DIVERGING two hues through a neutral middle"
+      },
+      "rules.categoricalCeiling": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "'The categorical ceiling': about six distinct hues is the limit of what the eye reliably tells apart"
+      },
+      "surface.node": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "'Flowchart Text Boxes' 28868:14636 — base node fill #5E7388 at 12%, stroke #5E7388 at 38% weight 1.5, radius 10, padding 24, gaps 32/24/16/8. A highlighted node uses 12% fill and 100% stroke in the point colour."
+      },
+      "surface.card": {
+        "status": "measured",
+        "source": "fp-report",
+        "note": "[260908] Ethereum report, frame 33404:10568 — card 844x306 at x=102 filled #1B1B1B to #373737 with a 1px #E1E0D9 stroke; the accent is a separate 15x307 rectangle at x=101 with radius 10/0/0/10, so it reads as a rounded tab behind the card's left edge, not a flush bar. Padding 50/41/25, row gap 36. Eyebrow 18 Bold #898781, title 35 Bold #E6E6E6, body 23 Regular #888888, note 18 Medium tinted from the accent."
+      },
+      "typography.roles.h1": {
+        "status": "measured",
+        "source": "fp-report",
+        "note": "published report frames set H1 at 60/54 Bold #E6E6E6 centred in the 1743px title block at y=88; the [CLAUDE] guide's 50/50 is an older variant"
+      },
+      "typography.roles.h2": {
+        "status": "measured",
+        "source": "fp-report",
+        "note": "subtitle 34/35 Medium #BDBDBD centred at y=170, so the gap below H1 is 28"
+      },
+      "typography.roles.sectionLabel": {
+        "status": "measured",
+        "source": "fp-report",
+        "note": "in-frame section labels are 22/34 Bold #8D929A, set in upper case"
+      },
+      "canvas.overlay": {
+        "status": "measured",
+        "source": "fp-report",
+        "note": "second frame fill: linear #4F5358 a1 @0, #151618 a0 @0.4925, #4F5358 a1 @1, carried with the source gradientTransform rather than an angle because the real gradient is rotated and skewed"
+      },
+      "canvas.backgroundVariants": {
+        "status": "measured",
+        "source": "tpl-1080",
+        "note": "'Template 1_1_H:1080px' is a flat #141414 canvas with the corner blobs and no edge gradient; published content frames add #0C0D0F plus the gradient, which is the pack default"
+      },
+      "surface.table": {
+        "status": "measured",
+        "source": "monad-renew",
+        "note": "Monad Improvement Proposals SVG: surface x112 y223 w1696 h1410 rx16 #1A1B1D@0.3 with a 1px #51555C stroke; header band is a #3C3E44@0.25 fill over the first row; row pitch is a constant 94 with no row rules; header and first column are bold #ECEDEE, other cells regular #D4D5D9; cell cap height 20 gives a 28px body."
+      },
+      "surface.variants.flat": {
+        "status": "measured",
+        "source": "monad-renew",
+        "note": "Where Monad's Validators Run SVG: KPI cards y272 h270 rx10 opaque #1A1B1D with a 1px #6C707A stroke, 33px inner padding, 24px gutter, widths sized to content (406/459/295/473)."
+      },
+      "surface.section": {
+        "status": "measured",
+        "source": "monad-renew",
+        "note": "Where Monad's Validators Run SVG: section heading cap 32 (=44px bold #ECEDEE), subtitle cap 18 (=26px #8D929A); heading->subtitle 60, subtitle->content 61, previous content->next heading 71."
+      },
+      "typography.roles.table": {
+        "status": "measured",
+        "source": "monad-renew",
+        "note": "Cap height 20 at the validated 0.714 cap ratio gives 28px for every table cell; the key column and the header are bold."
+      },
+      "color.accentSets.report": {
+        "status": "measured",
+        "source": "monad-renew",
+        "note": "The three renewed Monad report SVGs use exactly four chromatic fills - #4F86C6 blue (dominant), #5BA86B green, #C97A5B coral, #D2A24E amber - plus #8D929A for the ungrouped tail. The eleven-hue guide set stays available as accentSets.guide."
+      },
+      "color.tail": {
+        "status": "measured",
+        "source": "monad-renew",
+        "note": "#8D929A carries every 'Other' segment and every unhighlighted series in the renewed reports; it is a neutral, never an accent."
+      },
+      "chart.editorialBar": {
+        "status": "measured",
+        "source": "monad-renew",
+        "note": "Where Monad's Validators Run SVG: rows pitch 62 with 34-tall rx3 bars, plot left 412 with labels right-aligned to 390 (22 gutter), value text 30px past the bar end; label and count are #ECEDEE, the share is #8D929A. Stacked segments sit 2px apart."
+      },
+      "surface.variants.flat.roles": {
+        "status": "measured",
+        "source": "monad-renew",
+        "note": "Where Monad's Validators Run SVG: card top padding 38; eyebrow cap 19 (=26px #8D929A, sentence case), value digits cap 48 (=68px bold #ECEDEE), note cap 19 over two lines pitched 34 (=26px #8D929A)."
+      },
+      "typography.metrics": {
+        "status": "measured",
+        "source": "figma-live",
+        "note": "Calibrated against the live substituted family (Apple SD Gothic Neo) by creating text nodes in the FP file and comparing widths: '37.6%' 26px live 68 vs 61.4 estimated, '28.9%' live 71, '74' 28px live 30, 'Western Europe' 28px live 190, '197' 68px live 99. digit 0.56 and punct 0.34 were optimistic for digit-and-symbol runs, so a percentage set one line too long in Figma while the SVG fitted. digit 0.60 and punct 0.52 make every probe pessimistic, which is the only safe direction for an offline model."
+      },
+      "chart.gridline": {
+        "status": "declared",
+        "source": "fp-contract",
+        "note": "The published charts draw no gridline at all; when one is needed it is the pack's neutral.800, not a blue-tinted grey invented for the renderer."
+      },
+      "color.base": {
+        "status": "measured",
+        "source": "fp-contract",
+        "note": "'Flowchart Text Boxes' 28868:14636 - the base hue every flow node sits on, 12% fill and 38% stroke. Promoted from a loose hex in surface.node to a named token so the pack has no unnamed colour."
+      }
+    }
+  },
+  "canvas": {
+    "width": 1920,
+    "background": "neutral.1000",
+    "backgroundAlt": "neutral.1000",
+    "safe": {
+      "x": 112,
+      "width": 1696,
+      "variants": [
+        {
+          "id": "default",
+          "x": 112,
+          "width": 1696
+        },
+        {
+          "id": "wide",
+          "x": 78,
+          "width": 1764
+        }
+      ]
+    },
+    "heights": {
+      "mode": "auto",
+      "min": 1080,
+      "max": 2400,
+      "steps": [
+        1080,
+        1200,
+        1400
+      ],
+      "roundTo": 4
+    },
+    "overlay": {
+      "gradient": "linear",
+      "opacity": 1,
+      "transform": [
+        [
+          -0.5617672801017761,
+          0.29589390754699707,
+          0.6418344378471375
+        ],
+        [
+          -0.3948412239551544,
+          -0.39707526564598083,
+          0.8974793553352356
+        ]
+      ],
+      "stops": [
+        {
+          "pos": 0,
+          "color": "neutral.675",
+          "alpha": 1
+        },
+        {
+          "pos": 0.4925,
+          "color": "neutral.960",
+          "alpha": 0
+        },
+        {
+          "pos": 1,
+          "color": "neutral.675",
+          "alpha": 1
+        }
+      ]
+    },
+    "backgroundVariants": {
+      "cover": {
+        "background": "neutral.950",
+        "overlay": null,
+        "decoration": true,
+        "brandMarkAlign": "center",
+        "brandMarkBottom": 32.55
+      }
+    }
+  },
+  "typography": {
+    "family": "Pretendard",
+    "fallbacks": [
+      "Pretendard Variable",
+      "Apple SD Gothic Neo",
+      "Noto Sans KR",
+      "sans-serif"
+    ],
+    "minSize": 16,
+    "sizeGrid": 2,
+    "metrics": {
+      "latin": 0.52,
+      "digit": 0.6,
+      "space": 0.26,
+      "cjk": 1.0,
+      "punct": 0.52,
+      "lineHeightRatio": 1.45
+    },
+    "roles": {
+      "hero": {
+        "size": 52,
+        "weight": 400,
+        "color": "neutral.100",
+        "lineHeight": 1.1
+      },
+      "h1": {
+        "size": 60,
+        "weight": 700,
+        "color": "neutral.150",
+        "lineHeight": 0.9
+      },
+      "h2": {
+        "size": 34,
+        "weight": 500,
+        "color": "neutral.175",
+        "lineHeight": 1.0294
+      },
+      "dataTitle": {
+        "size": 28,
+        "weight": 600,
+        "color": "neutral.200",
+        "lineHeight": 1.3571
+      },
+      "body": {
+        "size": 28,
+        "weight": 400,
+        "color": "neutral.200",
+        "lineHeight": 1.1429
+      },
+      "label": {
+        "size": 24,
+        "weight": 400,
+        "color": "neutral.300",
+        "lineHeight": 1.1
+      },
+      "detail": {
+        "size": 18,
+        "weight": 400,
+        "color": "neutral.400",
+        "lineHeight": 1.4444
+      },
+      "footer": {
+        "size": 28,
+        "weight": 400,
+        "color": "neutral.475",
+        "lineHeight": 1.0
+      },
+      "title": {
+        "size": 30,
+        "weight": 400,
+        "color": "neutral.100",
+        "lineHeight": 1.2467
+      },
+      "footerLabel": {
+        "size": 22,
+        "weight": 700,
+        "color": "neutral.600",
+        "lineHeight": 1.0
+      },
+      "cardEyebrow": {
+        "size": 26,
+        "weight": 400,
+        "color": "neutral.400",
+        "lineHeight": 1.3
+      },
+      "cardTitle": {
+        "size": 35,
+        "weight": 700,
+        "color": "neutral.150",
+        "lineHeight": 1.2
+      },
+      "cardBody": {
+        "size": 23,
+        "weight": 400,
+        "color": "#888888",
+        "lineHeight": 1.45
+      },
+      "cardNote": {
+        "size": 26,
+        "weight": 400,
+        "color": "neutral.400",
+        "lineHeight": 1.31
+      },
+      "sectionLabel": {
+        "size": 22,
+        "weight": 700,
+        "color": "neutral.475",
+        "lineHeight": 1.5455
+      },
+      "tableHead": {
+        "size": 28,
+        "weight": 700,
+        "color": "neutral.100",
+        "lineHeight": 1.45
+      },
+      "tableCell": {
+        "size": 28,
+        "weight": 400,
+        "color": "neutral.200",
+        "lineHeight": 1.45
+      },
+      "tableKey": {
+        "size": 28,
+        "weight": 700,
+        "color": "neutral.100",
+        "lineHeight": 1.45
+      },
+      "sectionHead": {
+        "size": 44,
+        "weight": 700,
+        "color": "neutral.100",
+        "lineHeight": 1.2
+      },
+      "sectionSub": {
+        "size": 26,
+        "weight": 400,
+        "color": "neutral.400",
+        "lineHeight": 1.4
+      },
+      "cardValue": {
+        "size": 68,
+        "weight": 700,
+        "color": "neutral.100",
+        "lineHeight": 1.0
+      }
+    }
+  },
+  "color": {
+    "neutral": {
+      "100": "#ECEDEE",
+      "200": "#D4D5D9",
+      "300": "#BCBCBC",
+      "400": "#8D929A",
+      "450": "#898989",
+      "500": "#82868A",
+      "550": "#777B80",
+      "600": "#51555C",
+      "650": "#4F5358",
+      "700": "#3C3E44",
+      "800": "#222324",
+      "900": "#1A1B1D",
+      "950": "#141414",
+      "1000": "#0C0D0F",
+      "150": "#E8E8E8",
+      "250": "#CBCBCB",
+      "350": "#B1B4B9",
+      "475": "#8D929A",
+      "525": "#6C707A",
+      "675": "#4F5358",
+      "725": "#3C3E41",
+      "750": "#3C3E44",
+      "850": "#212327",
+      "960": "#151618",
+      "1050": "#040404",
+      "175": "#BDBDBD"
+    },
+    "accent": {
+      "violet": "#9A86FF",
+      "indigo": "#6E8BFF",
+      "blue": "#4FA3FF",
+      "cyan": "#2FC9D6",
+      "teal": "#2FD6A8",
+      "green": "#5FD96B",
+      "lime": "#B6D24E",
+      "amber": "#F2B84C",
+      "orange": "#F59154",
+      "coral": "#FF7A6B",
+      "pink": "#FF6FA5"
+    },
+    "accentOrder": [
+      "violet",
+      "indigo",
+      "blue",
+      "cyan",
+      "teal",
+      "green",
+      "lime",
+      "amber",
+      "orange",
+      "coral",
+      "pink"
+    ],
+    "pairs": [
+      [
+        "blue",
+        "amber"
+      ],
+      [
+        "violet",
+        "lime"
+      ],
+      [
+        "teal",
+        "coral"
+      ],
+      [
+        "cyan",
+        "pink"
+      ]
+    ],
+    "ramps": {
+      "sequential": {
+        "blue": [
+          "#244973",
+          "#366FAD",
+          "#468FE0",
+          "#4FA3FF",
+          "#80BDFF",
+          "#B0D6FF"
+        ]
+      },
+      "diverging": {
+        "coral-teal": [
+          "#FF7A6B",
+          "#A45C56",
+          "#5D4445",
+          "#34373C",
+          "#335752",
+          "#318E77",
+          "#2FD6A8"
+        ]
+      }
+    },
+    "accentSets": {
+      "guide": {
+        "hues": {
+          "violet": "#9A86FF",
+          "indigo": "#6E8BFF",
+          "blue": "#4FA3FF",
+          "cyan": "#2FC9D6",
+          "teal": "#2FD6A8",
+          "green": "#5FD96B",
+          "lime": "#B6D24E",
+          "amber": "#F2B84C",
+          "orange": "#F59154",
+          "coral": "#FF7A6B",
+          "pink": "#FF6FA5"
+        },
+        "order": [
+          "violet",
+          "indigo",
+          "blue",
+          "cyan",
+          "teal",
+          "green",
+          "lime",
+          "amber",
+          "orange",
+          "coral",
+          "pink"
+        ],
+        "ceiling": 6
+      },
+      "report": {
+        "hues": {
+          "blue": "#4F86C6",
+          "green": "#5BA86B",
+          "coral": "#C97A5B",
+          "amber": "#D2A24E"
+        },
+        "order": [
+          "blue",
+          "green",
+          "coral",
+          "amber"
+        ],
+        "ceiling": 4
+      }
+    },
+    "accentSet": "report",
+    "tail": "#8D929A",
+    "base": {
+      "slate": "#5E7388"
+    }
+  },
+  "surface": {
+    "panel": {
+      "fill": "neutral.900",
+      "fillOpacity": 0.3,
+      "stroke": "neutral.600",
+      "strokeWidth": 1,
+      "strokeOpacity": 1,
+      "radius": 16,
+      "padding": 28
+    },
+    "header": {
+      "fill": "neutral.700",
+      "fillOpacity": 0.25
+    },
+    "divider": {
+      "color": "neutral.600",
+      "width": 1,
+      "opacity": 1
+    },
+    "node": {
+      "fill": "base.slate",
+      "fillOpacity": 0.12,
+      "stroke": "base.slate",
+      "strokeWidth": 1.5,
+      "radius": 10,
+      "paddingX": 24,
+      "paddingY": 24,
+      "gapX": 64,
+      "gapY": 40,
+      "minWidth": 200
+    },
+    "nodeStrokeOpacity": 0.38,
+    "card": {
+      "fill": {
+        "gradient": "linear",
+        "angle": 90,
+        "stops": [
+          {
+            "pos": 0,
+            "color": "#1B1B1B",
+            "alpha": 1
+          },
+          {
+            "pos": 1,
+            "color": "#373737",
+            "alpha": 1
+          }
+        ]
+      },
+      "stroke": "#E1E0D9",
+      "strokeWidth": 1,
+      "strokeOpacity": 0.22,
+      "radius": 16,
+      "paddingX": 50,
+      "paddingY": 41,
+      "paddingBottom": 25,
+      "gap": 36,
+      "accentRule": {
+        "width": 15,
+        "radius": 10,
+        "offsetX": -1,
+        "overhangY": 1
+      },
+      "roles": {
+        "eyebrow": "cardEyebrow",
+        "title": "cardTitle",
+        "body": "cardBody",
+        "note": "cardNote"
+      },
+      "gaps": {
+        "eyebrow": 17,
+        "title": 35,
+        "note": 40
+      }
+    },
+    "variants": {
+      "flat": {
+        "fill": "#1A1B1D",
+        "fillOpacity": 1,
+        "stroke": "#6C707A",
+        "strokeWidth": 1,
+        "radius": 10,
+        "padding": 33,
+        "roles": {
+          "eyebrow": "cardEyebrow",
+          "title": "cardValue",
+          "body": "cardNote",
+          "note": "cardNote"
+        },
+        "gaps": {
+          "eyebrow": 18,
+          "title": 26,
+          "note": 16
+        },
+        "uppercaseEyebrow": false,
+        "paddingBottom": 38
+      },
+      "glass": {
+        "fill": "neutral.900",
+        "fillOpacity": 0.3,
+        "stroke": "neutral.600",
+        "strokeWidth": 1,
+        "radius": 16,
+        "padding": 29
+      },
+      "raised": {
+        "fill": {
+          "gradient": "linear",
+          "angle": 90,
+          "stops": [
+            {
+              "pos": 0,
+              "color": "#1B1B1B",
+              "alpha": 1
+            },
+            {
+              "pos": 1,
+              "color": "#373737",
+              "alpha": 1
+            }
+          ]
+        },
+        "stroke": "#E1E0D9",
+        "strokeWidth": 1,
+        "strokeOpacity": 0.16,
+        "radius": 10,
+        "padding": 28
+      },
+      "bare": {
+        "fillOpacity": 0,
+        "strokeWidth": 0,
+        "radius": 0,
+        "padding": 0
+      }
+    },
+    "table": {
+      "variant": "glass",
+      "rowPitch": 94,
+      "padding": 29,
+      "headerFill": "#3C3E44",
+      "headerOpacity": 0.25,
+      "headerRole": "tableHead",
+      "bodyRole": "tableCell",
+      "keyColumnRole": "tableKey",
+      "rowRules": false
+    },
+    "accentPlacement": {
+      "default": "none",
+      "edge": {
+        "width": 4,
+        "radius": 2,
+        "inset": 0
+      },
+      "tint": {
+        "opacity": 0.08
+      }
+    },
+    "section": {
+      "headingSize": 44,
+      "headingWeight": 700,
+      "headingColor": "neutral.100",
+      "subtitleSize": 26,
+      "subtitleColor": "neutral.400",
+      "headingToSubtitle": 60,
+      "toContent": 61,
+      "betweenSections": 71
+    }
+  },
+  "chart": {
+    "strokeWidth": 4,
+    "axis": {
+      "color": "#777B80",
+      "width": 2,
+      "opacity": 1
+    },
+    "gridline": {
+      "color": "neutral.800",
+      "width": 1.5,
+      "opacity": 0.8,
+      "count": 5
+    },
+    "connector": {
+      "color": "neutral.475",
+      "width": 1.5,
+      "opacity": 1,
+      "arrowSize": 10,
+      "cornerRadius": 8
+    },
+    "barGap": 24,
+    "seriesGap": 8,
+    "barRadius": 4,
+    "pointRadius": 7,
+    "donutThicknessRatio": 0.34,
+    "pointHalo": {
+      "color": "neutral.950",
+      "width": 3
+    },
+    "barFillFrom": 0.4,
+    "barFillTo": 0.05,
+    "barStrokeOpacity": 0.5,
+    "barHighlightFrom": 0.34,
+    "barHighlightTo": 0.09,
+    "barHighlightStroke": 1.5,
+    "areaOpacity": 0.16,
+    "labelTint": 0.62,
+    "editorialBar": {
+      "rowPitch": 62,
+      "barHeight": 34,
+      "radius": 3,
+      "labelGutter": 22,
+      "valueGap": 30,
+      "labelRole": "tableCell",
+      "labelColor": "neutral.100",
+      "valueRole": "tableKey",
+      "secondaryRole": "sectionSub",
+      "secondaryColor": "neutral.400",
+      "segmentGap": 2
+    }
+  },
+  "chrome": {
+    "contentTop": 260,
+    "bottomBand": 164,
+    "titleGap": 40,
+    "sectionGap": 48,
+    "topMark": {
+      "y": 0,
+      "height": 41,
+      "width": 131,
+      "color": "#FFFFFF",
+      "clipWidth": 24,
+      "groupOffsets": [
+        0,
+        36,
+        71,
+        107
+      ],
+      "groupOpacity": [
+        1,
+        0.7,
+        0.4,
+        0.2
+      ],
+      "barOffsets": [
+        1.049,
+        7.123,
+        12.635,
+        18.143,
+        23.65
+      ],
+      "barWidths": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ]
+    },
+    "titleBlock": {
+      "x": 89,
+      "width": 1743,
+      "y": 88,
+      "align": "center",
+      "gap": 28
+    },
+    "watermark": {
+      "text": "FOUR PILLARS",
+      "required": true,
+      "nodeName": "Watermark",
+      "preserve": true,
+      "width": 1588,
+      "height": 149,
+      "markSize": 49,
+      "markPitch": 82,
+      "markGap": 36,
+      "vector": "fp-v1.assets.json#watermark",
+      "anchor": "decoration",
+      "anchorOffsetY": 877,
+      "gradient": {
+        "gradient": "linear",
+        "angle": 0,
+        "opacity": 0.5,
+        "stops": [
+          {
+            "pos": 0,
+            "color": "#1D1D1D",
+            "alpha": 1
+          },
+          {
+            "pos": 1,
+            "color": "#2B2B2B",
+            "alpha": 1
+          }
+        ]
+      }
+    },
+    "footer": {
+      "x": 82,
+      "height": 66,
+      "bottomGap": 0,
+      "tickWidth": 2,
+      "tick": {
+        "gradient": "linear",
+        "angle": 90,
+        "opacity": 0.8,
+        "stops": [
+          {
+            "pos": 0,
+            "color": "neutral.850",
+            "alpha": 1
+          },
+          {
+            "pos": 1,
+            "color": "neutral.500",
+            "alpha": 1
+          }
+        ]
+      },
+      "labelRole": "footerLabel",
+      "labelDx": 26,
+      "valueRole": "footer",
+      "valueDx": 124,
+      "columnGap": 72
+    },
+    "guideLayerNames": [
+      "Contents Safe Area"
+    ],
+    "frameGuide": {
+      "pageNodeId": "28391:3632",
+      "contractNodeId": "28868:14831",
+      "nodeNames": [
+        "Frame guide",
+        "Frame Guidelines",
+        "Typography",
+        "Categorical Palettes"
+      ],
+      "note": "The source design file is private; set its key in your own install rather than in a published pack."
+    },
+    "decoration": {
+      "layerHeight": 1912.23,
+      "blobSize": 720.23,
+      "inset": 0,
+      "fill": {
+        "gradient": "linear",
+        "angle": 90,
+        "opacity": 0.06,
+        "stops": [
+          {
+            "pos": 0,
+            "color": "#FFFFFF",
+            "alpha": 1
+          },
+          {
+            "pos": 1,
+            "color": "#333131",
+            "alpha": 1
+          }
+        ]
+      },
+      "angles": [
+        0,
+        90,
+        270,
+        180
+      ]
+    },
+    "brandMark": {
+      "text": "FOUR PILLARS",
+      "width": 257.43,
+      "height": 24.45,
+      "right": 70,
+      "bottom": 32.55,
+      "dotSize": 8,
+      "dotPitch": 13,
+      "gap": 12,
+      "color": "neutral.450",
+      "vector": "fp-v1.assets.json#brandMark",
+      "align": "right"
+    }
+  },
+  "rules": {
+    "singleWriter": true,
+    "cloneChromeNeverRebuild": true,
+    "bindTokensNeverRawHex": true,
+    "deleteEmptyFields": true,
+    "preserveInputFactsExactly": true,
+    "noInventedAccents": true,
+    "vectorStrokesOnly": true,
+    "targetDensity": 4,
+    "maxDensity": 6,
+    "categoricalCeiling": 4,
+    "defaultColorMode": "auto",
+    "noUnnamedColour": true
+  }
+}

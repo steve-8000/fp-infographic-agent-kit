@@ -1,0 +1,108 @@
+{
+ "title": "x402 on Solana:\nFrom Partial Signatures to Sponsored Settlement",
+ "source": "Four Pillars",
+ "accents": {
+  "buyer": "violet",
+  "facilitator": "amber",
+  "network": "green",
+  "badge:1": "amber",
+  "badge:2": "amber"
+ },
+ "blocks": [
+  {
+   "kind": "stages",
+   "items": [
+    {
+     "id": "buyer",
+     "title": "Buyer",
+     "subtitle": "builds + signs the tx",
+     "groups": [
+      {
+       "label": "Signatures",
+       "rows": [
+        {
+         "label": "[0] fee payer",
+         "value": "empty"
+        },
+        {
+         "label": "[1] buyer",
+         "value": "signed"
+        }
+       ]
+      },
+      {
+       "label": "Message",
+       "text": [
+        "feePayer: facilitator",
+        "amount → payTo ATA"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "facilitator",
+     "title": "Facilitator",
+     "subtitle": "verifies, signs slot [0]",
+     "groups": [
+      {
+       "label": "Signatures",
+       "rows": [
+        {
+         "label": "[0] fee payer",
+         "value": "signed"
+        },
+        {
+         "label": "[1] buyer",
+         "value": "signed"
+        }
+       ]
+      },
+      {
+       "label": "Message · untouched",
+       "text": [
+        "exactly as buyer built",
+        "checks safety + amount"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "network",
+     "title": "Solana network",
+     "subtitle": "executes the transfer",
+     "groups": [
+      {
+       "rows": [
+        {
+         "label": "buyer ATA",
+         "value": "amount ↓"
+        },
+        {
+         "label": "seller ATA",
+         "value": "amount ↑"
+        },
+        {
+         "label": "fee",
+         "value": "facilitator"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "connectors": [
+    {
+     "badge": "1",
+     "title": "Payment-signature header",
+     "note": "base64 · partially signed · x402Version: 2"
+    },
+    {
+     "badge": "2",
+     "title": "submit",
+     "note": "fully signed · fee sponsored"
+    }
+   ]
+  }
+ ],
+ "accentSet": "guide"
+}

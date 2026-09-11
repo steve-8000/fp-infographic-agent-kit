@@ -1,0 +1,236 @@
+{
+  "version": 1,
+  "note": "Composable units, not templates. A frame is assembled from one opening, one or more evidence sections and an optional closing. Every recipe names the question it answers and the data it needs; an agent picks and combines them from the reader's question and its research, and the composition rules refuse the combinations that stop informing.",
+  "layers": [
+    {
+      "id": "opening",
+      "role": "State the headline figures before any chart. At most one opening per frame."
+    },
+    {
+      "id": "evidence",
+      "role": "One section per question. Each section is a heading, a one-line subject and exactly one grammar."
+    },
+    {
+      "id": "detail",
+      "role": "The enumerable record behind the evidence. Usually a table."
+    },
+    {
+      "id": "closing",
+      "role": "The conclusion in words, or the side panel that qualifies it."
+    }
+  ],
+  "combination": [
+    "A frame answers one question. If a second question needs its own opening, it is a second frame.",
+    "Two evidence sections may share a frame only when the second explains the first; otherwise split.",
+    "Never repeat a grammar twice in one frame. A second ranking is a second section of the same ranking.",
+    "An opening strip is only worth its height when its cards carry figures the sections do not repeat.",
+    "Colour is spent once. If a section uses hue to separate categories, the frame's highlight must be typographic.",
+    "Height follows content. Adding rows extends the frame; it never shrinks the type."
+  ],
+  "axes": {
+    "surface": {
+      "choose": "How solid the container should read.",
+      "values": {
+        "flat": "Opaque #1A1B1D with a 1px #6C707A stroke, radius 10. The renewed report card. Use for a figure that must read as fact.",
+        "glass": "#1A1B1D at 30% with a #51555C stroke, radius 16. Use when the surface groups content rather than asserting it.",
+        "raised": "The gradient card from the guide. Use for a single hero statement, never for a strip.",
+        "bare": "No container. Use when whitespace already groups the content."
+      }
+    },
+    "accentPlacement": {
+      "choose": "Which single channel carries an authorised accent on a surface.",
+      "values": {
+        "none": "The surface carries no accent. The default, and correct whenever nothing is exceptional.",
+        "edge": "A 4px rule down the left edge. Use to mark one row or card as the exception in a set.",
+        "tint": "An 8% wash over the surface. Use only when the whole row is the finding, not one cell.",
+        "text": "The row's non-key cells take the hue. Use when the finding is a status word.",
+        "fill": "The surface takes the hue. Reserved for a single call-out; never for more than one surface."
+      }
+    },
+    "chartStyle": {
+      "choose": "How a grammar is read.",
+      "values": {
+        "cartesian": "bar/line against an axis. Use when the magnitude must be compared to a scale.",
+        "editorial": "bar as label, bar, printed value. Use when the reader wants a ranking, not a measurement.",
+        "share": "bar as constant-width rows split into segments. Use for composition across several subjects."
+      }
+    },
+    "accentSet": {
+      "choose": "Which measured vocabulary the hues come from.",
+      "values": {
+        "report": "Four muted hues plus a grey tail, as published in the renewed reports. The default.",
+        "guide": "The eleven-hue Color System Guide set. Use only when the frame is about the system itself."
+      }
+    },
+    "diagramColour": {
+      "choose": "Whether a structure diagram carries hue. Decided by the data, not by the author.",
+      "values": {
+        "declared": "Nodes carry a `group` or a `kind`. Those distinct values become the palette keys and the pack assigns hues categorically.",
+        "slate": "Nodes declare no difference. The diagram stays on the pack's slate base; colour would mean nothing."
+      }
+    }
+  },
+  "recipes": [
+    {
+      "id": "kpi-strip",
+      "layer": "opening",
+      "question": "What are the numbers before I read anything else?",
+      "when": "Two to four figures frame the whole frame and none of them needs a chart.",
+      "requires": {
+        "surfaces": "2..4",
+        "each": "a figure in the title and a qualifying note"
+      },
+      "refuses": "a card whose title is a word with no number; that is a list item",
+      "spec": {
+        "kind": "cards",
+        "variant": "flat",
+        "columns": 4,
+        "gap": 24,
+        "accentPlacement": "none"
+      },
+      "source": "monad-renew/Where Monad's Validators Run"
+    },
+    {
+      "id": "ranking-rows",
+      "layer": "evidence",
+      "question": "Who is largest, and by how much?",
+      "when": "One measure across up to a dozen named subjects, read top to bottom.",
+      "requires": {
+        "columns": "one category, one number",
+        "optional": "a share column printed after the count"
+      },
+      "refuses": "a scale; the number is printed beside every bar, so an axis only repeats it",
+      "spec": {
+        "kind": "chart",
+        "template": "bar",
+        "style": "editorial",
+        "fields": {
+          "category": null,
+          "value": null,
+          "line": null
+        }
+      },
+      "source": "monad-renew/Where Monad's Validators Run"
+    },
+    {
+      "id": "share-rows",
+      "layer": "evidence",
+      "question": "What is each subject made of?",
+      "when": "Several subjects each split into the same few parts, where the split is the finding.",
+      "requires": {
+        "columns": "one category and two or more numeric parts",
+        "optional": "a verdict column printed to the right"
+      },
+      "refuses": "more parts than the pack's categorical ceiling; group the tail into one neutral segment instead",
+      "spec": {
+        "kind": "chart",
+        "template": "bar",
+        "style": "share",
+        "fields": {
+          "category": null,
+          "columns": [],
+          "line": null
+        }
+      },
+      "source": "monad-renew/Where Monad's Validators Run"
+    },
+    {
+      "id": "status-table",
+      "layer": "detail",
+      "question": "What is the full record, and which entry is the exception?",
+      "when": "Every row matters and the reader will look one up.",
+      "requires": {
+        "rows": "3 or more",
+        "keyColumn": "the identifier the reader scans"
+      },
+      "refuses": "a rule between every row; whitespace separates rows and a grid reads as a spreadsheet",
+      "spec": {
+        "kind": "table",
+        "keyColumn": null,
+        "accentPlacement": "text",
+        "accents": {}
+      },
+      "source": "monad-renew/Monad Improvement Proposals and their status"
+    },
+    {
+      "id": "flagged-table",
+      "layer": "detail",
+      "question": "Which rows are the risk?",
+      "when": "The table exists to single out one or two rows.",
+      "requires": {
+        "accents": "one authorised key per flagged row id"
+      },
+      "refuses": "flagging more than a quarter of the rows; if most rows are exceptional, sort by the measure instead",
+      "spec": {
+        "kind": "table",
+        "accentPlacement": "edge",
+        "accents": {}
+      },
+      "source": "monad-renew/Monad Improvement Proposals and their status"
+    },
+    {
+      "id": "evidence-section",
+      "layer": "evidence",
+      "question": "Which question does this part of the frame answer?",
+      "when": "Always, when a frame carries more than one grammar.",
+      "requires": {
+        "heading": "the question in the reader's words",
+        "subtitle": "what the numbers are"
+      },
+      "refuses": "an unlabelled grammar stacked under another",
+      "spec": {
+        "kind": "section",
+        "heading": null,
+        "subtitle": null,
+        "blocks": []
+      },
+      "source": "monad-renew/Where Monad's Validators Run"
+    },
+    {
+      "id": "side-panel",
+      "layer": "closing",
+      "question": "What stayed the same while everything else changed?",
+      "when": "A chart needs one or two figures beside it that are not part of its scale.",
+      "requires": {
+        "columns": "the grammar and a panel of at most two figures"
+      },
+      "refuses": "a third figure in the panel; that is a kpi strip, and it belongs above the chart",
+      "spec": {
+        "kind": "columns",
+        "columns": [
+          {
+            "span": 2,
+            "blocks": []
+          },
+          {
+            "span": 1,
+            "blocks": [
+              {
+                "kind": "panel",
+                "variant": "flat",
+                "blocks": []
+              }
+            ]
+          }
+        ]
+      },
+      "source": "monad-renew/MIP-12 Block Time"
+    },
+    {
+      "id": "finding-text",
+      "layer": "closing",
+      "question": "What should I conclude?",
+      "when": "The frame's point is a sentence the chart cannot print.",
+      "requires": {
+        "text": "the claim, then the qualification"
+      },
+      "refuses": "restating the axis labels in prose",
+      "spec": {
+        "kind": "text",
+        "role": "body",
+        "text": null
+      },
+      "source": "monad-renew/MIP-12 Block Time"
+    }
+  ]
+}

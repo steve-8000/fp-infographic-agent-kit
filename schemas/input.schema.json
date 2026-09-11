@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fp.local/schemas/input.schema.json",
+  "title": "FP Infographic Input",
+  "type": "object",
+  "required": ["title", "content"],
+  "properties": {
+    "title": {"type":"string","minLength":1},
+    "subtitle": {"type":"string"},
+    "source": {"type":"string"},
+    "dateAsOf": {"type":"string"},
+    "note": {"type":"string"},
+    "locale": {"type":"string","default":"ko-KR"},
+    "template": {"type":"string","default":"auto"},
+    "intent": {"enum":["auto","compare","trend","flow","architecture","timeline","composition","distribution","relationship","process","table"]},
+    "highlightIds": {"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "content": {
+      "oneOf": [
+        {"type":"array","items":{"type":"object"}},
+        {"type":"object"},
+        {"type":"string"}
+      ]
+    },
+    "diagram": {"$ref":"./fp-ir.schema.json#/$defs/diagram"},
+    "options": {
+      "type":"object",
+      "properties": {
+        "strictFidelity":{"type":"boolean","default":true},
+        "allowTemplateSplit":{"type":"boolean","default":true},
+        "targetDensity":{"type":"number","minimum":0,"maximum":10,"default":4},
+        "output":{"enum":["figma","svg","png","pdf"],"default":"figma"}
+      }
+    }
+  },
+  "additionalProperties": false
+}

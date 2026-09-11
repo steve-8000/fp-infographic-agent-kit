@@ -1,0 +1,4305 @@
+[
+ {
+  "title": "FOUR PILLARS Infographic v1 · design language",
+  "subtitle": "Generated from themes/fp-v1.json v1.0.0",
+  "source": "Theme pack",
+  "colorMode": "none",
+  "accents": {
+   "neutral.100": "#ECEDEE",
+   "neutral.150": "#E8E8E8",
+   "neutral.175": "#BDBDBD",
+   "neutral.200": "#D4D5D9",
+   "neutral.250": "#CBCBCB",
+   "neutral.300": "#BCBCBC",
+   "neutral.350": "#B1B4B9",
+   "neutral.400": "#8D929A",
+   "neutral.450": "#898989",
+   "neutral.475": "#8D929A",
+   "neutral.500": "#82868A",
+   "neutral.525": "#6C707A",
+   "neutral.550": "#777B80",
+   "neutral.600": "#51555C",
+   "neutral.650": "#4F5358",
+   "neutral.675": "#4F5358",
+   "neutral.700": "#3C3E44",
+   "neutral.725": "#3C3E41",
+   "neutral.750": "#3C3E44",
+   "neutral.800": "#222324",
+   "neutral.850": "#212327",
+   "neutral.900": "#1A1B1D",
+   "neutral.950": "#141414",
+   "neutral.960": "#151618",
+   "neutral.1000": "#0C0D0F",
+   "neutral.1050": "#040404",
+   "blue": "#4F86C6",
+   "green": "#5BA86B",
+   "coral": "#C97A5B",
+   "amber": "#D2A24E"
+  },
+  "blocks": [
+   {
+    "kind": "columns",
+    "gap": 64,
+    "columns": [
+     {
+      "span": 5,
+      "blocks": [
+       {
+        "kind": "text",
+        "role": "h2",
+        "text": "Type scale"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 16,
+        "role": "detail",
+        "color": "neutral.500",
+        "text": "Pretendard · minimum 16px · sizes on a 2px grid"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "cardValue",
+        "size": 44,
+        "text": "cardValue · 68/68 · 700"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "h1",
+        "size": 44,
+        "text": "h1 · 60/54 · 700"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "hero",
+        "size": 44,
+        "text": "hero · 52/57 · 400"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "sectionHead",
+        "size": 44,
+        "text": "sectionHead · 44/53 · 700"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "cardTitle",
+        "size": 35,
+        "text": "cardTitle · 35/42 · 700"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "h2",
+        "size": 34,
+        "text": "h2 · 34/35 · 500"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "title",
+        "size": 30,
+        "text": "title · 30/37 · 400"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "dataTitle",
+        "size": 28,
+        "text": "dataTitle · 28/38 · 600"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "body",
+        "size": 28,
+        "text": "body · 28/32 · 400"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "footer",
+        "size": 28,
+        "text": "footer · 28/28 · 400"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "tableHead",
+        "size": 28,
+        "text": "tableHead · 28/41 · 700"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "tableCell",
+        "size": 28,
+        "text": "tableCell · 28/41 · 400"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "tableKey",
+        "size": 28,
+        "text": "tableKey · 28/41 · 700"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "cardEyebrow",
+        "size": 26,
+        "text": "cardEyebrow · 26/34 · 400"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "cardNote",
+        "size": 26,
+        "text": "cardNote · 26/34 · 400"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "sectionSub",
+        "size": 26,
+        "text": "sectionSub · 26/36 · 400"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "label",
+        "size": 24,
+        "text": "label · 24/26 · 400"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "cardBody",
+        "size": 23,
+        "text": "cardBody · 23/33 · 400"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "footerLabel",
+        "size": 22,
+        "text": "footerLabel · 22/22 · 700"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "sectionLabel",
+        "size": 22,
+        "text": "sectionLabel · 22/34 · 700"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 14,
+        "role": "detail",
+        "size": 18,
+        "text": "detail · 18/26 · 400"
+       }
+      ]
+     },
+     {
+      "span": 7,
+      "blocks": [
+       {
+        "kind": "text",
+        "role": "h2",
+        "text": "Surfaces"
+       },
+       {
+        "kind": "text",
+        "gapBefore": 16,
+        "role": "detail",
+        "color": "neutral.500",
+        "text": "canvas #0C0D0F · safe zone x=112 w=1696 · bottom band 164"
+       },
+       {
+        "kind": "cards",
+        "gapBefore": 24,
+        "columns": 2,
+        "items": [
+         {
+          "id": "panel",
+          "eyebrow": "Panel",
+          "title": "#1A1B1D at 30%",
+          "body": "stroke #51555C 1px · radius 16 · padding 28"
+         },
+         {
+          "id": "node",
+          "eyebrow": "Flow node",
+          "title": "#5E7388 at 12% fill",
+          "body": "stroke at 38% for a base node and 100% for a point colour · radius 10"
+         },
+         {
+          "id": "card",
+          "eyebrow": "Editorial card",
+          "title": "radius 16 · padding 50/41",
+          "body": "accent tab 15px wide, radius 10 on its outer side, offset -1"
+         },
+         {
+          "id": "chart",
+          "eyebrow": "Chart",
+          "title": "stroke 4 · point 7",
+          "body": "axis #777B80 2px · gridline #232B32 at 80%"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "kind": "chart",
+    "gapBefore": 64,
+    "title": "Neutral ramp · 26 steps",
+    "template": "treemap",
+    "height": 240,
+    "rows": [
+     {
+      "id": "neutral.100",
+      "Step": "100\n#ECEDEE",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.150",
+      "Step": "150\n#E8E8E8",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.175",
+      "Step": "175\n#BDBDBD",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.200",
+      "Step": "200\n#D4D5D9",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.250",
+      "Step": "250\n#CBCBCB",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.300",
+      "Step": "300\n#BCBCBC",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.350",
+      "Step": "350\n#B1B4B9",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.400",
+      "Step": "400\n#8D929A",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.450",
+      "Step": "450\n#898989",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.475",
+      "Step": "475\n#8D929A",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.500",
+      "Step": "500\n#82868A",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.525",
+      "Step": "525\n#6C707A",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.550",
+      "Step": "550\n#777B80",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.600",
+      "Step": "600\n#51555C",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.650",
+      "Step": "650\n#4F5358",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.675",
+      "Step": "675\n#4F5358",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.700",
+      "Step": "700\n#3C3E44",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.725",
+      "Step": "725\n#3C3E41",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.750",
+      "Step": "750\n#3C3E44",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.800",
+      "Step": "800\n#222324",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.850",
+      "Step": "850\n#212327",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.900",
+      "Step": "900\n#1A1B1D",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.950",
+      "Step": "950\n#141414",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.960",
+      "Step": "960\n#151618",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.1000",
+      "Step": "1000\n#0C0D0F",
+      "Weight": 1
+     },
+     {
+      "id": "neutral.1050",
+      "Step": "1050\n#040404",
+      "Weight": 1
+     }
+    ]
+   },
+   {
+    "kind": "chart",
+    "gapBefore": 48,
+    "title": "Accent palette · 4 authorised hues · categorical ceiling 4",
+    "template": "treemap",
+    "height": 240,
+    "rows": [
+     {
+      "id": "blue",
+      "Hue": "blue\n#4F86C6",
+      "Weight": 1
+     },
+     {
+      "id": "green",
+      "Hue": "green\n#5BA86B",
+      "Weight": 1
+     },
+     {
+      "id": "coral",
+      "Hue": "coral\n#C97A5B",
+      "Weight": 1
+     },
+     {
+      "id": "amber",
+      "Hue": "amber\n#D2A24E",
+      "Weight": 1
+     }
+    ]
+   }
+  ],
+  "family": "00 Design language"
+ },
+ {
+  "title": "Restaking protocol comparison",
+  "subtitle": "Operator-facing terms as published, Q3 2026",
+  "source": "Protocol documentation",
+  "dateAsOf": "2026-09-11",
+  "template": "table",
+  "content": [
+   {
+    "id": "eigenlayer",
+    "Protocol": "EigenLayer",
+    "Chain": "Ethereum",
+    "Operator fee": "10%",
+    "Unbonding": "7 days",
+    "Slashing": "Live"
+   },
+   {
+    "id": "symbiotic",
+    "Protocol": "Symbiotic",
+    "Chain": "Ethereum",
+    "Operator fee": "Configurable",
+    "Unbonding": "Vault-defined",
+    "Slashing": "Live"
+   },
+   {
+    "id": "karak",
+    "Protocol": "Karak",
+    "Chain": "Multi",
+    "Operator fee": "5%",
+    "Unbonding": "7 days",
+    "Slashing": "Announced"
+   },
+   {
+    "id": "babylon",
+    "Protocol": "Babylon",
+    "Chain": "Bitcoin",
+    "Operator fee": "Not published",
+    "Unbonding": "Timelock",
+    "Slashing": "Live"
+   }
+  ],
+  "family": "Table & grid"
+ },
+ {
+  "title": "Protocol positioning",
+  "subtitle": "Decentralisation against realised throughput",
+  "source": "Measured network data",
+  "dateAsOf": "2026-09-11",
+  "intent": "positioning",
+  "content": [
+   {
+    "id": "eth",
+    "Protocol": "Ethereum",
+    "Throughput (tps)": 18,
+    "Validator count (k)": 1080
+   },
+   {
+    "id": "sol",
+    "Protocol": "Solana",
+    "Throughput (tps)": 1200,
+    "Validator count (k)": 4
+   },
+   {
+    "id": "sui",
+    "Protocol": "Sui",
+    "Throughput (tps)": 850,
+    "Validator count (k)": 1
+   },
+   {
+    "id": "avax",
+    "Protocol": "Avalanche",
+    "Throughput (tps)": 140,
+    "Validator count (k)": 2
+   }
+  ],
+  "family": "Table & grid"
+ },
+ {
+  "title": "matrix specimen",
+  "source": "Smoke test",
+  "template": "matrix",
+  "content": [
+   {
+    "id": "analyst",
+    "Role": "Analyst",
+    "Raw": "read",
+    "Curated": "read",
+    "Marts": "read/write"
+   },
+   {
+    "id": "engineer",
+    "Role": "Engineer",
+    "Raw": "read/write",
+    "Curated": "read/write",
+    "Marts": "read"
+   },
+   {
+    "id": "auditor",
+    "Role": "Auditor",
+    "Raw": "read",
+    "Curated": "read",
+    "Marts": "read"
+   }
+  ],
+  "family": "Table & grid"
+ },
+ {
+  "title": "Sequencer revenue by network",
+  "subtitle": "Gross sequencer revenue, monthly",
+  "source": "Operator ledger",
+  "dateAsOf": "2026-09-11",
+  "intent": "compare",
+  "content": [
+   {
+    "id": "base",
+    "Network": "Base",
+    "Revenue (USD)": 4820000
+   },
+   {
+    "id": "arbitrum",
+    "Network": "Arbitrum",
+    "Revenue (USD)": 3910000
+   },
+   {
+    "id": "optimism",
+    "Network": "Optimism",
+    "Revenue (USD)": 2240000
+   },
+   {
+    "id": "zksync",
+    "Network": "zkSync",
+    "Revenue (USD)": 980000
+   },
+   {
+    "id": "linea",
+    "Network": "Linea",
+    "Revenue (USD)": 610000
+   }
+  ],
+  "family": "Cartesian"
+ },
+ {
+  "title": "Stablecoin supply trend",
+  "subtitle": "Circulating supply, billions USD",
+  "source": "On-chain aggregation",
+  "dateAsOf": "2026-09-11",
+  "intent": "trend",
+  "content": [
+   {
+    "Month": "2026-03",
+    "USDT": 112,
+    "USDC": 61,
+    "USDe": 9
+   },
+   {
+    "Month": "2026-04",
+    "USDT": 116,
+    "USDC": 63,
+    "USDe": 11
+   },
+   {
+    "Month": "2026-05",
+    "USDT": 119,
+    "USDC": 66,
+    "USDe": 14
+   },
+   {
+    "Month": "2026-06",
+    "USDT": 123,
+    "USDC": 68,
+    "USDe": 16
+   },
+   {
+    "Month": "2026-07",
+    "USDT": 128,
+    "USDC": 71,
+    "USDe": 15
+   },
+   {
+    "Month": "2026-08",
+    "USDT": 131,
+    "USDC": 74,
+    "USDe": 18
+   }
+  ],
+  "family": "Cartesian"
+ },
+ {
+  "title": "Validator yield versus stake concentration",
+  "subtitle": "Each point is one operator",
+  "source": "Operator survey",
+  "dateAsOf": "2026-09-11",
+  "intent": "distribution",
+  "content": [
+   {
+    "id": "a",
+    "Operator": "Alpha",
+    "Stake share (%)": 12,
+    "Net yield (%)": 3.4
+   },
+   {
+    "id": "b",
+    "Operator": "Bravo",
+    "Stake share (%)": 8,
+    "Net yield (%)": 3.9
+   },
+   {
+    "id": "c",
+    "Operator": "Coral",
+    "Stake share (%)": 21,
+    "Net yield (%)": 2.8
+   },
+   {
+    "id": "d",
+    "Operator": "Delta",
+    "Stake share (%)": 4,
+    "Net yield (%)": 4.4
+   },
+   {
+    "id": "e",
+    "Operator": "Echo",
+    "Stake share (%)": 16,
+    "Net yield (%)": 3.1
+   }
+  ],
+  "family": "Cartesian"
+ },
+ {
+  "title": "Treasury movement, first half",
+  "subtitle": "Signed contributions to closing balance",
+  "source": "Treasury report",
+  "dateAsOf": "2026-09-11",
+  "intent": "auto",
+  "template": "waterfall",
+  "content": [
+   {
+    "id": "open",
+    "Item": "Opening",
+    "Amount (USD m)": 42
+   },
+   {
+    "id": "fees",
+    "Item": "Protocol fees",
+    "Amount (USD m)": 18
+   },
+   {
+    "id": "grants",
+    "Item": "Grants",
+    "Amount (USD m)": -7
+   },
+   {
+    "id": "ops",
+    "Item": "Operations",
+    "Amount (USD m)": -11
+   },
+   {
+    "id": "invest",
+    "Item": "Investments",
+    "Amount (USD m)": -6
+   }
+  ],
+  "family": "Cartesian"
+ },
+ {
+  "title": "Farcaster DAU · daily",
+  "source": "Dune (@pixelhack)",
+  "dateAsOf": "Sep 1, 2026",
+  "template": "combo",
+  "colorMode": "categorical",
+  "options": {
+   "fields": {
+    "line": "Trailing AVG (7D)"
+   }
+  },
+  "accents": {
+   "Uniq Reaction Fid": "coral",
+   "Uniq Cast Fid": "violet",
+   "Trailing AVG (7D)": "amber"
+  },
+  "content": [
+   {
+    "id": "2026-03-01",
+    "Day": "2026-03-01",
+    "Uniq Reaction Fid": 25228,
+    "Uniq Cast Fid": 3532,
+    "Trailing AVG (7D)": 25985
+   },
+   {
+    "id": "2026-03-02",
+    "Day": "2026-03-02",
+    "Uniq Reaction Fid": 24991,
+    "Uniq Cast Fid": 12499,
+    "Trailing AVG (7D)": 25741
+   },
+   {
+    "id": "2026-03-03",
+    "Day": "2026-03-03",
+    "Uniq Reaction Fid": 24574,
+    "Uniq Cast Fid": 3440,
+    "Trailing AVG (7D)": 25311
+   },
+   {
+    "id": "2026-03-04",
+    "Day": "2026-03-04",
+    "Uniq Reaction Fid": 23398,
+    "Uniq Cast Fid": 3276,
+    "Trailing AVG (7D)": 24100
+   },
+   {
+    "id": "2026-03-05",
+    "Day": "2026-03-05",
+    "Uniq Reaction Fid": 22207,
+    "Uniq Cast Fid": 3109,
+    "Trailing AVG (7D)": 22873
+   },
+   {
+    "id": "2026-03-06",
+    "Day": "2026-03-06",
+    "Uniq Reaction Fid": 21086,
+    "Uniq Cast Fid": 2952,
+    "Trailing AVG (7D)": 21718
+   },
+   {
+    "id": "2026-03-07",
+    "Day": "2026-03-07",
+    "Uniq Reaction Fid": 20549,
+    "Uniq Cast Fid": 2877,
+    "Trailing AVG (7D)": 21165
+   },
+   {
+    "id": "2026-03-08",
+    "Day": "2026-03-08",
+    "Uniq Reaction Fid": 19538,
+    "Uniq Cast Fid": 2735,
+    "Trailing AVG (7D)": 20125
+   },
+   {
+    "id": "2026-03-09",
+    "Day": "2026-03-09",
+    "Uniq Reaction Fid": 19349,
+    "Uniq Cast Fid": 2709,
+    "Trailing AVG (7D)": 19930
+   },
+   {
+    "id": "2026-03-10",
+    "Day": "2026-03-10",
+    "Uniq Reaction Fid": 19082,
+    "Uniq Cast Fid": 2672,
+    "Trailing AVG (7D)": 19655
+   },
+   {
+    "id": "2026-03-11",
+    "Day": "2026-03-11",
+    "Uniq Reaction Fid": 19458,
+    "Uniq Cast Fid": 11724,
+    "Trailing AVG (7D)": 20042
+   },
+   {
+    "id": "2026-03-12",
+    "Day": "2026-03-12",
+    "Uniq Reaction Fid": 19640,
+    "Uniq Cast Fid": 2750,
+    "Trailing AVG (7D)": 20229
+   },
+   {
+    "id": "2026-03-13",
+    "Day": "2026-03-13",
+    "Uniq Reaction Fid": 18676,
+    "Uniq Cast Fid": 2615,
+    "Trailing AVG (7D)": 19236
+   },
+   {
+    "id": "2026-03-14",
+    "Day": "2026-03-14",
+    "Uniq Reaction Fid": 17989,
+    "Uniq Cast Fid": 2519,
+    "Trailing AVG (7D)": 18529
+   },
+   {
+    "id": "2026-03-15",
+    "Day": "2026-03-15",
+    "Uniq Reaction Fid": 17109,
+    "Uniq Cast Fid": 2395,
+    "Trailing AVG (7D)": 17622
+   },
+   {
+    "id": "2026-03-16",
+    "Day": "2026-03-16",
+    "Uniq Reaction Fid": 16974,
+    "Uniq Cast Fid": 2376,
+    "Trailing AVG (7D)": 17484
+   },
+   {
+    "id": "2026-03-17",
+    "Day": "2026-03-17",
+    "Uniq Reaction Fid": 16696,
+    "Uniq Cast Fid": 11337,
+    "Trailing AVG (7D)": 17197
+   },
+   {
+    "id": "2026-03-18",
+    "Day": "2026-03-18",
+    "Uniq Reaction Fid": 15641,
+    "Uniq Cast Fid": 2190,
+    "Trailing AVG (7D)": 16110
+   },
+   {
+    "id": "2026-03-19",
+    "Day": "2026-03-19",
+    "Uniq Reaction Fid": 15595,
+    "Uniq Cast Fid": 2183,
+    "Trailing AVG (7D)": 16063
+   },
+   {
+    "id": "2026-03-20",
+    "Day": "2026-03-20",
+    "Uniq Reaction Fid": 14964,
+    "Uniq Cast Fid": 2095,
+    "Trailing AVG (7D)": 15413
+   },
+   {
+    "id": "2026-03-21",
+    "Day": "2026-03-21",
+    "Uniq Reaction Fid": 14564,
+    "Uniq Cast Fid": 2039,
+    "Trailing AVG (7D)": 15001
+   },
+   {
+    "id": "2026-03-22",
+    "Day": "2026-03-22",
+    "Uniq Reaction Fid": 14717,
+    "Uniq Cast Fid": 2060,
+    "Trailing AVG (7D)": 15159
+   },
+   {
+    "id": "2026-03-23",
+    "Day": "2026-03-23",
+    "Uniq Reaction Fid": 13987,
+    "Uniq Cast Fid": 1958,
+    "Trailing AVG (7D)": 14406
+   },
+   {
+    "id": "2026-03-24",
+    "Day": "2026-03-24",
+    "Uniq Reaction Fid": 13717,
+    "Uniq Cast Fid": 1920,
+    "Trailing AVG (7D)": 14129
+   },
+   {
+    "id": "2026-03-25",
+    "Day": "2026-03-25",
+    "Uniq Reaction Fid": 13779,
+    "Uniq Cast Fid": 1929,
+    "Trailing AVG (7D)": 14192
+   },
+   {
+    "id": "2026-03-26",
+    "Day": "2026-03-26",
+    "Uniq Reaction Fid": 14240,
+    "Uniq Cast Fid": 1994,
+    "Trailing AVG (7D)": 14667
+   },
+   {
+    "id": "2026-03-27",
+    "Day": "2026-03-27",
+    "Uniq Reaction Fid": 13796,
+    "Uniq Cast Fid": 1931,
+    "Trailing AVG (7D)": 14210
+   },
+   {
+    "id": "2026-03-28",
+    "Day": "2026-03-28",
+    "Uniq Reaction Fid": 12932,
+    "Uniq Cast Fid": 1810,
+    "Trailing AVG (7D)": 13320
+   },
+   {
+    "id": "2026-03-29",
+    "Day": "2026-03-29",
+    "Uniq Reaction Fid": 11901,
+    "Uniq Cast Fid": 1666,
+    "Trailing AVG (7D)": 12258
+   },
+   {
+    "id": "2026-03-30",
+    "Day": "2026-03-30",
+    "Uniq Reaction Fid": 12045,
+    "Uniq Cast Fid": 1686,
+    "Trailing AVG (7D)": 12407
+   },
+   {
+    "id": "2026-04-01",
+    "Day": "2026-04-01",
+    "Uniq Reaction Fid": 12366,
+    "Uniq Cast Fid": 1731,
+    "Trailing AVG (7D)": 12737
+   },
+   {
+    "id": "2026-04-02",
+    "Day": "2026-04-02",
+    "Uniq Reaction Fid": 12393,
+    "Uniq Cast Fid": 1735,
+    "Trailing AVG (7D)": 12764
+   },
+   {
+    "id": "2026-04-03",
+    "Day": "2026-04-03",
+    "Uniq Reaction Fid": 12234,
+    "Uniq Cast Fid": 1713,
+    "Trailing AVG (7D)": 12602
+   },
+   {
+    "id": "2026-04-04",
+    "Day": "2026-04-04",
+    "Uniq Reaction Fid": 12495,
+    "Uniq Cast Fid": 1749,
+    "Trailing AVG (7D)": 12870
+   },
+   {
+    "id": "2026-04-05",
+    "Day": "2026-04-05",
+    "Uniq Reaction Fid": 12166,
+    "Uniq Cast Fid": 1703,
+    "Trailing AVG (7D)": 12531
+   },
+   {
+    "id": "2026-04-06",
+    "Day": "2026-04-06",
+    "Uniq Reaction Fid": 11181,
+    "Uniq Cast Fid": 1565,
+    "Trailing AVG (7D)": 11516
+   },
+   {
+    "id": "2026-04-07",
+    "Day": "2026-04-07",
+    "Uniq Reaction Fid": 11148,
+    "Uniq Cast Fid": 1561,
+    "Trailing AVG (7D)": 11483
+   },
+   {
+    "id": "2026-04-08",
+    "Day": "2026-04-08",
+    "Uniq Reaction Fid": 11396,
+    "Uniq Cast Fid": 1595,
+    "Trailing AVG (7D)": 11738
+   },
+   {
+    "id": "2026-04-09",
+    "Day": "2026-04-09",
+    "Uniq Reaction Fid": 10943,
+    "Uniq Cast Fid": 1532,
+    "Trailing AVG (7D)": 11271
+   },
+   {
+    "id": "2026-04-10",
+    "Day": "2026-04-10",
+    "Uniq Reaction Fid": 9914,
+    "Uniq Cast Fid": 1388,
+    "Trailing AVG (7D)": 10212
+   },
+   {
+    "id": "2026-04-11",
+    "Day": "2026-04-11",
+    "Uniq Reaction Fid": 9135,
+    "Uniq Cast Fid": 1279,
+    "Trailing AVG (7D)": 9409
+   },
+   {
+    "id": "2026-04-12",
+    "Day": "2026-04-12",
+    "Uniq Reaction Fid": 8192,
+    "Uniq Cast Fid": 1147,
+    "Trailing AVG (7D)": 8438
+   },
+   {
+    "id": "2026-04-13",
+    "Day": "2026-04-13",
+    "Uniq Reaction Fid": 7376,
+    "Uniq Cast Fid": 1033,
+    "Trailing AVG (7D)": 7597
+   },
+   {
+    "id": "2026-04-14",
+    "Day": "2026-04-14",
+    "Uniq Reaction Fid": 6991,
+    "Uniq Cast Fid": 979,
+    "Trailing AVG (7D)": 7201
+   },
+   {
+    "id": "2026-04-15",
+    "Day": "2026-04-15",
+    "Uniq Reaction Fid": 6115,
+    "Uniq Cast Fid": 856,
+    "Trailing AVG (7D)": 6298
+   },
+   {
+    "id": "2026-04-16",
+    "Day": "2026-04-16",
+    "Uniq Reaction Fid": 6002,
+    "Uniq Cast Fid": 840,
+    "Trailing AVG (7D)": 6182
+   },
+   {
+    "id": "2026-04-17",
+    "Day": "2026-04-17",
+    "Uniq Reaction Fid": 6323,
+    "Uniq Cast Fid": 885,
+    "Trailing AVG (7D)": 6513
+   },
+   {
+    "id": "2026-04-18",
+    "Day": "2026-04-18",
+    "Uniq Reaction Fid": 5774,
+    "Uniq Cast Fid": 808,
+    "Trailing AVG (7D)": 5947
+   },
+   {
+    "id": "2026-04-19",
+    "Day": "2026-04-19",
+    "Uniq Reaction Fid": 5361,
+    "Uniq Cast Fid": 751,
+    "Trailing AVG (7D)": 5522
+   },
+   {
+    "id": "2026-04-20",
+    "Day": "2026-04-20",
+    "Uniq Reaction Fid": 5913,
+    "Uniq Cast Fid": 828,
+    "Trailing AVG (7D)": 6091
+   },
+   {
+    "id": "2026-04-21",
+    "Day": "2026-04-21",
+    "Uniq Reaction Fid": 5206,
+    "Uniq Cast Fid": 729,
+    "Trailing AVG (7D)": 5363
+   },
+   {
+    "id": "2026-04-22",
+    "Day": "2026-04-22",
+    "Uniq Reaction Fid": 4602,
+    "Uniq Cast Fid": 644,
+    "Trailing AVG (7D)": 4740
+   },
+   {
+    "id": "2026-04-23",
+    "Day": "2026-04-23",
+    "Uniq Reaction Fid": 4575,
+    "Uniq Cast Fid": 641,
+    "Trailing AVG (7D)": 4712
+   },
+   {
+    "id": "2026-04-24",
+    "Day": "2026-04-24",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-04-25",
+    "Day": "2026-04-25",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-04-26",
+    "Day": "2026-04-26",
+    "Uniq Reaction Fid": 4565,
+    "Uniq Cast Fid": 639,
+    "Trailing AVG (7D)": 4702
+   },
+   {
+    "id": "2026-04-27",
+    "Day": "2026-04-27",
+    "Uniq Reaction Fid": 4421,
+    "Uniq Cast Fid": 619,
+    "Trailing AVG (7D)": 4554
+   },
+   {
+    "id": "2026-04-28",
+    "Day": "2026-04-28",
+    "Uniq Reaction Fid": 4537,
+    "Uniq Cast Fid": 9635,
+    "Trailing AVG (7D)": 4673
+   },
+   {
+    "id": "2026-04-29",
+    "Day": "2026-04-29",
+    "Uniq Reaction Fid": 5008,
+    "Uniq Cast Fid": 701,
+    "Trailing AVG (7D)": 5158
+   },
+   {
+    "id": "2026-04-30",
+    "Day": "2026-04-30",
+    "Uniq Reaction Fid": 5432,
+    "Uniq Cast Fid": 761,
+    "Trailing AVG (7D)": 5595
+   },
+   {
+    "id": "2026-05-01",
+    "Day": "2026-05-01",
+    "Uniq Reaction Fid": 5078,
+    "Uniq Cast Fid": 711,
+    "Trailing AVG (7D)": 5231
+   },
+   {
+    "id": "2026-05-02",
+    "Day": "2026-05-02",
+    "Uniq Reaction Fid": 4268,
+    "Uniq Cast Fid": 598,
+    "Trailing AVG (7D)": 4396
+   },
+   {
+    "id": "2026-05-03",
+    "Day": "2026-05-03",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 9560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-04",
+    "Day": "2026-05-04",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-05",
+    "Day": "2026-05-05",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 9560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-06",
+    "Day": "2026-05-06",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-07",
+    "Day": "2026-05-07",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-08",
+    "Day": "2026-05-08",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-09",
+    "Day": "2026-05-09",
+    "Uniq Reaction Fid": 4023,
+    "Uniq Cast Fid": 563,
+    "Trailing AVG (7D)": 4143
+   },
+   {
+    "id": "2026-05-10",
+    "Day": "2026-05-10",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-11",
+    "Day": "2026-05-11",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-12",
+    "Day": "2026-05-12",
+    "Uniq Reaction Fid": 4398,
+    "Uniq Cast Fid": 616,
+    "Trailing AVG (7D)": 4530
+   },
+   {
+    "id": "2026-05-13",
+    "Day": "2026-05-13",
+    "Uniq Reaction Fid": 4178,
+    "Uniq Cast Fid": 585,
+    "Trailing AVG (7D)": 4303
+   },
+   {
+    "id": "2026-05-14",
+    "Day": "2026-05-14",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-15",
+    "Day": "2026-05-15",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-16",
+    "Day": "2026-05-16",
+    "Uniq Reaction Fid": 4366,
+    "Uniq Cast Fid": 611,
+    "Trailing AVG (7D)": 4497
+   },
+   {
+    "id": "2026-05-17",
+    "Day": "2026-05-17",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-18",
+    "Day": "2026-05-18",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-19",
+    "Day": "2026-05-19",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 9560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-20",
+    "Day": "2026-05-20",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-21",
+    "Day": "2026-05-21",
+    "Uniq Reaction Fid": 4421,
+    "Uniq Cast Fid": 619,
+    "Trailing AVG (7D)": 4554
+   },
+   {
+    "id": "2026-05-22",
+    "Day": "2026-05-22",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-23",
+    "Day": "2026-05-23",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-24",
+    "Day": "2026-05-24",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-25",
+    "Day": "2026-05-25",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-05-26",
+    "Day": "2026-05-26",
+    "Uniq Reaction Fid": 4338,
+    "Uniq Cast Fid": 607,
+    "Trailing AVG (7D)": 4469
+   },
+   {
+    "id": "2026-05-27",
+    "Day": "2026-05-27",
+    "Uniq Reaction Fid": 4738,
+    "Uniq Cast Fid": 663,
+    "Trailing AVG (7D)": 4880
+   },
+   {
+    "id": "2026-05-28",
+    "Day": "2026-05-28",
+    "Uniq Reaction Fid": 5076,
+    "Uniq Cast Fid": 711,
+    "Trailing AVG (7D)": 5228
+   },
+   {
+    "id": "2026-05-29",
+    "Day": "2026-05-29",
+    "Uniq Reaction Fid": 4462,
+    "Uniq Cast Fid": 625,
+    "Trailing AVG (7D)": 4596
+   },
+   {
+    "id": "2026-05-30",
+    "Day": "2026-05-30",
+    "Uniq Reaction Fid": 4064,
+    "Uniq Cast Fid": 9569,
+    "Trailing AVG (7D)": 4186
+   },
+   {
+    "id": "2026-06-01",
+    "Day": "2026-06-01",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-06-02",
+    "Day": "2026-06-02",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-06-03",
+    "Day": "2026-06-03",
+    "Uniq Reaction Fid": 4570,
+    "Uniq Cast Fid": 640,
+    "Trailing AVG (7D)": 4708
+   },
+   {
+    "id": "2026-06-04",
+    "Day": "2026-06-04",
+    "Uniq Reaction Fid": 5101,
+    "Uniq Cast Fid": 714,
+    "Trailing AVG (7D)": 5254
+   },
+   {
+    "id": "2026-06-05",
+    "Day": "2026-06-05",
+    "Uniq Reaction Fid": 5653,
+    "Uniq Cast Fid": 791,
+    "Trailing AVG (7D)": 5822
+   },
+   {
+    "id": "2026-06-06",
+    "Day": "2026-06-06",
+    "Uniq Reaction Fid": 5021,
+    "Uniq Cast Fid": 703,
+    "Trailing AVG (7D)": 5171
+   },
+   {
+    "id": "2026-06-07",
+    "Day": "2026-06-07",
+    "Uniq Reaction Fid": 4360,
+    "Uniq Cast Fid": 610,
+    "Trailing AVG (7D)": 4491
+   },
+   {
+    "id": "2026-06-08",
+    "Day": "2026-06-08",
+    "Uniq Reaction Fid": 4393,
+    "Uniq Cast Fid": 615,
+    "Trailing AVG (7D)": 4525
+   },
+   {
+    "id": "2026-06-09",
+    "Day": "2026-06-09",
+    "Uniq Reaction Fid": 4772,
+    "Uniq Cast Fid": 668,
+    "Trailing AVG (7D)": 4915
+   },
+   {
+    "id": "2026-06-10",
+    "Day": "2026-06-10",
+    "Uniq Reaction Fid": 4845,
+    "Uniq Cast Fid": 678,
+    "Trailing AVG (7D)": 4990
+   },
+   {
+    "id": "2026-06-11",
+    "Day": "2026-06-11",
+    "Uniq Reaction Fid": 4008,
+    "Uniq Cast Fid": 561,
+    "Trailing AVG (7D)": 4128
+   },
+   {
+    "id": "2026-06-12",
+    "Day": "2026-06-12",
+    "Uniq Reaction Fid": 4504,
+    "Uniq Cast Fid": 630,
+    "Trailing AVG (7D)": 4639
+   },
+   {
+    "id": "2026-06-13",
+    "Day": "2026-06-13",
+    "Uniq Reaction Fid": 4736,
+    "Uniq Cast Fid": 663,
+    "Trailing AVG (7D)": 4878
+   },
+   {
+    "id": "2026-06-14",
+    "Day": "2026-06-14",
+    "Uniq Reaction Fid": 4051,
+    "Uniq Cast Fid": 567,
+    "Trailing AVG (7D)": 4172
+   },
+   {
+    "id": "2026-06-15",
+    "Day": "2026-06-15",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-06-16",
+    "Day": "2026-06-16",
+    "Uniq Reaction Fid": 4595,
+    "Uniq Cast Fid": 643,
+    "Trailing AVG (7D)": 4732
+   },
+   {
+    "id": "2026-06-17",
+    "Day": "2026-06-17",
+    "Uniq Reaction Fid": 4268,
+    "Uniq Cast Fid": 598,
+    "Trailing AVG (7D)": 4396
+   },
+   {
+    "id": "2026-06-18",
+    "Day": "2026-06-18",
+    "Uniq Reaction Fid": 4464,
+    "Uniq Cast Fid": 625,
+    "Trailing AVG (7D)": 4598
+   },
+   {
+    "id": "2026-06-19",
+    "Day": "2026-06-19",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-06-20",
+    "Day": "2026-06-20",
+    "Uniq Reaction Fid": 4488,
+    "Uniq Cast Fid": 628,
+    "Trailing AVG (7D)": 4622
+   },
+   {
+    "id": "2026-06-21",
+    "Day": "2026-06-21",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-06-22",
+    "Day": "2026-06-22",
+    "Uniq Reaction Fid": 4608,
+    "Uniq Cast Fid": 645,
+    "Trailing AVG (7D)": 4747
+   },
+   {
+    "id": "2026-06-23",
+    "Day": "2026-06-23",
+    "Uniq Reaction Fid": 4200,
+    "Uniq Cast Fid": 588,
+    "Trailing AVG (7D)": 4326
+   },
+   {
+    "id": "2026-06-24",
+    "Day": "2026-06-24",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 9560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-06-25",
+    "Day": "2026-06-25",
+    "Uniq Reaction Fid": 4593,
+    "Uniq Cast Fid": 643,
+    "Trailing AVG (7D)": 4731
+   },
+   {
+    "id": "2026-06-26",
+    "Day": "2026-06-26",
+    "Uniq Reaction Fid": 4467,
+    "Uniq Cast Fid": 625,
+    "Trailing AVG (7D)": 4601
+   },
+   {
+    "id": "2026-06-27",
+    "Day": "2026-06-27",
+    "Uniq Reaction Fid": 4194,
+    "Uniq Cast Fid": 587,
+    "Trailing AVG (7D)": 4320
+   },
+   {
+    "id": "2026-06-28",
+    "Day": "2026-06-28",
+    "Uniq Reaction Fid": 4553,
+    "Uniq Cast Fid": 637,
+    "Trailing AVG (7D)": 4690
+   },
+   {
+    "id": "2026-06-29",
+    "Day": "2026-06-29",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-06-30",
+    "Day": "2026-06-30",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-01",
+    "Day": "2026-07-01",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-02",
+    "Day": "2026-07-02",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-03",
+    "Day": "2026-07-03",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-04",
+    "Day": "2026-07-04",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-05",
+    "Day": "2026-07-05",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-06",
+    "Day": "2026-07-06",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-07",
+    "Day": "2026-07-07",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 9560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-08",
+    "Day": "2026-07-08",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-09",
+    "Day": "2026-07-09",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-10",
+    "Day": "2026-07-10",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-11",
+    "Day": "2026-07-11",
+    "Uniq Reaction Fid": 4200,
+    "Uniq Cast Fid": 588,
+    "Trailing AVG (7D)": 4326
+   },
+   {
+    "id": "2026-07-12",
+    "Day": "2026-07-12",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-13",
+    "Day": "2026-07-13",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-14",
+    "Day": "2026-07-14",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-15",
+    "Day": "2026-07-15",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-16",
+    "Day": "2026-07-16",
+    "Uniq Reaction Fid": 4276,
+    "Uniq Cast Fid": 599,
+    "Trailing AVG (7D)": 4404
+   },
+   {
+    "id": "2026-07-17",
+    "Day": "2026-07-17",
+    "Uniq Reaction Fid": 4210,
+    "Uniq Cast Fid": 589,
+    "Trailing AVG (7D)": 4337
+   },
+   {
+    "id": "2026-07-18",
+    "Day": "2026-07-18",
+    "Uniq Reaction Fid": 4707,
+    "Uniq Cast Fid": 659,
+    "Trailing AVG (7D)": 4848
+   },
+   {
+    "id": "2026-07-19",
+    "Day": "2026-07-19",
+    "Uniq Reaction Fid": 4717,
+    "Uniq Cast Fid": 660,
+    "Trailing AVG (7D)": 4858
+   },
+   {
+    "id": "2026-07-20",
+    "Day": "2026-07-20",
+    "Uniq Reaction Fid": 4565,
+    "Uniq Cast Fid": 639,
+    "Trailing AVG (7D)": 4702
+   },
+   {
+    "id": "2026-07-21",
+    "Day": "2026-07-21",
+    "Uniq Reaction Fid": 4321,
+    "Uniq Cast Fid": 605,
+    "Trailing AVG (7D)": 4450
+   },
+   {
+    "id": "2026-07-22",
+    "Day": "2026-07-22",
+    "Uniq Reaction Fid": 4121,
+    "Uniq Cast Fid": 577,
+    "Trailing AVG (7D)": 4244
+   },
+   {
+    "id": "2026-07-23",
+    "Day": "2026-07-23",
+    "Uniq Reaction Fid": 4277,
+    "Uniq Cast Fid": 599,
+    "Trailing AVG (7D)": 4406
+   },
+   {
+    "id": "2026-07-24",
+    "Day": "2026-07-24",
+    "Uniq Reaction Fid": 4821,
+    "Uniq Cast Fid": 675,
+    "Trailing AVG (7D)": 4965
+   },
+   {
+    "id": "2026-07-25",
+    "Day": "2026-07-25",
+    "Uniq Reaction Fid": 4744,
+    "Uniq Cast Fid": 664,
+    "Trailing AVG (7D)": 4886
+   },
+   {
+    "id": "2026-07-26",
+    "Day": "2026-07-26",
+    "Uniq Reaction Fid": 5117,
+    "Uniq Cast Fid": 716,
+    "Trailing AVG (7D)": 5270
+   },
+   {
+    "id": "2026-07-27",
+    "Day": "2026-07-27",
+    "Uniq Reaction Fid": 4334,
+    "Uniq Cast Fid": 607,
+    "Trailing AVG (7D)": 4464
+   },
+   {
+    "id": "2026-07-28",
+    "Day": "2026-07-28",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-29",
+    "Day": "2026-07-29",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-07-30",
+    "Day": "2026-07-30",
+    "Uniq Reaction Fid": 4294,
+    "Uniq Cast Fid": 601,
+    "Trailing AVG (7D)": 4423
+   },
+   {
+    "id": "2026-08-01",
+    "Day": "2026-08-01",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-02",
+    "Day": "2026-08-02",
+    "Uniq Reaction Fid": 4096,
+    "Uniq Cast Fid": 573,
+    "Trailing AVG (7D)": 4219
+   },
+   {
+    "id": "2026-08-03",
+    "Day": "2026-08-03",
+    "Uniq Reaction Fid": 4547,
+    "Uniq Cast Fid": 637,
+    "Trailing AVG (7D)": 4684
+   },
+   {
+    "id": "2026-08-04",
+    "Day": "2026-08-04",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-05",
+    "Day": "2026-08-05",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-06",
+    "Day": "2026-08-06",
+    "Uniq Reaction Fid": 4624,
+    "Uniq Cast Fid": 647,
+    "Trailing AVG (7D)": 4763
+   },
+   {
+    "id": "2026-08-07",
+    "Day": "2026-08-07",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-08",
+    "Day": "2026-08-08",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-09",
+    "Day": "2026-08-09",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-10",
+    "Day": "2026-08-10",
+    "Uniq Reaction Fid": 4195,
+    "Uniq Cast Fid": 9587,
+    "Trailing AVG (7D)": 4321
+   },
+   {
+    "id": "2026-08-11",
+    "Day": "2026-08-11",
+    "Uniq Reaction Fid": 4119,
+    "Uniq Cast Fid": 577,
+    "Trailing AVG (7D)": 4243
+   },
+   {
+    "id": "2026-08-12",
+    "Day": "2026-08-12",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-13",
+    "Day": "2026-08-13",
+    "Uniq Reaction Fid": 4038,
+    "Uniq Cast Fid": 565,
+    "Trailing AVG (7D)": 4159
+   },
+   {
+    "id": "2026-08-14",
+    "Day": "2026-08-14",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-15",
+    "Day": "2026-08-15",
+    "Uniq Reaction Fid": 4301,
+    "Uniq Cast Fid": 602,
+    "Trailing AVG (7D)": 4430
+   },
+   {
+    "id": "2026-08-16",
+    "Day": "2026-08-16",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-17",
+    "Day": "2026-08-17",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-18",
+    "Day": "2026-08-18",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-19",
+    "Day": "2026-08-19",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-20",
+    "Day": "2026-08-20",
+    "Uniq Reaction Fid": 4350,
+    "Uniq Cast Fid": 609,
+    "Trailing AVG (7D)": 4481
+   },
+   {
+    "id": "2026-08-21",
+    "Day": "2026-08-21",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-22",
+    "Day": "2026-08-22",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-23",
+    "Day": "2026-08-23",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 9560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-24",
+    "Day": "2026-08-24",
+    "Uniq Reaction Fid": 4141,
+    "Uniq Cast Fid": 580,
+    "Trailing AVG (7D)": 4265
+   },
+   {
+    "id": "2026-08-25",
+    "Day": "2026-08-25",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-26",
+    "Day": "2026-08-26",
+    "Uniq Reaction Fid": 4055,
+    "Uniq Cast Fid": 568,
+    "Trailing AVG (7D)": 4177
+   },
+   {
+    "id": "2026-08-27",
+    "Day": "2026-08-27",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-28",
+    "Day": "2026-08-28",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-29",
+    "Day": "2026-08-29",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   },
+   {
+    "id": "2026-08-30",
+    "Day": "2026-08-30",
+    "Uniq Reaction Fid": 4000,
+    "Uniq Cast Fid": 560,
+    "Trailing AVG (7D)": 4120
+   }
+  ],
+  "family": "Cartesian",
+  "accentSet": "guide"
+ },
+ {
+  "title": "Block space demand by category",
+  "subtitle": "Share of gas consumed",
+  "source": "Chain analytics",
+  "dateAsOf": "2026-09-11",
+  "intent": "composition",
+  "content": [
+   {
+    "id": "defi",
+    "Category": "DeFi",
+    "Share (%)": 38
+   },
+   {
+    "id": "transfers",
+    "Category": "Transfers",
+    "Share (%)": 24
+   },
+   {
+    "id": "nft",
+    "Category": "NFT",
+    "Share (%)": 14
+   },
+   {
+    "id": "bridges",
+    "Category": "Bridges",
+    "Share (%)": 13
+   },
+   {
+    "id": "other",
+    "Category": "Other",
+    "Share (%)": 11
+   }
+  ],
+  "family": "Radial"
+ },
+ {
+  "title": "Liquidity flywheel",
+  "subtitle": "How incentives compound into depth",
+  "source": "Internal model",
+  "intent": "cycle",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "incentive",
+     "label": "Incentive emission"
+    },
+    {
+     "id": "lp",
+     "label": "LP deposits"
+    },
+    {
+     "id": "depth",
+     "label": "Deeper books"
+    },
+    {
+     "id": "volume",
+     "label": "Routed volume"
+    },
+    {
+     "id": "fees",
+     "label": "Fee revenue"
+    }
+   ],
+   "edges": [
+    {
+     "from": "incentive",
+     "to": "lp"
+    },
+    {
+     "from": "lp",
+     "to": "depth"
+    },
+    {
+     "from": "depth",
+     "to": "volume"
+    },
+    {
+     "from": "volume",
+     "to": "fees"
+    },
+    {
+     "from": "fees",
+     "to": "incentive"
+    }
+   ]
+  },
+  "family": "Radial"
+ },
+ {
+  "title": "radar specimen",
+  "source": "Smoke test",
+  "template": "radar",
+  "content": [
+   {
+    "id": "a",
+    "Axis": "Liquidity",
+    "Ethereum": 8,
+    "Solana": 6
+   },
+   {
+    "id": "b",
+    "Axis": "Decentralisation",
+    "Ethereum": 9,
+    "Solana": 4
+   },
+   {
+    "id": "c",
+    "Axis": "Throughput",
+    "Ethereum": 3,
+    "Solana": 9
+   },
+   {
+    "id": "d",
+    "Axis": "Tooling",
+    "Ethereum": 9,
+    "Solana": 7
+   },
+   {
+    "id": "e",
+    "Axis": "Custody",
+    "Ethereum": 8,
+    "Solana": 5
+   }
+  ],
+  "family": "Radial"
+ },
+ {
+  "title": "polar specimen",
+  "source": "Smoke test",
+  "template": "polar",
+  "content": [
+   {
+    "id": "a",
+    "Hour": "00",
+    "Volume": 12
+   },
+   {
+    "id": "b",
+    "Hour": "06",
+    "Volume": 34
+   },
+   {
+    "id": "c",
+    "Hour": "12",
+    "Volume": 58
+   },
+   {
+    "id": "d",
+    "Hour": "18",
+    "Volume": 41
+   }
+  ],
+  "family": "Radial"
+ },
+ {
+  "title": "Ethereum roadmap milestones",
+  "subtitle": "Shipped upgrades and their headline change",
+  "source": "Protocol release notes",
+  "dateAsOf": "2026-09-11",
+  "intent": "timeline",
+  "content": [
+   {
+    "id": "merge",
+    "Milestone": "The Merge",
+    "Change": "Proof of stake"
+   },
+   {
+    "id": "shapella",
+    "Milestone": "Shapella",
+    "Change": "Withdrawals enabled"
+   },
+   {
+    "id": "dencun",
+    "Milestone": "Dencun",
+    "Change": "Blob data for rollups"
+   },
+   {
+    "id": "pectra",
+    "Milestone": "Pectra",
+    "Change": "Account abstraction primitives"
+   }
+  ],
+  "family": "Sequential"
+ },
+ {
+  "title": "Research publication process",
+  "subtitle": "From intake to distribution",
+  "source": "Internal runbook",
+  "intent": "process",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "intake",
+     "label": "Intake",
+     "note": "Topic and question"
+    },
+    {
+     "id": "evidence",
+     "label": "Evidence",
+     "note": "Primary sources"
+    },
+    {
+     "id": "draft",
+     "label": "Draft"
+    },
+    {
+     "id": "review",
+     "label": "Peer review"
+    },
+    {
+     "id": "design",
+     "label": "Infographic"
+    },
+    {
+     "id": "publish",
+     "label": "Publish"
+    }
+   ],
+   "edges": [
+    {
+     "from": "intake",
+     "to": "evidence"
+    },
+    {
+     "from": "evidence",
+     "to": "draft"
+    },
+    {
+     "from": "draft",
+     "to": "review"
+    },
+    {
+     "from": "review",
+     "to": "design"
+    },
+    {
+     "from": "design",
+     "to": "publish"
+    }
+   ]
+  },
+  "family": "Sequential"
+ },
+ {
+  "title": "gantt specimen",
+  "source": "Smoke test",
+  "template": "gantt",
+  "content": [
+   {
+    "id": "a",
+    "Task": "Audit",
+    "Start": 0,
+    "End": 6
+   },
+   {
+    "id": "b",
+    "Task": "Testnet",
+    "Start": 4,
+    "End": 12
+   },
+   {
+    "id": "c",
+    "Task": "Mainnet",
+    "Start": 11,
+    "End": 16
+   }
+  ],
+  "family": "Sequential"
+ },
+ {
+  "title": "journey specimen",
+  "source": "Smoke test",
+  "template": "journey",
+  "content": [
+   {
+    "id": "a",
+    "Stage": "Discover",
+    "Action": "Reads the research note",
+    "Sentiment": 3
+   },
+   {
+    "id": "b",
+    "Stage": "Evaluate",
+    "Action": "Compares custody terms",
+    "Sentiment": 2
+   },
+   {
+    "id": "c",
+    "Stage": "Commit",
+    "Action": "Signs the subscription",
+    "Sentiment": 4
+   },
+   {
+    "id": "d",
+    "Stage": "Hold",
+    "Action": "Monitors monthly reporting",
+    "Sentiment": 5
+   }
+  ],
+  "family": "Sequential"
+ },
+ {
+  "title": "Withdrawal eligibility logic",
+  "subtitle": "Decision path for an exiting validator",
+  "source": "Consensus specification",
+  "intent": "flow",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "request",
+     "label": "Exit requested"
+    },
+    {
+     "id": "active",
+     "label": "Still in active set?"
+    },
+    {
+     "id": "queue",
+     "label": "Enter exit queue"
+    },
+    {
+     "id": "churn",
+     "label": "Churn limit reached?"
+    },
+    {
+     "id": "wait",
+     "label": "Wait one epoch"
+    },
+    {
+     "id": "exit",
+     "label": "Exit finalised"
+    },
+    {
+     "id": "sweep",
+     "label": "Balance swept"
+    }
+   ],
+   "edges": [
+    {
+     "from": "request",
+     "to": "active"
+    },
+    {
+     "from": "active",
+     "to": "queue",
+     "label": "yes"
+    },
+    {
+     "from": "active",
+     "to": "sweep",
+     "label": "no",
+     "style": "dashed"
+    },
+    {
+     "from": "queue",
+     "to": "churn"
+    },
+    {
+     "from": "churn",
+     "to": "wait",
+     "label": "yes"
+    },
+    {
+     "from": "churn",
+     "to": "exit",
+     "label": "no"
+    },
+    {
+     "from": "wait",
+     "to": "churn"
+    },
+    {
+     "from": "exit",
+     "to": "sweep"
+    }
+   ]
+  },
+  "family": "Graph"
+ },
+ {
+  "title": "Rollup stack architecture",
+  "subtitle": "Components and their trust boundaries",
+  "source": "System documentation",
+  "intent": "architecture",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "user",
+     "label": "User wallet",
+     "group": "External"
+    },
+    {
+     "id": "rpc",
+     "label": "RPC gateway",
+     "group": "Operator"
+    },
+    {
+     "id": "seq",
+     "label": "Sequencer",
+     "note": "Centralised today",
+     "group": "Operator"
+    },
+    {
+     "id": "da",
+     "label": "Data availability",
+     "group": "Shared"
+    },
+    {
+     "id": "prover",
+     "label": "Prover",
+     "group": "Shared"
+    },
+    {
+     "id": "l1",
+     "label": "L1 settlement",
+     "group": "Trust anchor"
+    }
+   ],
+   "edges": [
+    {
+     "from": "user",
+     "to": "rpc"
+    },
+    {
+     "from": "rpc",
+     "to": "seq"
+    },
+    {
+     "from": "seq",
+     "to": "da"
+    },
+    {
+     "from": "seq",
+     "to": "prover"
+    },
+    {
+     "from": "da",
+     "to": "l1"
+    },
+    {
+     "from": "prover",
+     "to": "l1"
+    }
+   ]
+  },
+  "family": "Graph"
+ },
+ {
+  "title": "Indexing pipeline",
+  "subtitle": "Producer to consumer path for chain data",
+  "source": "Platform documentation",
+  "intent": "pipeline",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "node",
+     "label": "Archive node"
+    },
+    {
+     "id": "ingest",
+     "label": "Ingest workers"
+    },
+    {
+     "id": "queue",
+     "label": "Event queue"
+    },
+    {
+     "id": "transform",
+     "label": "Transform"
+    },
+    {
+     "id": "store",
+     "label": "Columnar store"
+    },
+    {
+     "id": "api",
+     "label": "Query API"
+    }
+   ],
+   "edges": [
+    {
+     "from": "node",
+     "to": "ingest"
+    },
+    {
+     "from": "ingest",
+     "to": "queue"
+    },
+    {
+     "from": "queue",
+     "to": "transform"
+    },
+    {
+     "from": "transform",
+     "to": "store"
+    },
+    {
+     "from": "store",
+     "to": "api"
+    }
+   ]
+  },
+  "family": "Graph"
+ },
+ {
+  "title": "Validator deployment topology",
+  "subtitle": "Zones, hosts and replica placement",
+  "source": "Infrastructure inventory",
+  "intent": "deployment",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "lb",
+     "label": "Anycast entry"
+    },
+    {
+     "id": "eu",
+     "label": "EU zone",
+     "note": "2 beacon, 4 validator"
+    },
+    {
+     "id": "us",
+     "label": "US zone",
+     "note": "2 beacon, 4 validator"
+    },
+    {
+     "id": "apac",
+     "label": "APAC zone",
+     "note": "1 beacon, 2 validator"
+    },
+    {
+     "id": "signer",
+     "label": "Remote signer",
+     "note": "HSM backed"
+    }
+   ],
+   "edges": [
+    {
+     "from": "lb",
+     "to": "eu"
+    },
+    {
+     "from": "lb",
+     "to": "us"
+    },
+    {
+     "from": "lb",
+     "to": "apac"
+    },
+    {
+     "from": "eu",
+     "to": "signer"
+    },
+    {
+     "from": "us",
+     "to": "signer"
+    },
+    {
+     "from": "apac",
+     "to": "signer"
+    }
+   ]
+  },
+  "family": "Graph"
+ },
+ {
+  "title": "Service dependency graph",
+  "subtitle": "Fan-in on the pricing service",
+  "source": "Service catalogue",
+  "intent": "dependency",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "pricing",
+     "label": "Pricing"
+    },
+    {
+     "id": "portfolio",
+     "label": "Portfolio"
+    },
+    {
+     "id": "alerts",
+     "label": "Alerts"
+    },
+    {
+     "id": "reports",
+     "label": "Reports"
+    },
+    {
+     "id": "oracle",
+     "label": "Oracle feed"
+    },
+    {
+     "id": "cache",
+     "label": "Quote cache"
+    }
+   ],
+   "edges": [
+    {
+     "from": "oracle",
+     "to": "pricing"
+    },
+    {
+     "from": "cache",
+     "to": "pricing"
+    },
+    {
+     "from": "pricing",
+     "to": "portfolio"
+    },
+    {
+     "from": "pricing",
+     "to": "alerts"
+    },
+    {
+     "from": "pricing",
+     "to": "reports"
+    },
+    {
+     "from": "portfolio",
+     "to": "reports"
+    }
+   ]
+  },
+  "family": "Graph"
+ },
+ {
+  "title": "Token allocation hierarchy",
+  "subtitle": "Published allocation categories",
+  "source": "Tokenomics documentation",
+  "intent": "hierarchy",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "supply",
+     "label": "Total supply"
+    },
+    {
+     "id": "community",
+     "label": "Community"
+    },
+    {
+     "id": "investors",
+     "label": "Investors"
+    },
+    {
+     "id": "team",
+     "label": "Team"
+    },
+    {
+     "id": "airdrop",
+     "label": "Airdrop"
+    },
+    {
+     "id": "ecosystem",
+     "label": "Ecosystem fund"
+    }
+   ],
+   "edges": [
+    {
+     "from": "supply",
+     "to": "community"
+    },
+    {
+     "from": "supply",
+     "to": "investors"
+    },
+    {
+     "from": "supply",
+     "to": "team"
+    },
+    {
+     "from": "community",
+     "to": "airdrop"
+    },
+    {
+     "from": "community",
+     "to": "ecosystem"
+    }
+   ]
+  },
+  "family": "Graph"
+ },
+ {
+  "title": "state specimen",
+  "source": "Smoke test",
+  "template": "state",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "idle",
+     "label": "Idle"
+    },
+    {
+     "id": "run",
+     "label": "Running"
+    },
+    {
+     "id": "done",
+     "label": "Settled"
+    }
+   ],
+   "edges": [
+    {
+     "from": "idle",
+     "to": "run",
+     "label": "start"
+    },
+    {
+     "from": "run",
+     "to": "done",
+     "label": "finalise"
+    },
+    {
+     "from": "run",
+     "to": "idle",
+     "label": "abort"
+    }
+   ]
+  },
+  "family": "Graph"
+ },
+ {
+  "title": "org-chart specimen",
+  "source": "Smoke test",
+  "template": "org-chart",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Research lead"
+    },
+    {
+     "id": "b",
+     "label": "Protocol"
+    },
+    {
+     "id": "c",
+     "label": "Markets"
+    }
+   ],
+   "edges": [
+    {
+     "from": "a",
+     "to": "b"
+    },
+    {
+     "from": "a",
+     "to": "c"
+    }
+   ]
+  },
+  "family": "Graph"
+ },
+ {
+  "title": "er specimen",
+  "source": "Smoke test",
+  "template": "er",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "user",
+     "label": "user",
+     "fields": [
+      {
+       "name": "id",
+       "type": "uuid",
+       "key": "PK"
+      },
+      {
+       "name": "email",
+       "type": "text"
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "label": "order",
+     "fields": [
+      {
+       "name": "id",
+       "type": "uuid",
+       "key": "PK"
+      },
+      {
+       "name": "user_id",
+       "type": "uuid",
+       "key": "FK"
+      },
+      {
+       "name": "total",
+       "type": "numeric"
+      }
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "from": "user",
+     "to": "order",
+     "label": "1..n"
+    }
+   ]
+  },
+  "family": "Entity"
+ },
+ {
+  "title": "uml-class specimen",
+  "source": "Smoke test",
+  "template": "uml-class",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "vault",
+     "label": "Vault",
+     "fields": [
+      {
+       "name": "deposit()",
+       "type": "void"
+      },
+      {
+       "name": "withdraw()",
+       "type": "void"
+      }
+     ]
+    },
+    {
+     "id": "strategy",
+     "label": "Strategy",
+     "fields": [
+      {
+       "name": "harvest()",
+       "type": "uint256"
+      }
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "from": "vault",
+     "to": "strategy",
+     "label": "uses"
+    }
+   ]
+  },
+  "family": "Entity"
+ },
+ {
+  "title": "db-schema specimen",
+  "source": "Smoke test",
+  "template": "db-schema",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "blocks",
+     "label": "blocks",
+     "fields": [
+      {
+       "name": "number",
+       "type": "bigint",
+       "key": "PK"
+      },
+      {
+       "name": "hash",
+       "type": "bytea"
+      }
+     ]
+    },
+    {
+     "id": "txs",
+     "label": "transactions",
+     "fields": [
+      {
+       "name": "hash",
+       "type": "bytea",
+       "key": "PK"
+      },
+      {
+       "name": "block_number",
+       "type": "bigint",
+       "key": "FK"
+      }
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "from": "blocks",
+     "to": "txs"
+    }
+   ]
+  },
+  "family": "Entity"
+ },
+ {
+  "title": "Cross-chain transfer sequence",
+  "subtitle": "Messages exchanged during a bridge transfer",
+  "source": "Bridge specification",
+  "intent": "interaction",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "u1",
+     "label": "Lock funds",
+     "lane": "User"
+    },
+    {
+     "id": "s1",
+     "label": "Emit message",
+     "lane": "Source chain"
+    },
+    {
+     "id": "r1",
+     "label": "Attest",
+     "lane": "Relayer"
+    },
+    {
+     "id": "d1",
+     "label": "Verify proof",
+     "lane": "Destination chain"
+    },
+    {
+     "id": "u2",
+     "label": "Receive funds",
+     "lane": "User"
+    }
+   ],
+   "edges": [
+    {
+     "from": "u1",
+     "to": "s1"
+    },
+    {
+     "from": "s1",
+     "to": "r1",
+     "label": "event"
+    },
+    {
+     "from": "r1",
+     "to": "d1",
+     "label": "proof"
+    },
+    {
+     "from": "d1",
+     "to": "u2",
+     "label": "mint"
+    }
+   ]
+  },
+  "family": "Lanes"
+ },
+ {
+  "title": "Incident response handoffs",
+  "subtitle": "Who owns which step during a validator outage",
+  "source": "Incident runbook",
+  "intent": "handoff",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "detect",
+     "label": "Alert fires",
+     "lane": "Monitoring"
+    },
+    {
+     "id": "triage",
+     "label": "Triage",
+     "lane": "On-call"
+    },
+    {
+     "id": "mitigate",
+     "label": "Mitigate",
+     "lane": "On-call"
+    },
+    {
+     "id": "comms",
+     "label": "Notify delegators",
+     "lane": "Comms"
+    },
+    {
+     "id": "review",
+     "label": "Post-mortem",
+     "lane": "Engineering"
+    }
+   ],
+   "edges": [
+    {
+     "from": "detect",
+     "to": "triage"
+    },
+    {
+     "from": "triage",
+     "to": "mitigate"
+    },
+    {
+     "from": "mitigate",
+     "to": "comms"
+    },
+    {
+     "from": "comms",
+     "to": "review"
+    }
+   ]
+  },
+  "family": "Lanes"
+ },
+ {
+  "title": "Security control layers",
+  "subtitle": "Stacked controls protecting signing keys",
+  "source": "Security policy",
+  "intent": "layering",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "policy",
+     "label": "Policy and review",
+     "note": "Quarterly audit"
+    },
+    {
+     "id": "identity",
+     "label": "Identity and access",
+     "note": "Hardware MFA"
+    },
+    {
+     "id": "network",
+     "label": "Network isolation",
+     "note": "Private signer VLAN"
+    },
+    {
+     "id": "host",
+     "label": "Host hardening",
+     "note": "Immutable images"
+    },
+    {
+     "id": "key",
+     "label": "Key custody",
+     "note": "HSM, no export"
+    }
+   ],
+   "edges": []
+  },
+  "family": "Banded"
+ },
+ {
+  "title": "high-level specimen",
+  "source": "Smoke test",
+  "template": "high-level",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "n0",
+     "label": "Node 1",
+     "note": null,
+     "group": "Edge"
+    },
+    {
+     "id": "n1",
+     "label": "Node 2",
+     "note": "detail",
+     "group": "Core"
+    },
+    {
+     "id": "n2",
+     "label": "Node 3",
+     "note": null,
+     "group": "Store"
+    },
+    {
+     "id": "n3",
+     "label": "Node 4",
+     "note": "detail",
+     "group": "Edge"
+    },
+    {
+     "id": "n4",
+     "label": "Node 5",
+     "note": null,
+     "group": "Core"
+    },
+    {
+     "id": "n5",
+     "label": "Node 6",
+     "note": "detail",
+     "group": "Store"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Edge",
+     "label": "Edge"
+    },
+    {
+     "id": "Core",
+     "label": "Core"
+    },
+    {
+     "id": "Store",
+     "label": "Storage"
+    }
+   ]
+  },
+  "family": "Banded"
+ },
+ {
+  "title": "medallion specimen",
+  "source": "Smoke test",
+  "template": "medallion",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "b1",
+     "label": "Raw events",
+     "group": "Bronze"
+    },
+    {
+     "id": "s1",
+     "label": "Conformed",
+     "group": "Silver"
+    },
+    {
+     "id": "g1",
+     "label": "Marts",
+     "group": "Gold"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Bronze",
+     "label": "Bronze"
+    },
+    {
+     "id": "Silver",
+     "label": "Silver"
+    },
+    {
+     "id": "Gold",
+     "label": "Gold"
+    }
+   ]
+  },
+  "family": "Banded"
+ },
+ {
+  "title": "dp-integration specimen",
+  "source": "Smoke test",
+  "template": "dp-integration",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "s1",
+     "label": "Exchanges",
+     "group": "Sources"
+    },
+    {
+     "id": "s2",
+     "label": "Nodes",
+     "group": "Sources"
+    },
+    {
+     "id": "c1",
+     "label": "Lakehouse",
+     "group": "Core"
+    },
+    {
+     "id": "x1",
+     "label": "Research",
+     "group": "Consumers"
+    },
+    {
+     "id": "x2",
+     "label": "Alerts",
+     "group": "Consumers"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Sources",
+     "label": "Sources"
+    },
+    {
+     "id": "Core",
+     "label": "Core"
+    },
+    {
+     "id": "Consumers",
+     "label": "Consumers"
+    }
+   ]
+  },
+  "family": "Banded"
+ },
+ {
+  "title": "it-state specimen",
+  "source": "Smoke test",
+  "template": "it-state",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Legacy ledger",
+     "group": "Retire",
+     "status": "decommission 2027"
+    },
+    {
+     "id": "b",
+     "label": "Custody API",
+     "group": "Keep",
+     "status": "strategic"
+    },
+    {
+     "id": "c",
+     "label": "Reporting",
+     "group": "Replace",
+     "status": "migrate"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Keep",
+     "label": "Keep"
+    },
+    {
+     "id": "Replace",
+     "label": "Replace"
+    },
+    {
+     "id": "Retire",
+     "label": "Retire"
+    }
+   ]
+  },
+  "family": "Banded"
+ },
+ {
+  "title": "kanban specimen",
+  "source": "Smoke test",
+  "template": "kanban",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Oracle upgrade",
+     "group": "In progress",
+     "note": "Roy"
+    },
+    {
+     "id": "b",
+     "label": "Slashing report",
+     "group": "Review",
+     "note": "Jay"
+    },
+    {
+     "id": "c",
+     "label": "Fee model",
+     "group": "Backlog"
+    },
+    {
+     "id": "d",
+     "label": "Runbook",
+     "group": "Done"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Backlog",
+     "label": "Backlog"
+    },
+    {
+     "id": "In progress",
+     "label": "In progress"
+    },
+    {
+     "id": "Review",
+     "label": "Review"
+    },
+    {
+     "id": "Done",
+     "label": "Done"
+    }
+   ]
+  },
+  "family": "Board"
+ },
+ {
+  "title": "story-map specimen",
+  "source": "Smoke test",
+  "template": "story-map",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Onboard",
+     "group": "Discover"
+    },
+    {
+     "id": "a2",
+     "label": "Connect wallet",
+     "group": "Discover"
+    },
+    {
+     "id": "b",
+     "label": "Allocate",
+     "group": "Invest"
+    },
+    {
+     "id": "b2",
+     "label": "Choose vault",
+     "group": "Invest"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Discover",
+     "label": "Discover"
+    },
+    {
+     "id": "Invest",
+     "label": "Invest"
+    }
+   ]
+  },
+  "family": "Board"
+ },
+ {
+  "title": "nested specimen",
+  "source": "Smoke test",
+  "template": "nested",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Sequencer",
+     "group": "Operator"
+    },
+    {
+     "id": "b",
+     "label": "Prover",
+     "group": "Operator"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Trust anchor",
+     "label": "Trust anchor"
+    },
+    {
+     "id": "Shared",
+     "label": "Shared"
+    },
+    {
+     "id": "Operator",
+     "label": "Operator"
+    }
+   ]
+  },
+  "family": "Shape"
+ },
+ {
+  "title": "venn specimen",
+  "source": "Smoke test",
+  "template": "venn",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Custody",
+     "note": "regulated"
+    },
+    {
+     "id": "b",
+     "label": "Settlement",
+     "note": "onchain"
+    }
+   ],
+   "edges": [
+    {
+     "from": "a",
+     "to": "b",
+     "label": "Tokenised treasuries"
+    }
+   ]
+  },
+  "family": "Shape"
+ },
+ {
+  "title": "pyramid specimen",
+  "source": "Smoke test",
+  "template": "pyramid",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Settlement",
+     "value": 1
+    },
+    {
+     "id": "b",
+     "label": "Execution",
+     "value": 4
+    },
+    {
+     "id": "c",
+     "label": "Distribution",
+     "value": 12
+    }
+   ]
+  },
+  "family": "Shape"
+ },
+ {
+  "title": "funnel specimen",
+  "source": "Smoke test",
+  "template": "funnel",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Visitors",
+     "value": 12000
+    },
+    {
+     "id": "b",
+     "label": "Verified",
+     "value": 3400
+    },
+    {
+     "id": "c",
+     "label": "Funded",
+     "value": 820
+    }
+   ]
+  },
+  "family": "Shape"
+ },
+ {
+  "title": "treemap specimen",
+  "source": "Smoke test",
+  "template": "treemap",
+  "content": [
+   {
+    "id": "0",
+    "Category": "Item 1",
+    "Value": 49
+   },
+   {
+    "id": "1",
+    "Category": "Item 2",
+    "Value": 42
+   },
+   {
+    "id": "2",
+    "Category": "Item 3",
+    "Value": 35
+   },
+   {
+    "id": "3",
+    "Category": "Item 4",
+    "Value": 28
+   },
+   {
+    "id": "4",
+    "Category": "Item 5",
+    "Value": 21
+   },
+   {
+    "id": "5",
+    "Category": "Item 6",
+    "Value": 14
+   },
+   {
+    "id": "6",
+    "Category": "Item 7",
+    "Value": 7
+   }
+  ],
+  "family": "Shape"
+ },
+ {
+  "title": "Staking reward distribution",
+  "subtitle": "Where one unit of gross reward ends up",
+  "source": "Operator ledger",
+  "dateAsOf": "2026-09-11",
+  "intent": "quantity-flow",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "gross",
+     "label": "Gross rewards"
+    },
+    {
+     "id": "priority",
+     "label": "Priority fees"
+    },
+    {
+     "id": "issuance",
+     "label": "Issuance"
+    },
+    {
+     "id": "commission",
+     "label": "Operator commission"
+    },
+    {
+     "id": "delegators",
+     "label": "Delegators"
+    },
+    {
+     "id": "insurance",
+     "label": "Insurance fund"
+    }
+   ],
+   "edges": [
+    {
+     "from": "priority",
+     "to": "gross",
+     "value": 30
+    },
+    {
+     "from": "issuance",
+     "to": "gross",
+     "value": 70
+    },
+    {
+     "from": "gross",
+     "to": "commission",
+     "value": 10
+    },
+    {
+     "from": "gross",
+     "to": "delegators",
+     "value": 85
+    },
+    {
+     "from": "gross",
+     "to": "insurance",
+     "value": 5
+    }
+   ]
+  },
+  "family": "Flow, map & cause"
+ },
+ {
+  "title": "fishbone specimen",
+  "source": "Smoke test",
+  "template": "fishbone",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "c1",
+     "label": "Stale oracle",
+     "group": "Data"
+    },
+    {
+     "id": "c2",
+     "label": "Thin book",
+     "group": "Market"
+    },
+    {
+     "id": "c3",
+     "label": "Missed alert",
+     "group": "Process"
+    },
+    {
+     "id": "c4",
+     "label": "Single region",
+     "group": "Infra"
+    },
+    {
+     "id": "e",
+     "label": "Liquidation cascade",
+     "kind": "effect"
+    }
+   ]
+  },
+  "family": "Flow, map & cause"
+ },
+ {
+  "title": "wardley specimen",
+  "source": "Smoke test",
+  "template": "wardley",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "u",
+     "label": "Institution",
+     "x": 0.82,
+     "y": 0.95
+    },
+    {
+     "id": "c",
+     "label": "Custody",
+     "x": 0.6,
+     "y": 0.7
+    },
+    {
+     "id": "s",
+     "label": "Settlement",
+     "x": 0.78,
+     "y": 0.45
+    },
+    {
+     "id": "n",
+     "label": "Consensus",
+     "x": 0.9,
+     "y": 0.2
+    }
+   ],
+   "edges": [
+    {
+     "from": "u",
+     "to": "c"
+    },
+    {
+     "from": "c",
+     "to": "s"
+    },
+    {
+     "from": "s",
+     "to": "n"
+    }
+   ]
+  },
+  "family": "Flow, map & cause"
+ },
+ {
+  "title": "Four properties no other network combines",
+  "subtitle": "What Ethereum offers as infrastructure, independent of the ETH price",
+  "source": "Four Pillars",
+  "dateAsOf": "2026-09-11",
+  "style": {
+   "roles": {
+    "h1": {
+     "size": 60,
+     "lineHeight": 1.15
+    },
+    "h2": {
+     "size": 34,
+     "weight": 700
+    }
+   }
+  },
+  "accents": {
+   "censorship": "blue",
+   "ecosystem": "blue"
+  },
+  "blocks": [
+   {
+    "kind": "cards",
+    "columns": 2,
+    "gap": 32,
+    "padding": 40,
+    "items": [
+     {
+      "id": "neutrality",
+      "eyebrow": "Neutrality",
+      "title": "No company sets the protocol's direction.",
+      "body": "The Foundation is a non-profit with no decision power, shrinking by choice.",
+      "note": "The only major platform competitors can share"
+     },
+     {
+      "id": "censorship",
+      "eyebrow": "Censorship resistance",
+      "title": "Transactions can be delayed, never blocked.",
+      "body": "No single party can permanently exclude anyone from the network.",
+      "note": "An infrastructure guarantee, not an ideology"
+     },
+     {
+      "id": "decentralization",
+      "eyebrow": "Decentralization",
+      "title": "No single party controls the network.",
+      "body": "~900K validators, nodes on home hardware, multiple independent clients.",
+      "note": "Nothing to capture, no one to coerce"
+     },
+     {
+      "id": "ecosystem",
+      "eyebrow": "Ecosystem size",
+      "title": "The largest builder and support network.",
+      "body": "Most developers, deepest audit talent, widest custody coverage.",
+      "note": "The lowest cost and risk of adoption"
+     }
+    ]
+   },
+   {
+    "kind": "panel",
+    "gapBefore": 48,
+    "padding": 40,
+    "blocks": [
+     {
+      "kind": "text",
+      "role": "body",
+      "color": "neutral.300",
+      "text": "Networks are more connected than ever; politics are more fragmented than ever. A system shared by everyone, including humans and AI, has to be neutral and trustless. No other network can play this role."
+     },
+     {
+      "kind": "text",
+      "gapBefore": 20,
+      "role": "h2",
+      "text": "Not the fastest chain. The most trusted settlement layer."
+     }
+    ]
+   }
+  ],
+  "direction": {
+   "statement": "Lead with the claim, not the chart: four properties as equal cards, colour reserved for the two guarantees an institution actually buys.",
+   "references": [
+    {
+     "source": "figma://fp-source/33404:10568",
+     "observedAt": "2026-09-11",
+     "observation": "2x2 cards, each eyebrow + claim + evidence + accent note; a rounded accent tab sits behind the left edge; only two of four cards carry colour; a full-width summary panel closes the frame",
+     "transform": "our card gradient and 15px rounded tab, blue from the FP Color System, and the summary written as a claim rather than a caption"
+    },
+    {
+     "source": "figma://fp-source/28868:13703",
+     "observedAt": "2026-09-11",
+     "observation": "the colour guide's 'one key figure / single highlight' row pairs one accent with a neutral base",
+     "transform": "extended from one highlight to two, because the story has two guarantees of equal weight"
+    },
+    {
+     "source": "https://www.aydesign.ai/blog/dark-mode-dashboard-design-patterns-2026",
+     "observedAt": "2026-09-11",
+     "observation": "dark surfaces are built from true greys rather than black, hierarchy comes from layered background lightness rather than borders, and exactly one or two saturated accents carry meaning while everything else stays neutral",
+     "transform": "our cards already sit on #141414 rather than black; adopt the layered-lightness idea by using the #1B1B1B to #373737 card gradient for elevation and keep blue on only two of the four cards"
+    },
+    {
+     "source": "https://midrocket.com/en/guides/ui-design-trends-2026/",
+     "observedAt": "2026-09-11",
+     "observation": "modular card groups with asymmetric proportions carry dense information without overload; larger cards read first and smaller ones supply supporting detail",
+     "transform": "rejected the asymmetry: these four properties are deliberately equal in weight, so an even 2x2 states that and a bento grid would imply a ranking that does not exist"
+    }
+   ],
+   "decisions": [
+    {
+     "target": "style.roles.h1.size",
+     "value": "60",
+     "from": "figma://fp-source/33404:10568"
+    },
+    {
+     "target": "style.roles.h2.weight",
+     "value": "700",
+     "from": "figma://fp-source/33404:10568"
+    },
+    {
+     "target": "blocks.shape",
+     "value": "2x2 cards then a full-width summary panel",
+     "from": "figma://fp-source/33404:10568"
+    },
+    {
+     "target": "accents",
+     "value": "blue on the two institutional guarantees only",
+     "from": "figma://fp-source/28868:13703"
+    },
+    {
+     "target": "blocks.shape",
+     "value": "even 2x2, no size hierarchy, closed by a full-width summary panel",
+     "from": "https://midrocket.com/en/guides/ui-design-trends-2026/"
+    }
+   ]
+  },
+  "family": "Composition"
+ },
+ {
+  "title": "x402 on Solana:\nFrom Partial Signatures to Sponsored Settlement",
+  "source": "Four Pillars",
+  "accents": {
+   "buyer": "violet",
+   "facilitator": "amber",
+   "network": "green",
+   "badge:1": "amber",
+   "badge:2": "amber"
+  },
+  "blocks": [
+   {
+    "kind": "stages",
+    "items": [
+     {
+      "id": "buyer",
+      "title": "Buyer",
+      "subtitle": "builds + signs the tx",
+      "groups": [
+       {
+        "label": "Signatures",
+        "rows": [
+         {
+          "label": "[0] fee payer",
+          "value": "empty"
+         },
+         {
+          "label": "[1] buyer",
+          "value": "signed"
+         }
+        ]
+       },
+       {
+        "label": "Message",
+        "text": [
+         "feePayer: facilitator",
+         "amount → payTo ATA"
+        ]
+       }
+      ]
+     },
+     {
+      "id": "facilitator",
+      "title": "Facilitator",
+      "subtitle": "verifies, signs slot [0]",
+      "groups": [
+       {
+        "label": "Signatures",
+        "rows": [
+         {
+          "label": "[0] fee payer",
+          "value": "signed"
+         },
+         {
+          "label": "[1] buyer",
+          "value": "signed"
+         }
+        ]
+       },
+       {
+        "label": "Message · untouched",
+        "text": [
+         "exactly as buyer built",
+         "checks safety + amount"
+        ]
+       }
+      ]
+     },
+     {
+      "id": "network",
+      "title": "Solana network",
+      "subtitle": "executes the transfer",
+      "groups": [
+       {
+        "rows": [
+         {
+          "label": "buyer ATA",
+          "value": "amount ↓"
+         },
+         {
+          "label": "seller ATA",
+          "value": "amount ↑"
+         },
+         {
+          "label": "fee",
+          "value": "facilitator"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "connectors": [
+     {
+      "badge": "1",
+      "title": "Payment-signature header",
+      "note": "base64 · partially signed · x402Version: 2"
+     },
+     {
+      "badge": "2",
+      "title": "submit",
+      "note": "fully signed · fee sponsored"
+     }
+    ]
+   }
+  ],
+  "family": "Composition",
+  "accentSet": "guide"
+ },
+ {
+  "title": "Decentralized Social Media Is Losing Its Narrative",
+  "source": "Dune (@pixelhack)",
+  "dateAsOf": "Sep 1, 2026",
+  "accents": {
+   "Uniq Reaction Fid": "coral",
+   "Uniq Cast Fid": "violet",
+   "Trailing AVG (7D)": "amber",
+   "Cast": "violet",
+   "Reaction": "coral",
+   "Link": "blue"
+  },
+  "blocks": [
+   {
+    "kind": "columns",
+    "gap": 72,
+    "columns": [
+     {
+      "blocks": [
+       {
+        "kind": "chart",
+        "title": "Farcaster DAU",
+        "template": "combo",
+        "fields": {
+         "line": "Trailing AVG (7D)"
+        },
+        "rows": [
+         {
+          "id": "2026-03",
+          "Month": "Mar 2026",
+          "Uniq Reaction Fid": 24000,
+          "Uniq Cast Fid": 3100,
+          "Trailing AVG (7D)": 25500
+         },
+         {
+          "id": "2026-04",
+          "Month": "Apr 2026",
+          "Uniq Reaction Fid": 15200,
+          "Uniq Cast Fid": 2600,
+          "Trailing AVG (7D)": 19800
+         },
+         {
+          "id": "2026-05",
+          "Month": "May 2026",
+          "Uniq Reaction Fid": 11800,
+          "Uniq Cast Fid": 2100,
+          "Trailing AVG (7D)": 14300
+         },
+         {
+          "id": "2026-06",
+          "Month": "Jun 2026",
+          "Uniq Reaction Fid": 8600,
+          "Uniq Cast Fid": 1700,
+          "Trailing AVG (7D)": 10200
+         },
+         {
+          "id": "2026-07",
+          "Month": "Jul 2026",
+          "Uniq Reaction Fid": 6400,
+          "Uniq Cast Fid": 1400,
+          "Trailing AVG (7D)": 7600
+         },
+         {
+          "id": "2026-08",
+          "Month": "Aug 2026",
+          "Uniq Reaction Fid": 5100,
+          "Uniq Cast Fid": 1200,
+          "Trailing AVG (7D)": 5900
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "blocks": [
+       {
+        "kind": "chart",
+        "title": "Farcaster Cast/Reaction/Link Volume",
+        "template": "area",
+        "rows": [
+         {
+          "id": "2026-03",
+          "Month": "Mar 2026",
+          "Cast": 620000,
+          "Reaction": 540000,
+          "Link": 1840000
+         },
+         {
+          "id": "2026-04",
+          "Month": "Apr 2026",
+          "Cast": 410000,
+          "Reaction": 360000,
+          "Link": 520000
+         },
+         {
+          "id": "2026-05",
+          "Month": "May 2026",
+          "Cast": 330000,
+          "Reaction": 300000,
+          "Link": 410000
+         },
+         {
+          "id": "2026-06",
+          "Month": "Jun 2026",
+          "Cast": 260000,
+          "Reaction": 240000,
+          "Link": 300000
+         },
+         {
+          "id": "2026-07",
+          "Month": "Jul 2026",
+          "Cast": 200000,
+          "Reaction": 190000,
+          "Link": 240000
+         },
+         {
+          "id": "2026-08",
+          "Month": "Aug 2026",
+          "Cast": 170000,
+          "Reaction": 160000,
+          "Link": 200000
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "family": "Composition",
+  "accentSet": "guide"
+ },
+ {
+  "title": "Monad Improvement Proposals and their status as of September 2026",
+  "source": "mips.monad.xyz",
+  "dateAsOf": "2026-09-11",
+  "blocks": [
+   {
+    "kind": "table",
+    "keyColumn": "No.",
+    "accentPlacement": "text",
+    "accents": {
+     "mip-9": "withdrawn"
+    },
+    "rows": [
+     {
+      "id": "mip-1",
+      "No.": "MIP-1",
+      "Title": "MIP Purpose and Guidelines",
+      "Status": "Living",
+      "Notes": "Process definition"
+     },
+     {
+      "id": "mip-2",
+      "No.": "MIP-2",
+      "Title": "Increase Contract Code Size Limit",
+      "Status": "Final",
+      "Notes": "Code size 24KB → 128KB"
+     },
+     {
+      "id": "mip-3",
+      "No.": "MIP-3",
+      "Title": "Linear Memory",
+      "Status": "Final",
+      "Notes": "MONAD_NINE (Mar 19)"
+     },
+     {
+      "id": "mip-7",
+      "No.": "MIP-7",
+      "Title": "Extension opcodes",
+      "Status": "Draft",
+      "Notes": "Reserves 0xAE extension opcode"
+     },
+     {
+      "id": "mip-9",
+      "No.": "MIP-9",
+      "Title": "Active Set Increase",
+      "Status": "Withdrawn",
+      "Notes": "Withdrawn Jul 10, pending Cadence"
+     },
+     {
+      "id": "mip-12",
+      "No.": "MIP-12",
+      "Title": "Decrease Block Time",
+      "Status": "Final",
+      "Notes": "Block time 400ms → 300ms (Jul 23)"
+     }
+    ]
+   }
+  ],
+  "accents": {
+   "withdrawn": "amber"
+  },
+  "family": "Report patterns"
+ },
+ {
+  "title": "Where Monad's Validators Run",
+  "subtitle": "Active validator set by region and hosting provider",
+  "source": "BitCtrl",
+  "dateAsOf": "2026-09-11",
+  "accents": {
+   "concentrated": "amber"
+  },
+  "blocks": [
+   {
+    "kind": "cards",
+    "variant": "flat",
+    "columns": 4,
+    "gap": 24,
+    "accentPlacement": "none",
+    "items": [
+     {
+      "id": "a",
+      "eyebrow": "Active validators",
+      "title": "197",
+      "note": "cap is 200 (ACTIVE_VALSET_SIZE)"
+     },
+     {
+      "id": "b",
+      "eyebrow": "Three largest regions combined",
+      "title": "86%",
+      "note": "W. Europe, N. America, E. Europe · 169 validators"
+     },
+     {
+      "id": "c",
+      "eyebrow": "Asia",
+      "title": "8.6%",
+      "note": "17 validators, 6 providers"
+     },
+     {
+      "id": "d",
+      "eyebrow": "Largest provider shown",
+      "title": "OVHcloud",
+      "note": "33 validators · 16.8% of the set"
+     }
+    ]
+   },
+   {
+    "kind": "section",
+    "heading": "Validators by region",
+    "subtitle": "Count and share of the active set",
+    "blocks": [
+     {
+      "kind": "chart",
+      "template": "bar",
+      "style": "editorial",
+      "height": 460,
+      "fields": {
+       "category": "Region",
+       "value": "Validators",
+       "line": "Share"
+      },
+      "rows": [
+       {
+        "id": "we",
+        "Region": "Western Europe",
+        "Validators": 74,
+        "Share": "37.6%"
+       },
+       {
+        "id": "na",
+        "Region": "North America",
+        "Validators": 57,
+        "Share": "28.9%"
+       },
+       {
+        "id": "ee",
+        "Region": "Eastern Europe",
+        "Validators": 38,
+        "Share": "19.3%"
+       },
+       {
+        "id": "as",
+        "Region": "Asia",
+        "Validators": 17,
+        "Share": "8.6%"
+       },
+       {
+        "id": "oc",
+        "Region": "Oceania",
+        "Validators": 5,
+        "Share": "2.5%"
+       },
+       {
+        "id": "la",
+        "Region": "Latin America",
+        "Validators": 4,
+        "Share": "2.0%"
+       },
+       {
+        "id": "af",
+        "Region": "Africa",
+        "Validators": 2,
+        "Share": "1.0%"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "kind": "section",
+    "heading": "Concentration risk by region",
+    "subtitle": "Provider count and whether the region is diverse",
+    "blocks": [
+     {
+      "kind": "table",
+      "keyColumn": "Region",
+      "accentPlacement": "edge",
+      "accents": {
+       "oc": "concentrated"
+      },
+      "rows": [
+       {
+        "id": "we",
+        "Region": "Western Europe",
+        "Validators": 74,
+        "Providers": 25,
+        "Verdict": "Diverse"
+       },
+       {
+        "id": "ee",
+        "Region": "Eastern Europe",
+        "Validators": 38,
+        "Providers": 8,
+        "Verdict": "Diverse"
+       },
+       {
+        "id": "oc",
+        "Region": "Oceania",
+        "Validators": 5,
+        "Providers": 1,
+        "Verdict": "Concentrated"
+       },
+       {
+        "id": "af",
+        "Region": "Africa",
+        "Validators": 2,
+        "Providers": 2,
+        "Verdict": "Mixed"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "family": "Report patterns"
+ },
+ {
+  "title": "Hosting provider mix within each region",
+  "subtitle": "Share of the region's validators. \"Other\" groups providers outside the region's top three.",
+  "source": "BitCtrl",
+  "dateAsOf": "2026-09-11",
+  "template": "bar",
+  "chartStyle": "share",
+  "accents": {
+   "OVHcloud": "blue",
+   "Hetzner": "coral",
+   "Cherry Servers": "green",
+   "Latitude.sh": "amber"
+  },
+  "content": [
+   {
+    "id": "we",
+    "Region": "Western Europe",
+    "OVHcloud": 11,
+    "Hetzner": 13,
+    "Cherry Servers": 7,
+    "Latitude.sh": 0,
+    "Other": 43,
+    "Verdict": "25 providers · Diverse"
+   },
+   {
+    "id": "na",
+    "Region": "North America",
+    "OVHcloud": 10,
+    "Hetzner": 9,
+    "Cherry Servers": 0,
+    "Latitude.sh": 9,
+    "Other": 29,
+    "Verdict": "14 providers · Diverse"
+   },
+   {
+    "id": "ee",
+    "Region": "Eastern Europe",
+    "OVHcloud": 0,
+    "Hetzner": 13,
+    "Cherry Servers": 11,
+    "Latitude.sh": 0,
+    "Other": 14,
+    "Verdict": "8 providers · Diverse"
+   },
+   {
+    "id": "as",
+    "Region": "Asia",
+    "OVHcloud": 7,
+    "Hetzner": 0,
+    "Cherry Servers": 0,
+    "Latitude.sh": 0,
+    "Other": 10,
+    "Verdict": "6 providers · Diverse"
+   },
+   {
+    "id": "oc",
+    "Region": "Oceania",
+    "OVHcloud": 5,
+    "Hetzner": 0,
+    "Cherry Servers": 0,
+    "Latitude.sh": 0,
+    "Other": 0,
+    "Verdict": "1 provider · Concentrated"
+   },
+   {
+    "id": "la",
+    "Region": "Latin America",
+    "OVHcloud": 0,
+    "Hetzner": 0,
+    "Cherry Servers": 0,
+    "Latitude.sh": 2,
+    "Other": 2,
+    "Verdict": "3 providers · Mixed"
+   }
+  ],
+  "options": {
+   "fields": {
+    "category": "Region",
+    "columns": [
+     "OVHcloud",
+     "Hetzner",
+     "Cherry Servers",
+     "Latitude.sh",
+     "Other"
+    ],
+    "line": "Verdict"
+   }
+  },
+  "family": "Report patterns"
+ }
+]

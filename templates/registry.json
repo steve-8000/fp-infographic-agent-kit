@@ -1,0 +1,595 @@
+{
+  "version": 2,
+  "note": "Trigger semantics decide the grammar; budgets are editorial limits, not hard caps. Exceeding a budget should split overview and detail, never shrink type.",
+  "families": {
+    "table": [
+      "table"
+    ],
+    "cartesian": [
+      "bar",
+      "line",
+      "scatter",
+      "waterfall",
+      "area",
+      "combo"
+    ],
+    "radial": [
+      "donut",
+      "loop"
+    ],
+    "sequential": [
+      "timeline"
+    ],
+    "layered-graph": [
+      "process",
+      "flowchart",
+      "architecture",
+      "data-flow",
+      "deployment",
+      "dependency",
+      "tree"
+    ],
+    "lanes": [
+      "sequence",
+      "swimlane"
+    ],
+    "stack": [
+      "layers"
+    ],
+    "grid": [
+      "quadrant",
+      "matrix"
+    ],
+    "quantity-flow": [
+      "sankey"
+    ],
+    "composition": [
+      "compose"
+    ],
+    "entity": [
+      "er",
+      "uml-class",
+      "db-schema"
+    ],
+    "banded": [
+      "high-level",
+      "medallion",
+      "dp-integration",
+      "it-state"
+    ],
+    "board": [
+      "kanban",
+      "story-map"
+    ],
+    "shape": [
+      "venn",
+      "pyramid",
+      "funnel",
+      "nested",
+      "treemap"
+    ],
+    "radial-measure": [
+      "radar",
+      "polar"
+    ],
+    "schedule": [
+      "gantt"
+    ],
+    "map": [
+      "wardley"
+    ],
+    "causal": [
+      "fishbone"
+    ],
+    "experience": [
+      "journey"
+    ],
+    "graph": [
+      "flowchart",
+      "architecture",
+      "data-flow",
+      "deployment",
+      "dependency",
+      "tree",
+      "state",
+      "org-chart"
+    ]
+  },
+  "templates": [
+    {
+      "id": "table",
+      "intent": "table",
+      "trigger": [
+        "exact matrix",
+        "published terms",
+        "mixed units"
+      ],
+      "budget": {
+        "rows": 18,
+        "cols": 8
+      }
+    },
+    {
+      "id": "bar",
+      "intent": "compare",
+      "trigger": [
+        "categorical comparison",
+        "ranking"
+      ],
+      "budget": {
+        "categories": 14
+      }
+    },
+    {
+      "id": "line",
+      "intent": "trend",
+      "trigger": [
+        "time series",
+        "trajectory"
+      ],
+      "budget": {
+        "series": 6,
+        "points": 60
+      }
+    },
+    {
+      "id": "scatter",
+      "intent": "distribution",
+      "trigger": [
+        "correlation",
+        "spread"
+      ],
+      "budget": {
+        "points": 120
+      }
+    },
+    {
+      "id": "area",
+      "intent": "stacked",
+      "trigger": [
+        "composition over time",
+        "stacked volume"
+      ],
+      "budget": {
+        "series": 5,
+        "points": 60
+      }
+    },
+    {
+      "id": "combo",
+      "intent": "trend-with-average",
+      "trigger": [
+        "stacked bars with an overlay line",
+        "volume plus a trailing average"
+      ],
+      "budget": {
+        "series": 4,
+        "categories": 24
+      }
+    },
+    {
+      "id": "waterfall",
+      "intent": "auto",
+      "trigger": [
+        "running total",
+        "signed contributions"
+      ],
+      "budget": {
+        "steps": 12
+      }
+    },
+    {
+      "id": "donut",
+      "intent": "composition",
+      "trigger": [
+        "part to whole"
+      ],
+      "budget": {
+        "slices": 6
+      }
+    },
+    {
+      "id": "loop",
+      "intent": "cycle",
+      "trigger": [
+        "flywheel",
+        "feedback cycle"
+      ],
+      "budget": {
+        "steps": 8
+      }
+    },
+    {
+      "id": "timeline",
+      "intent": "timeline",
+      "trigger": [
+        "milestones",
+        "events over time"
+      ],
+      "budget": {
+        "events": 12
+      }
+    },
+    {
+      "id": "process",
+      "intent": "process",
+      "trigger": [
+        "multi stage workflow"
+      ],
+      "budget": {
+        "steps": 10
+      }
+    },
+    {
+      "id": "flowchart",
+      "intent": "flow",
+      "trigger": [
+        "decision logic",
+        "branching",
+        "guards"
+      ],
+      "budget": {
+        "nodes": 10
+      }
+    },
+    {
+      "id": "architecture",
+      "intent": "architecture",
+      "trigger": [
+        "components",
+        "trust boundaries"
+      ],
+      "budget": {
+        "nodes": 12
+      }
+    },
+    {
+      "id": "data-flow",
+      "intent": "pipeline",
+      "trigger": [
+        "producer consumer",
+        "pipeline"
+      ],
+      "budget": {
+        "nodes": 12
+      }
+    },
+    {
+      "id": "deployment",
+      "intent": "deployment",
+      "trigger": [
+        "zones",
+        "hosts",
+        "replicas"
+      ],
+      "budget": {
+        "nodes": 14
+      }
+    },
+    {
+      "id": "dependency",
+      "intent": "dependency",
+      "trigger": [
+        "fan in",
+        "cycles",
+        "coupling"
+      ],
+      "budget": {
+        "nodes": 15
+      }
+    },
+    {
+      "id": "tree",
+      "intent": "hierarchy",
+      "trigger": [
+        "containment",
+        "decomposition"
+      ],
+      "budget": {
+        "nodes": 15
+      }
+    },
+    {
+      "id": "sequence",
+      "intent": "interaction",
+      "trigger": [
+        "messages between actors"
+      ],
+      "budget": {
+        "lanes": 6,
+        "steps": 14
+      }
+    },
+    {
+      "id": "swimlane",
+      "intent": "handoff",
+      "trigger": [
+        "cross functional ownership"
+      ],
+      "budget": {
+        "lanes": 5,
+        "steps": 15
+      }
+    },
+    {
+      "id": "layers",
+      "intent": "layering",
+      "trigger": [
+        "stacked abstraction",
+        "controls"
+      ],
+      "budget": {
+        "layers": 7
+      }
+    },
+    {
+      "id": "quadrant",
+      "intent": "positioning",
+      "trigger": [
+        "two real axes"
+      ],
+      "budget": {
+        "items": 16
+      }
+    },
+    {
+      "id": "sankey",
+      "intent": "quantity-flow",
+      "trigger": [
+        "quantity split and merge"
+      ],
+      "budget": {
+        "stages": 5,
+        "flows": 16
+      }
+    },
+    {
+      "id": "state",
+      "intent": "lifecycle",
+      "trigger": [
+        "states and transitions"
+      ],
+      "budget": {
+        "nodes": 12
+      }
+    },
+    {
+      "id": "er",
+      "intent": "entities",
+      "trigger": [
+        "entities and their relations"
+      ],
+      "budget": {
+        "entities": 8
+      }
+    },
+    {
+      "id": "uml-class",
+      "intent": "entities",
+      "trigger": [
+        "classes, operations and typed relations"
+      ],
+      "budget": {
+        "classes": 8
+      }
+    },
+    {
+      "id": "db-schema",
+      "intent": "entities",
+      "trigger": [
+        "physical tables and column foreign keys"
+      ],
+      "budget": {
+        "tables": 8
+      }
+    },
+    {
+      "id": "nested",
+      "intent": "containment",
+      "trigger": [
+        "hierarchy by containment"
+      ],
+      "budget": {
+        "shells": 4
+      }
+    },
+    {
+      "id": "org-chart",
+      "intent": "ownership",
+      "trigger": [
+        "ownership and routing"
+      ],
+      "budget": {
+        "nodes": 15
+      }
+    },
+    {
+      "id": "venn",
+      "intent": "overlap",
+      "trigger": [
+        "set overlap"
+      ],
+      "budget": {
+        "sets": 3
+      }
+    },
+    {
+      "id": "pyramid",
+      "intent": "ranked-tiers",
+      "trigger": [
+        "ranked hierarchy"
+      ],
+      "budget": {
+        "tiers": 6
+      }
+    },
+    {
+      "id": "funnel",
+      "intent": "drop-off",
+      "trigger": [
+        "stage drop-off"
+      ],
+      "budget": {
+        "stages": 6
+      }
+    },
+    {
+      "id": "treemap",
+      "intent": "area-share",
+      "trigger": [
+        "part of whole by area"
+      ],
+      "budget": {
+        "cells": 16
+      }
+    },
+    {
+      "id": "gantt",
+      "intent": "schedule",
+      "trigger": [
+        "tasks and phases on a timeline"
+      ],
+      "budget": {
+        "tasks": 14
+      }
+    },
+    {
+      "id": "radar",
+      "intent": "multi-axis",
+      "trigger": [
+        "multi-axis comparison"
+      ],
+      "budget": {
+        "axes": 8,
+        "series": 3
+      }
+    },
+    {
+      "id": "polar",
+      "intent": "cyclic",
+      "trigger": [
+        "cyclic magnitude on a linear radius"
+      ],
+      "budget": {
+        "sectors": 12
+      }
+    },
+    {
+      "id": "fishbone",
+      "intent": "causes",
+      "trigger": [
+        "grouped causes to one effect"
+      ],
+      "budget": {
+        "groups": 6
+      }
+    },
+    {
+      "id": "wardley",
+      "intent": "evolution",
+      "trigger": [
+        "value chain against evolution"
+      ],
+      "budget": {
+        "components": 14
+      }
+    },
+    {
+      "id": "kanban",
+      "intent": "work-state",
+      "trigger": [
+        "work in progress by state"
+      ],
+      "budget": {
+        "columns": 5
+      }
+    },
+    {
+      "id": "story-map",
+      "intent": "backbone",
+      "trigger": [
+        "backbone against release slices"
+      ],
+      "budget": {
+        "columns": 6
+      }
+    },
+    {
+      "id": "journey",
+      "intent": "experience",
+      "trigger": [
+        "stages, actions and sentiment"
+      ],
+      "budget": {
+        "stages": 6
+      }
+    },
+    {
+      "id": "high-level",
+      "intent": "landscape",
+      "trigger": [
+        "end-to-end stack on a cluster"
+      ],
+      "budget": {
+        "bands": 5
+      }
+    },
+    {
+      "id": "medallion",
+      "intent": "tiering",
+      "trigger": [
+        "multi-tier data storage"
+      ],
+      "budget": {
+        "tiers": 3
+      }
+    },
+    {
+      "id": "dp-integration",
+      "intent": "landscape",
+      "trigger": [
+        "sources to core to consumers"
+      ],
+      "budget": {
+        "bands": 3
+      }
+    },
+    {
+      "id": "it-state",
+      "intent": "landscape",
+      "trigger": [
+        "legacy landscape and modernization"
+      ],
+      "budget": {
+        "bands": 4
+      }
+    },
+    {
+      "id": "matrix",
+      "intent": "permissions",
+      "trigger": [
+        "per-role access permissions"
+      ],
+      "budget": {
+        "rows": 12,
+        "columns": 6
+      }
+    }
+  ],
+  "blocks": {
+    "note": "Free composition. A block may embed any grammar through `chart`.",
+    "kinds": [
+      "text",
+      "columns",
+      "cards",
+      "panel",
+      "kpi",
+      "steps",
+      "stages",
+      "chart",
+      "divider",
+      "spacer"
+    ],
+    "stages": "Actors in a handoff, each with grouped field rows, numbered connectors and a numbered legend."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Validator Revenue Comparison",
+  "subtitle": "Monthly gross revenue by network",
+  "source": "Operator ledger",
+  "dateAsOf": "2026-09-11",
+  "locale": "ko-KR",
+  "intent": "compare",
+  "highlightIds": ["ethereum"],
+  "content": [
+    {"id":"ethereum","network":"Ethereum","revenueUsd":12840},
+    {"id":"sui","network":"Sui","revenueUsd":7130},
+    {"id":"walrus","network":"Walrus","revenueUsd":5920}
+  ],
+  "options": {"strictFidelity":true,"targetDensity":4,"output":"figma"}
+}

@@ -1,0 +1,304 @@
+[
+ {
+  "title": "Monad Improvement Proposals and their status as of September 2026",
+  "source": "mips.monad.xyz",
+  "dateAsOf": "2026-09-11",
+  "blocks": [
+   {
+    "kind": "table",
+    "keyColumn": "No.",
+    "accentPlacement": "text",
+    "accents": {
+     "mip-9": "withdrawn"
+    },
+    "rows": [
+     {
+      "id": "mip-1",
+      "No.": "MIP-1",
+      "Title": "MIP Purpose and Guidelines",
+      "Status": "Living",
+      "Notes": "Process definition"
+     },
+     {
+      "id": "mip-2",
+      "No.": "MIP-2",
+      "Title": "Increase Contract Code Size Limit",
+      "Status": "Final",
+      "Notes": "Code size 24KB → 128KB"
+     },
+     {
+      "id": "mip-3",
+      "No.": "MIP-3",
+      "Title": "Linear Memory",
+      "Status": "Final",
+      "Notes": "MONAD_NINE (Mar 19)"
+     },
+     {
+      "id": "mip-7",
+      "No.": "MIP-7",
+      "Title": "Extension opcodes",
+      "Status": "Draft",
+      "Notes": "Reserves 0xAE extension opcode"
+     },
+     {
+      "id": "mip-9",
+      "No.": "MIP-9",
+      "Title": "Active Set Increase",
+      "Status": "Withdrawn",
+      "Notes": "Withdrawn Jul 10, pending Cadence"
+     },
+     {
+      "id": "mip-12",
+      "No.": "MIP-12",
+      "Title": "Decrease Block Time",
+      "Status": "Final",
+      "Notes": "Block time 400ms → 300ms (Jul 23)"
+     }
+    ]
+   }
+  ],
+  "accents": {
+   "withdrawn": "amber"
+  }
+ },
+ {
+  "title": "Where Monad's Validators Run",
+  "subtitle": "Active validator set by region and hosting provider",
+  "source": "BitCtrl",
+  "dateAsOf": "2026-09-11",
+  "accents": {
+   "concentrated": "amber"
+  },
+  "blocks": [
+   {
+    "kind": "cards",
+    "variant": "flat",
+    "columns": 4,
+    "gap": 24,
+    "accentPlacement": "none",
+    "items": [
+     {
+      "id": "a",
+      "eyebrow": "Active validators",
+      "title": "197",
+      "note": "cap is 200 (ACTIVE_VALSET_SIZE)"
+     },
+     {
+      "id": "b",
+      "eyebrow": "Three largest regions combined",
+      "title": "86%",
+      "note": "W. Europe, N. America, E. Europe · 169 validators"
+     },
+     {
+      "id": "c",
+      "eyebrow": "Asia",
+      "title": "8.6%",
+      "note": "17 validators, 6 providers"
+     },
+     {
+      "id": "d",
+      "eyebrow": "Largest provider shown",
+      "title": "OVHcloud",
+      "note": "33 validators · 16.8% of the set"
+     }
+    ]
+   },
+   {
+    "kind": "section",
+    "heading": "Validators by region",
+    "subtitle": "Count and share of the active set",
+    "blocks": [
+     {
+      "kind": "chart",
+      "template": "bar",
+      "style": "editorial",
+      "height": 460,
+      "fields": {
+       "category": "Region",
+       "value": "Validators",
+       "line": "Share"
+      },
+      "rows": [
+       {
+        "id": "we",
+        "Region": "Western Europe",
+        "Validators": 74,
+        "Share": "37.6%"
+       },
+       {
+        "id": "na",
+        "Region": "North America",
+        "Validators": 57,
+        "Share": "28.9%"
+       },
+       {
+        "id": "ee",
+        "Region": "Eastern Europe",
+        "Validators": 38,
+        "Share": "19.3%"
+       },
+       {
+        "id": "as",
+        "Region": "Asia",
+        "Validators": 17,
+        "Share": "8.6%"
+       },
+       {
+        "id": "oc",
+        "Region": "Oceania",
+        "Validators": 5,
+        "Share": "2.5%"
+       },
+       {
+        "id": "la",
+        "Region": "Latin America",
+        "Validators": 4,
+        "Share": "2.0%"
+       },
+       {
+        "id": "af",
+        "Region": "Africa",
+        "Validators": 2,
+        "Share": "1.0%"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "kind": "section",
+    "heading": "Concentration risk by region",
+    "subtitle": "Provider count and whether the region is diverse",
+    "blocks": [
+     {
+      "kind": "table",
+      "keyColumn": "Region",
+      "accentPlacement": "edge",
+      "accents": {
+       "oc": "concentrated"
+      },
+      "rows": [
+       {
+        "id": "we",
+        "Region": "Western Europe",
+        "Validators": 74,
+        "Providers": 25,
+        "Verdict": "Diverse"
+       },
+       {
+        "id": "ee",
+        "Region": "Eastern Europe",
+        "Validators": 38,
+        "Providers": 8,
+        "Verdict": "Diverse"
+       },
+       {
+        "id": "oc",
+        "Region": "Oceania",
+        "Validators": 5,
+        "Providers": 1,
+        "Verdict": "Concentrated"
+       },
+       {
+        "id": "af",
+        "Region": "Africa",
+        "Validators": 2,
+        "Providers": 2,
+        "Verdict": "Mixed"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Hosting provider mix within each region",
+  "subtitle": "Share of the region's validators. \"Other\" groups providers outside the region's top three.",
+  "source": "BitCtrl",
+  "dateAsOf": "2026-09-11",
+  "template": "bar",
+  "chartStyle": "share",
+  "accents": {
+   "OVHcloud": "blue",
+   "Hetzner": "coral",
+   "Cherry Servers": "green",
+   "Latitude.sh": "amber"
+  },
+  "content": [
+   {
+    "id": "we",
+    "Region": "Western Europe",
+    "OVHcloud": 11,
+    "Hetzner": 13,
+    "Cherry Servers": 7,
+    "Latitude.sh": 0,
+    "Other": 43,
+    "Verdict": "25 providers · Diverse"
+   },
+   {
+    "id": "na",
+    "Region": "North America",
+    "OVHcloud": 10,
+    "Hetzner": 9,
+    "Cherry Servers": 0,
+    "Latitude.sh": 9,
+    "Other": 29,
+    "Verdict": "14 providers · Diverse"
+   },
+   {
+    "id": "ee",
+    "Region": "Eastern Europe",
+    "OVHcloud": 0,
+    "Hetzner": 13,
+    "Cherry Servers": 11,
+    "Latitude.sh": 0,
+    "Other": 14,
+    "Verdict": "8 providers · Diverse"
+   },
+   {
+    "id": "as",
+    "Region": "Asia",
+    "OVHcloud": 7,
+    "Hetzner": 0,
+    "Cherry Servers": 0,
+    "Latitude.sh": 0,
+    "Other": 10,
+    "Verdict": "6 providers · Diverse"
+   },
+   {
+    "id": "oc",
+    "Region": "Oceania",
+    "OVHcloud": 5,
+    "Hetzner": 0,
+    "Cherry Servers": 0,
+    "Latitude.sh": 0,
+    "Other": 0,
+    "Verdict": "1 provider · Concentrated"
+   },
+   {
+    "id": "la",
+    "Region": "Latin America",
+    "OVHcloud": 0,
+    "Hetzner": 0,
+    "Cherry Servers": 0,
+    "Latitude.sh": 2,
+    "Other": 2,
+    "Verdict": "3 providers · Mixed"
+   }
+  ],
+  "options": {
+   "fields": {
+    "category": "Region",
+    "columns": [
+     "OVHcloud",
+     "Hetzner",
+     "Cherry Servers",
+     "Latitude.sh",
+     "Other"
+    ],
+    "line": "Verdict"
+   }
+  }
+ }
+]

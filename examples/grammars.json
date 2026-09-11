@@ -1,0 +1,877 @@
+[
+ {
+  "title": "state specimen",
+  "source": "Smoke test",
+  "template": "state",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "idle",
+     "label": "Idle"
+    },
+    {
+     "id": "run",
+     "label": "Running"
+    },
+    {
+     "id": "done",
+     "label": "Settled"
+    }
+   ],
+   "edges": [
+    {
+     "from": "idle",
+     "to": "run",
+     "label": "start"
+    },
+    {
+     "from": "run",
+     "to": "done",
+     "label": "finalise"
+    },
+    {
+     "from": "run",
+     "to": "idle",
+     "label": "abort"
+    }
+   ]
+  }
+ },
+ {
+  "title": "er specimen",
+  "source": "Smoke test",
+  "template": "er",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "user",
+     "label": "user",
+     "fields": [
+      {
+       "name": "id",
+       "type": "uuid",
+       "key": "PK"
+      },
+      {
+       "name": "email",
+       "type": "text"
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "label": "order",
+     "fields": [
+      {
+       "name": "id",
+       "type": "uuid",
+       "key": "PK"
+      },
+      {
+       "name": "user_id",
+       "type": "uuid",
+       "key": "FK"
+      },
+      {
+       "name": "total",
+       "type": "numeric"
+      }
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "from": "user",
+     "to": "order",
+     "label": "1..n"
+    }
+   ]
+  }
+ },
+ {
+  "title": "uml-class specimen",
+  "source": "Smoke test",
+  "template": "uml-class",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "vault",
+     "label": "Vault",
+     "fields": [
+      {
+       "name": "deposit()",
+       "type": "void"
+      },
+      {
+       "name": "withdraw()",
+       "type": "void"
+      }
+     ]
+    },
+    {
+     "id": "strategy",
+     "label": "Strategy",
+     "fields": [
+      {
+       "name": "harvest()",
+       "type": "uint256"
+      }
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "from": "vault",
+     "to": "strategy",
+     "label": "uses"
+    }
+   ]
+  }
+ },
+ {
+  "title": "db-schema specimen",
+  "source": "Smoke test",
+  "template": "db-schema",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "blocks",
+     "label": "blocks",
+     "fields": [
+      {
+       "name": "number",
+       "type": "bigint",
+       "key": "PK"
+      },
+      {
+       "name": "hash",
+       "type": "bytea"
+      }
+     ]
+    },
+    {
+     "id": "txs",
+     "label": "transactions",
+     "fields": [
+      {
+       "name": "hash",
+       "type": "bytea",
+       "key": "PK"
+      },
+      {
+       "name": "block_number",
+       "type": "bigint",
+       "key": "FK"
+      }
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "from": "blocks",
+     "to": "txs"
+    }
+   ]
+  }
+ },
+ {
+  "title": "nested specimen",
+  "source": "Smoke test",
+  "template": "nested",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Sequencer",
+     "group": "Operator"
+    },
+    {
+     "id": "b",
+     "label": "Prover",
+     "group": "Operator"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Trust anchor",
+     "label": "Trust anchor"
+    },
+    {
+     "id": "Shared",
+     "label": "Shared"
+    },
+    {
+     "id": "Operator",
+     "label": "Operator"
+    }
+   ]
+  }
+ },
+ {
+  "title": "org-chart specimen",
+  "source": "Smoke test",
+  "template": "org-chart",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Research lead"
+    },
+    {
+     "id": "b",
+     "label": "Protocol"
+    },
+    {
+     "id": "c",
+     "label": "Markets"
+    }
+   ],
+   "edges": [
+    {
+     "from": "a",
+     "to": "b"
+    },
+    {
+     "from": "a",
+     "to": "c"
+    }
+   ]
+  }
+ },
+ {
+  "title": "venn specimen",
+  "source": "Smoke test",
+  "template": "venn",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Custody",
+     "note": "regulated"
+    },
+    {
+     "id": "b",
+     "label": "Settlement",
+     "note": "onchain"
+    }
+   ],
+   "edges": [
+    {
+     "from": "a",
+     "to": "b",
+     "label": "Tokenised treasuries"
+    }
+   ]
+  }
+ },
+ {
+  "title": "pyramid specimen",
+  "source": "Smoke test",
+  "template": "pyramid",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Settlement",
+     "value": 1
+    },
+    {
+     "id": "b",
+     "label": "Execution",
+     "value": 4
+    },
+    {
+     "id": "c",
+     "label": "Distribution",
+     "value": 12
+    }
+   ]
+  }
+ },
+ {
+  "title": "funnel specimen",
+  "source": "Smoke test",
+  "template": "funnel",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Visitors",
+     "value": 12000
+    },
+    {
+     "id": "b",
+     "label": "Verified",
+     "value": 3400
+    },
+    {
+     "id": "c",
+     "label": "Funded",
+     "value": 820
+    }
+   ]
+  }
+ },
+ {
+  "title": "treemap specimen",
+  "source": "Smoke test",
+  "template": "treemap",
+  "content": [
+   {
+    "id": "0",
+    "Category": "Item 1",
+    "Value": 49
+   },
+   {
+    "id": "1",
+    "Category": "Item 2",
+    "Value": 42
+   },
+   {
+    "id": "2",
+    "Category": "Item 3",
+    "Value": 35
+   },
+   {
+    "id": "3",
+    "Category": "Item 4",
+    "Value": 28
+   },
+   {
+    "id": "4",
+    "Category": "Item 5",
+    "Value": 21
+   },
+   {
+    "id": "5",
+    "Category": "Item 6",
+    "Value": 14
+   },
+   {
+    "id": "6",
+    "Category": "Item 7",
+    "Value": 7
+   }
+  ]
+ },
+ {
+  "title": "gantt specimen",
+  "source": "Smoke test",
+  "template": "gantt",
+  "content": [
+   {
+    "id": "a",
+    "Task": "Audit",
+    "Start": 0,
+    "End": 6
+   },
+   {
+    "id": "b",
+    "Task": "Testnet",
+    "Start": 4,
+    "End": 12
+   },
+   {
+    "id": "c",
+    "Task": "Mainnet",
+    "Start": 11,
+    "End": 16
+   }
+  ]
+ },
+ {
+  "title": "radar specimen",
+  "source": "Smoke test",
+  "template": "radar",
+  "content": [
+   {
+    "id": "a",
+    "Axis": "Liquidity",
+    "Ethereum": 8,
+    "Solana": 6
+   },
+   {
+    "id": "b",
+    "Axis": "Decentralisation",
+    "Ethereum": 9,
+    "Solana": 4
+   },
+   {
+    "id": "c",
+    "Axis": "Throughput",
+    "Ethereum": 3,
+    "Solana": 9
+   },
+   {
+    "id": "d",
+    "Axis": "Tooling",
+    "Ethereum": 9,
+    "Solana": 7
+   },
+   {
+    "id": "e",
+    "Axis": "Custody",
+    "Ethereum": 8,
+    "Solana": 5
+   }
+  ]
+ },
+ {
+  "title": "polar specimen",
+  "source": "Smoke test",
+  "template": "polar",
+  "content": [
+   {
+    "id": "a",
+    "Hour": "00",
+    "Volume": 12
+   },
+   {
+    "id": "b",
+    "Hour": "06",
+    "Volume": 34
+   },
+   {
+    "id": "c",
+    "Hour": "12",
+    "Volume": 58
+   },
+   {
+    "id": "d",
+    "Hour": "18",
+    "Volume": 41
+   }
+  ]
+ },
+ {
+  "title": "fishbone specimen",
+  "source": "Smoke test",
+  "template": "fishbone",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "c1",
+     "label": "Stale oracle",
+     "group": "Data"
+    },
+    {
+     "id": "c2",
+     "label": "Thin book",
+     "group": "Market"
+    },
+    {
+     "id": "c3",
+     "label": "Missed alert",
+     "group": "Process"
+    },
+    {
+     "id": "c4",
+     "label": "Single region",
+     "group": "Infra"
+    },
+    {
+     "id": "e",
+     "label": "Liquidation cascade",
+     "kind": "effect"
+    }
+   ]
+  }
+ },
+ {
+  "title": "wardley specimen",
+  "source": "Smoke test",
+  "template": "wardley",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "u",
+     "label": "Institution",
+     "x": 0.82,
+     "y": 0.95
+    },
+    {
+     "id": "c",
+     "label": "Custody",
+     "x": 0.6,
+     "y": 0.7
+    },
+    {
+     "id": "s",
+     "label": "Settlement",
+     "x": 0.78,
+     "y": 0.45
+    },
+    {
+     "id": "n",
+     "label": "Consensus",
+     "x": 0.9,
+     "y": 0.2
+    }
+   ],
+   "edges": [
+    {
+     "from": "u",
+     "to": "c"
+    },
+    {
+     "from": "c",
+     "to": "s"
+    },
+    {
+     "from": "s",
+     "to": "n"
+    }
+   ]
+  }
+ },
+ {
+  "title": "kanban specimen",
+  "source": "Smoke test",
+  "template": "kanban",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Oracle upgrade",
+     "group": "In progress",
+     "note": "Roy"
+    },
+    {
+     "id": "b",
+     "label": "Slashing report",
+     "group": "Review",
+     "note": "Jay"
+    },
+    {
+     "id": "c",
+     "label": "Fee model",
+     "group": "Backlog"
+    },
+    {
+     "id": "d",
+     "label": "Runbook",
+     "group": "Done"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Backlog",
+     "label": "Backlog"
+    },
+    {
+     "id": "In progress",
+     "label": "In progress"
+    },
+    {
+     "id": "Review",
+     "label": "Review"
+    },
+    {
+     "id": "Done",
+     "label": "Done"
+    }
+   ]
+  }
+ },
+ {
+  "title": "story-map specimen",
+  "source": "Smoke test",
+  "template": "story-map",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Onboard",
+     "group": "Discover"
+    },
+    {
+     "id": "a2",
+     "label": "Connect wallet",
+     "group": "Discover"
+    },
+    {
+     "id": "b",
+     "label": "Allocate",
+     "group": "Invest"
+    },
+    {
+     "id": "b2",
+     "label": "Choose vault",
+     "group": "Invest"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Discover",
+     "label": "Discover"
+    },
+    {
+     "id": "Invest",
+     "label": "Invest"
+    }
+   ]
+  }
+ },
+ {
+  "title": "journey specimen",
+  "source": "Smoke test",
+  "template": "journey",
+  "content": [
+   {
+    "id": "a",
+    "Stage": "Discover",
+    "Action": "Reads the research note",
+    "Sentiment": 3
+   },
+   {
+    "id": "b",
+    "Stage": "Evaluate",
+    "Action": "Compares custody terms",
+    "Sentiment": 2
+   },
+   {
+    "id": "c",
+    "Stage": "Commit",
+    "Action": "Signs the subscription",
+    "Sentiment": 4
+   },
+   {
+    "id": "d",
+    "Stage": "Hold",
+    "Action": "Monitors monthly reporting",
+    "Sentiment": 5
+   }
+  ]
+ },
+ {
+  "title": "high-level specimen",
+  "source": "Smoke test",
+  "template": "high-level",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "n0",
+     "label": "Node 1",
+     "note": null,
+     "group": "Edge"
+    },
+    {
+     "id": "n1",
+     "label": "Node 2",
+     "note": "detail",
+     "group": "Core"
+    },
+    {
+     "id": "n2",
+     "label": "Node 3",
+     "note": null,
+     "group": "Store"
+    },
+    {
+     "id": "n3",
+     "label": "Node 4",
+     "note": "detail",
+     "group": "Edge"
+    },
+    {
+     "id": "n4",
+     "label": "Node 5",
+     "note": null,
+     "group": "Core"
+    },
+    {
+     "id": "n5",
+     "label": "Node 6",
+     "note": "detail",
+     "group": "Store"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Edge",
+     "label": "Edge"
+    },
+    {
+     "id": "Core",
+     "label": "Core"
+    },
+    {
+     "id": "Store",
+     "label": "Storage"
+    }
+   ]
+  }
+ },
+ {
+  "title": "medallion specimen",
+  "source": "Smoke test",
+  "template": "medallion",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "b1",
+     "label": "Raw events",
+     "group": "Bronze"
+    },
+    {
+     "id": "s1",
+     "label": "Conformed",
+     "group": "Silver"
+    },
+    {
+     "id": "g1",
+     "label": "Marts",
+     "group": "Gold"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Bronze",
+     "label": "Bronze"
+    },
+    {
+     "id": "Silver",
+     "label": "Silver"
+    },
+    {
+     "id": "Gold",
+     "label": "Gold"
+    }
+   ]
+  }
+ },
+ {
+  "title": "dp-integration specimen",
+  "source": "Smoke test",
+  "template": "dp-integration",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "s1",
+     "label": "Exchanges",
+     "group": "Sources"
+    },
+    {
+     "id": "s2",
+     "label": "Nodes",
+     "group": "Sources"
+    },
+    {
+     "id": "c1",
+     "label": "Lakehouse",
+     "group": "Core"
+    },
+    {
+     "id": "x1",
+     "label": "Research",
+     "group": "Consumers"
+    },
+    {
+     "id": "x2",
+     "label": "Alerts",
+     "group": "Consumers"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Sources",
+     "label": "Sources"
+    },
+    {
+     "id": "Core",
+     "label": "Core"
+    },
+    {
+     "id": "Consumers",
+     "label": "Consumers"
+    }
+   ]
+  }
+ },
+ {
+  "title": "it-state specimen",
+  "source": "Smoke test",
+  "template": "it-state",
+  "content": {},
+  "diagram": {
+   "nodes": [
+    {
+     "id": "a",
+     "label": "Legacy ledger",
+     "group": "Retire",
+     "status": "decommission 2027"
+    },
+    {
+     "id": "b",
+     "label": "Custody API",
+     "group": "Keep",
+     "status": "strategic"
+    },
+    {
+     "id": "c",
+     "label": "Reporting",
+     "group": "Replace",
+     "status": "migrate"
+    }
+   ],
+   "groups": [
+    {
+     "id": "Keep",
+     "label": "Keep"
+    },
+    {
+     "id": "Replace",
+     "label": "Replace"
+    },
+    {
+     "id": "Retire",
+     "label": "Retire"
+    }
+   ]
+  }
+ },
+ {
+  "title": "matrix specimen",
+  "source": "Smoke test",
+  "template": "matrix",
+  "content": [
+   {
+    "id": "analyst",
+    "Role": "Analyst",
+    "Raw": "read",
+    "Curated": "read",
+    "Marts": "read/write"
+   },
+   {
+    "id": "engineer",
+    "Role": "Engineer",
+    "Raw": "read/write",
+    "Curated": "read/write",
+    "Marts": "read"
+   },
+   {
+    "id": "auditor",
+    "Role": "Auditor",
+    "Raw": "read",
+    "Curated": "read",
+    "Marts": "read"
+   }
+  ]
+ }
+]

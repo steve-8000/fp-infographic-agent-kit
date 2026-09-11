@@ -1,0 +1,24 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://fp.local/schemas/fp-ir.schema.json",
+  "title":"FP Intermediate Representation",
+  "type":"object",
+  "required":["version","document","visual","fidelity"],
+  "properties": {
+    "version":{"const":"fp-ir/1"},
+    "document":{"type":"object","required":["title","blocks"],"properties":{"title":{"type":"string"},"subtitle":{"type":"string"},"source":{"type":"string"},"dateAsOf":{"type":"string"},"note":{"type":"string"},"locale":{"type":"string"},"blocks":{"type":"array","items":{"type":"object"}}}},
+    "visual":{"type":"object","required":["template","theme"],"properties":{"template":{"type":"string"},"theme":{"const":"fp-v1"},"accent":{"enum":["none","blue","teal","green","amber","coral","pink","violet","brand"]},"highlightIds":{"type":"array","items":{"type":"string"}},"density":{"type":"number"}}},
+    "diagram":{"$ref":"#/$defs/diagram"},
+    "fidelity":{"type":"object","required":["immutableFacts","noInventedData"],"properties":{"immutableFacts":{"type":"array","items":{"type":"string"}},"noInventedData":{"const":true},"checksum":{"type":"string"}}}
+  },
+  "$defs": {
+    "diagram": {
+      "type":"object",
+      "properties": {
+        "nodes":{"type":"array","items":{"type":"object","required":["id","label"],"properties":{"id":{"type":"string"},"label":{"type":"string"},"kind":{"type":"string"},"group":{"type":"string"},"value":{}}}},
+        "edges":{"type":"array","items":{"type":"object","required":["from","to"],"properties":{"from":{"type":"string"},"to":{"type":"string"},"label":{"type":"string"},"style":{"enum":["solid","dashed","bidirectional"]}}}},
+        "groups":{"type":"array","items":{"type":"object"}}
+      }
+    }
+  }
+}

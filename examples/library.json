@@ -1,0 +1,374 @@
+[
+  {
+    "title": "Restaking protocol comparison",
+    "subtitle": "Operator-facing terms as published, Q3 2026",
+    "source": "Protocol documentation",
+    "dateAsOf": "2026-09-11",
+    "template": "table",
+    "content": [
+      {"id": "eigenlayer", "Protocol": "EigenLayer", "Chain": "Ethereum", "Operator fee": "10%", "Unbonding": "7 days", "Slashing": "Live"},
+      {"id": "symbiotic", "Protocol": "Symbiotic", "Chain": "Ethereum", "Operator fee": "Configurable", "Unbonding": "Vault-defined", "Slashing": "Live"},
+      {"id": "karak", "Protocol": "Karak", "Chain": "Multi", "Operator fee": "5%", "Unbonding": "7 days", "Slashing": "Announced"},
+      {"id": "babylon", "Protocol": "Babylon", "Chain": "Bitcoin", "Operator fee": "Not published", "Unbonding": "Timelock", "Slashing": "Live"}
+    ]
+  },
+  {
+    "title": "Sequencer revenue by network",
+    "subtitle": "Gross sequencer revenue, monthly",
+    "source": "Operator ledger",
+    "dateAsOf": "2026-09-11",
+    "intent": "compare",
+    "content": [
+      {"id": "base", "Network": "Base", "Revenue (USD)": 4820000},
+      {"id": "arbitrum", "Network": "Arbitrum", "Revenue (USD)": 3910000},
+      {"id": "optimism", "Network": "Optimism", "Revenue (USD)": 2240000},
+      {"id": "zksync", "Network": "zkSync", "Revenue (USD)": 980000},
+      {"id": "linea", "Network": "Linea", "Revenue (USD)": 610000}
+    ]
+  },
+  {
+    "title": "Stablecoin supply trend",
+    "subtitle": "Circulating supply, billions USD",
+    "source": "On-chain aggregation",
+    "dateAsOf": "2026-09-11",
+    "intent": "trend",
+    "content": [
+      {"Month": "2026-03", "USDT": 112, "USDC": 61, "USDe": 9},
+      {"Month": "2026-04", "USDT": 116, "USDC": 63, "USDe": 11},
+      {"Month": "2026-05", "USDT": 119, "USDC": 66, "USDe": 14},
+      {"Month": "2026-06", "USDT": 123, "USDC": 68, "USDe": 16},
+      {"Month": "2026-07", "USDT": 128, "USDC": 71, "USDe": 15},
+      {"Month": "2026-08", "USDT": 131, "USDC": 74, "USDe": 18}
+    ]
+  },
+  {
+    "title": "Validator yield versus stake concentration",
+    "subtitle": "Each point is one operator",
+    "source": "Operator survey",
+    "dateAsOf": "2026-09-11",
+    "intent": "distribution",
+    "content": [
+      {"id": "a", "Operator": "Alpha", "Stake share (%)": 12, "Net yield (%)": 3.4},
+      {"id": "b", "Operator": "Bravo", "Stake share (%)": 8, "Net yield (%)": 3.9},
+      {"id": "c", "Operator": "Coral", "Stake share (%)": 21, "Net yield (%)": 2.8},
+      {"id": "d", "Operator": "Delta", "Stake share (%)": 4, "Net yield (%)": 4.4},
+      {"id": "e", "Operator": "Echo", "Stake share (%)": 16, "Net yield (%)": 3.1}
+    ]
+  },
+  {
+    "title": "Treasury movement, first half",
+    "subtitle": "Signed contributions to closing balance",
+    "source": "Treasury report",
+    "dateAsOf": "2026-09-11",
+    "intent": "auto",
+    "template": "waterfall",
+    "content": [
+      {"id": "open", "Item": "Opening", "Amount (USD m)": 42},
+      {"id": "fees", "Item": "Protocol fees", "Amount (USD m)": 18},
+      {"id": "grants", "Item": "Grants", "Amount (USD m)": -7},
+      {"id": "ops", "Item": "Operations", "Amount (USD m)": -11},
+      {"id": "invest", "Item": "Investments", "Amount (USD m)": -6}
+    ]
+  },
+  {
+    "title": "Block space demand by category",
+    "subtitle": "Share of gas consumed",
+    "source": "Chain analytics",
+    "dateAsOf": "2026-09-11",
+    "intent": "composition",
+    "content": [
+      {"id": "defi", "Category": "DeFi", "Share (%)": 38},
+      {"id": "transfers", "Category": "Transfers", "Share (%)": 24},
+      {"id": "nft", "Category": "NFT", "Share (%)": 14},
+      {"id": "bridges", "Category": "Bridges", "Share (%)": 13},
+      {"id": "other", "Category": "Other", "Share (%)": 11}
+    ]
+  },
+  {
+    "title": "Liquidity flywheel",
+    "subtitle": "How incentives compound into depth",
+    "source": "Internal model",
+    "intent": "cycle",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "incentive", "label": "Incentive emission"},
+        {"id": "lp", "label": "LP deposits"},
+        {"id": "depth", "label": "Deeper books"},
+        {"id": "volume", "label": "Routed volume"},
+        {"id": "fees", "label": "Fee revenue"}
+      ],
+      "edges": [
+        {"from": "incentive", "to": "lp"}, {"from": "lp", "to": "depth"},
+        {"from": "depth", "to": "volume"}, {"from": "volume", "to": "fees"},
+        {"from": "fees", "to": "incentive"}
+      ]
+    }
+  },
+  {
+    "title": "Ethereum roadmap milestones",
+    "subtitle": "Shipped upgrades and their headline change",
+    "source": "Protocol release notes",
+    "dateAsOf": "2026-09-11",
+    "intent": "timeline",
+    "content": [
+      {"id": "merge", "Milestone": "The Merge", "Change": "Proof of stake"},
+      {"id": "shapella", "Milestone": "Shapella", "Change": "Withdrawals enabled"},
+      {"id": "dencun", "Milestone": "Dencun", "Change": "Blob data for rollups"},
+      {"id": "pectra", "Milestone": "Pectra", "Change": "Account abstraction primitives"}
+    ]
+  },
+  {
+    "title": "Research publication process",
+    "subtitle": "From intake to distribution",
+    "source": "Internal runbook",
+    "intent": "process",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "intake", "label": "Intake", "note": "Topic and question"},
+        {"id": "evidence", "label": "Evidence", "note": "Primary sources"},
+        {"id": "draft", "label": "Draft"},
+        {"id": "review", "label": "Peer review"},
+        {"id": "design", "label": "Infographic"},
+        {"id": "publish", "label": "Publish"}
+      ],
+      "edges": [
+        {"from": "intake", "to": "evidence"}, {"from": "evidence", "to": "draft"},
+        {"from": "draft", "to": "review"}, {"from": "review", "to": "design"},
+        {"from": "design", "to": "publish"}
+      ]
+    }
+  },
+  {
+    "title": "Withdrawal eligibility logic",
+    "subtitle": "Decision path for an exiting validator",
+    "source": "Consensus specification",
+    "intent": "flow",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "request", "label": "Exit requested"},
+        {"id": "active", "label": "Still in active set?"},
+        {"id": "queue", "label": "Enter exit queue"},
+        {"id": "churn", "label": "Churn limit reached?"},
+        {"id": "wait", "label": "Wait one epoch"},
+        {"id": "exit", "label": "Exit finalised"},
+        {"id": "sweep", "label": "Balance swept"}
+      ],
+      "edges": [
+        {"from": "request", "to": "active"},
+        {"from": "active", "to": "queue", "label": "yes"},
+        {"from": "active", "to": "sweep", "label": "no", "style": "dashed"},
+        {"from": "queue", "to": "churn"},
+        {"from": "churn", "to": "wait", "label": "yes"},
+        {"from": "churn", "to": "exit", "label": "no"},
+        {"from": "wait", "to": "churn"},
+        {"from": "exit", "to": "sweep"}
+      ]
+    }
+  },
+  {
+    "title": "Rollup stack architecture",
+    "subtitle": "Components and their trust boundaries",
+    "source": "System documentation",
+    "intent": "architecture",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "user", "label": "User wallet", "group": "External"},
+        {"id": "rpc", "label": "RPC gateway", "group": "Operator"},
+        {"id": "seq", "label": "Sequencer", "note": "Centralised today", "group": "Operator"},
+        {"id": "da", "label": "Data availability", "group": "Shared"},
+        {"id": "prover", "label": "Prover", "group": "Shared"},
+        {"id": "l1", "label": "L1 settlement", "group": "Trust anchor"}
+      ],
+      "edges": [
+        {"from": "user", "to": "rpc"}, {"from": "rpc", "to": "seq"},
+        {"from": "seq", "to": "da"}, {"from": "seq", "to": "prover"},
+        {"from": "da", "to": "l1"}, {"from": "prover", "to": "l1"}
+      ]
+    }
+  },
+  {
+    "title": "Indexing pipeline",
+    "subtitle": "Producer to consumer path for chain data",
+    "source": "Platform documentation",
+    "intent": "pipeline",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "node", "label": "Archive node"},
+        {"id": "ingest", "label": "Ingest workers"},
+        {"id": "queue", "label": "Event queue"},
+        {"id": "transform", "label": "Transform"},
+        {"id": "store", "label": "Columnar store"},
+        {"id": "api", "label": "Query API"}
+      ],
+      "edges": [
+        {"from": "node", "to": "ingest"}, {"from": "ingest", "to": "queue"},
+        {"from": "queue", "to": "transform"}, {"from": "transform", "to": "store"},
+        {"from": "store", "to": "api"}
+      ]
+    }
+  },
+  {
+    "title": "Validator deployment topology",
+    "subtitle": "Zones, hosts and replica placement",
+    "source": "Infrastructure inventory",
+    "intent": "deployment",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "lb", "label": "Anycast entry"},
+        {"id": "eu", "label": "EU zone", "note": "2 beacon, 4 validator"},
+        {"id": "us", "label": "US zone", "note": "2 beacon, 4 validator"},
+        {"id": "apac", "label": "APAC zone", "note": "1 beacon, 2 validator"},
+        {"id": "signer", "label": "Remote signer", "note": "HSM backed"}
+      ],
+      "edges": [
+        {"from": "lb", "to": "eu"}, {"from": "lb", "to": "us"}, {"from": "lb", "to": "apac"},
+        {"from": "eu", "to": "signer"}, {"from": "us", "to": "signer"}, {"from": "apac", "to": "signer"}
+      ]
+    }
+  },
+  {
+    "title": "Service dependency graph",
+    "subtitle": "Fan-in on the pricing service",
+    "source": "Service catalogue",
+    "intent": "dependency",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "pricing", "label": "Pricing"},
+        {"id": "portfolio", "label": "Portfolio"},
+        {"id": "alerts", "label": "Alerts"},
+        {"id": "reports", "label": "Reports"},
+        {"id": "oracle", "label": "Oracle feed"},
+        {"id": "cache", "label": "Quote cache"}
+      ],
+      "edges": [
+        {"from": "oracle", "to": "pricing"}, {"from": "cache", "to": "pricing"},
+        {"from": "pricing", "to": "portfolio"}, {"from": "pricing", "to": "alerts"},
+        {"from": "pricing", "to": "reports"}, {"from": "portfolio", "to": "reports"}
+      ]
+    }
+  },
+  {
+    "title": "Token allocation hierarchy",
+    "subtitle": "Published allocation categories",
+    "source": "Tokenomics documentation",
+    "intent": "hierarchy",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "supply", "label": "Total supply"},
+        {"id": "community", "label": "Community"},
+        {"id": "investors", "label": "Investors"},
+        {"id": "team", "label": "Team"},
+        {"id": "airdrop", "label": "Airdrop"},
+        {"id": "ecosystem", "label": "Ecosystem fund"}
+      ],
+      "edges": [
+        {"from": "supply", "to": "community"}, {"from": "supply", "to": "investors"},
+        {"from": "supply", "to": "team"},
+        {"from": "community", "to": "airdrop"}, {"from": "community", "to": "ecosystem"}
+      ]
+    }
+  },
+  {
+    "title": "Cross-chain transfer sequence",
+    "subtitle": "Messages exchanged during a bridge transfer",
+    "source": "Bridge specification",
+    "intent": "interaction",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "u1", "label": "Lock funds", "lane": "User"},
+        {"id": "s1", "label": "Emit message", "lane": "Source chain"},
+        {"id": "r1", "label": "Attest", "lane": "Relayer"},
+        {"id": "d1", "label": "Verify proof", "lane": "Destination chain"},
+        {"id": "u2", "label": "Receive funds", "lane": "User"}
+      ],
+      "edges": [
+        {"from": "u1", "to": "s1"}, {"from": "s1", "to": "r1", "label": "event"},
+        {"from": "r1", "to": "d1", "label": "proof"}, {"from": "d1", "to": "u2", "label": "mint"}
+      ]
+    }
+  },
+  {
+    "title": "Incident response handoffs",
+    "subtitle": "Who owns which step during a validator outage",
+    "source": "Incident runbook",
+    "intent": "handoff",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "detect", "label": "Alert fires", "lane": "Monitoring"},
+        {"id": "triage", "label": "Triage", "lane": "On-call"},
+        {"id": "mitigate", "label": "Mitigate", "lane": "On-call"},
+        {"id": "comms", "label": "Notify delegators", "lane": "Comms"},
+        {"id": "review", "label": "Post-mortem", "lane": "Engineering"}
+      ],
+      "edges": [
+        {"from": "detect", "to": "triage"}, {"from": "triage", "to": "mitigate"},
+        {"from": "mitigate", "to": "comms"}, {"from": "comms", "to": "review"}
+      ]
+    }
+  },
+  {
+    "title": "Security control layers",
+    "subtitle": "Stacked controls protecting signing keys",
+    "source": "Security policy",
+    "intent": "layering",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "policy", "label": "Policy and review", "note": "Quarterly audit"},
+        {"id": "identity", "label": "Identity and access", "note": "Hardware MFA"},
+        {"id": "network", "label": "Network isolation", "note": "Private signer VLAN"},
+        {"id": "host", "label": "Host hardening", "note": "Immutable images"},
+        {"id": "key", "label": "Key custody", "note": "HSM, no export"}
+      ],
+      "edges": []
+    }
+  },
+  {
+    "title": "Protocol positioning",
+    "subtitle": "Decentralisation against realised throughput",
+    "source": "Measured network data",
+    "dateAsOf": "2026-09-11",
+    "intent": "positioning",
+    "content": [
+      {"id": "eth", "Protocol": "Ethereum", "Throughput (tps)": 18, "Validator count (k)": 1080},
+      {"id": "sol", "Protocol": "Solana", "Throughput (tps)": 1200, "Validator count (k)": 4},
+      {"id": "sui", "Protocol": "Sui", "Throughput (tps)": 850, "Validator count (k)": 1},
+      {"id": "avax", "Protocol": "Avalanche", "Throughput (tps)": 140, "Validator count (k)": 2}
+    ]
+  },
+  {
+    "title": "Staking reward distribution",
+    "subtitle": "Where one unit of gross reward ends up",
+    "source": "Operator ledger",
+    "dateAsOf": "2026-09-11",
+    "intent": "quantity-flow",
+    "content": {},
+    "diagram": {
+      "nodes": [
+        {"id": "gross", "label": "Gross rewards"},
+        {"id": "priority", "label": "Priority fees"},
+        {"id": "issuance", "label": "Issuance"},
+        {"id": "commission", "label": "Operator commission"},
+        {"id": "delegators", "label": "Delegators"},
+        {"id": "insurance", "label": "Insurance fund"}
+      ],
+      "edges": [
+        {"from": "priority", "to": "gross", "value": 30},
+        {"from": "issuance", "to": "gross", "value": 70},
+        {"from": "gross", "to": "commission", "value": 10},
+        {"from": "gross", "to": "delegators", "value": 85},
+        {"from": "gross", "to": "insurance", "value": 5}
+      ]
+    }
+  }
+]
