@@ -96,9 +96,21 @@ function emit(ops: Op[], out: string[], defs: string[]): void {
         emit(op.children, out, defs);
         out.push('</g>');
         break;
-      case 'rect':
-        out.push(`<rect data-name="${escapeAttr(op.name ?? '')}" x="${op.x}" y="${op.y}" width="${op.w}" height="${op.h}"${op.radius ? ` rx="${op.radius}"` : ''} ${fill(op.fill, defs)}${stroke(op.stroke, op.strokeWidth)}/>`);
+      case 'rect': {
+        const r = op.radius ?? 0;
+        // A band inside a rounded surface rounds only the side that meets the edge; the
+        // other side must stay square or the row under it reads as a detached pill.
+        if (r > 0 && op.corners && op.corners !== 'all') {
+          const { x, y, w, h } = op;
+          const d = op.corners === 'top'
+            ? `M${x + r},${y}H${x + w - r}A${r},${r} 0 0 1 ${x + w},${y + r}V${y + h}H${x}V${y + r}A${r},${r} 0 0 1 ${x + r},${y}Z`
+            : `M${x},${y}H${x + w}V${y + h - r}A${r},${r} 0 0 1 ${x + w - r},${y + h}H${x + r}A${r},${r} 0 0 1 ${x},${y + h - r}Z`;
+          out.push(`<path data-name="${escapeAttr(op.name ?? '')}" d="${d}" ${fill(op.fill, defs)}${stroke(op.stroke, op.strokeWidth)}/>`);
+          break;
+        }
+        out.push(`<rect data-name="${escapeAttr(op.name ?? '')}" x="${op.x}" y="${op.y}" width="${op.w}" height="${op.h}"${r ? ` rx="${r}"` : ''} ${fill(op.fill, defs)}${stroke(op.stroke, op.strokeWidth)}/>`);
         break;
+      }
       case 'ellipse':
         out.push(`<ellipse data-name="${escapeAttr(op.name ?? '')}" cx="${op.cx}" cy="${op.cy}" rx="${op.rx}" ry="${op.ry}" ${fill(op.fill, defs)}${stroke(op.stroke, op.strokeWidth)}/>`);
         break;

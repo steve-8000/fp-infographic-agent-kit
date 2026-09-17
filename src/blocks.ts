@@ -583,9 +583,12 @@ function tableBlock(ctx: Ctx, block: Extract<Block, { kind: 'table' }>, area: Ar
 
   ctx.group(block.name ?? 'Table', (into) => {
     into.push(surfaceOps(ctx, 'Table surface', v, area.x, area.y, area.w, height));
+    // The band rounds only where it meets the surface's top corners. Rounding its bottom
+    // too leaves a pill floating above the first row instead of a table head.
     into.push({
       op: 'rect', name: 'Header band', x: round(area.x), y: round(area.y), w: round(area.w), h: headerH,
-      fill: { ...paint(ctx.theme, t.headerFill), opacity: t.headerOpacity }, radius: v.radius,
+      fill: { ...paint(ctx.theme, t.headerFill), opacity: t.headerOpacity },
+      radius: v.radius, corners: 'top',
     });
     let x = area.x + pad;
     columns.forEach((c, i) => {
@@ -599,10 +602,11 @@ function tableBlock(ctx: Ctx, block: Extract<Block, { kind: 'table' }>, area: Ar
       const rowH = rowHeights[ri];
       const accent = ctx.accent(block.accents?.[String(row.id ?? '')] ?? '');
       into.push(...accentOps(ctx, placement, accent, area.x, top, area.w, rowH));
-      // A horizontal rule under the header and between every pair of rows. No vertical
-      // rules: the column gutters already separate them and a full grid fights the frame.
+      // A horizontal rule under the header and between every pair of rows, spanning the
+      // whole surface so the table reads as one grid. No vertical rules: the column
+      // gutters already separate them and a full grid fights the frame.
       if (t.rowRules) {
-        into.push(ctx.rect(`Row rule ${ri}`, area.x + pad, top, area.w - pad * 2, ctx.theme.surface.divider.width, {
+        into.push(ctx.rect(`Row rule ${ri}`, area.x, top, area.w, ctx.theme.surface.divider.width, {
           fill: ctx.theme.surface.divider.color, fillOpacity: ctx.theme.surface.divider.opacity,
         }));
       }

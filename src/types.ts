@@ -352,6 +352,8 @@ export type Zone = 'content' | 'chrome';
 export interface OpRect {
   op: 'rect'; name?: string; zone?: Zone; x: number; y: number; w: number; h: number;
   fill?: Paint; stroke?: Paint; strokeWidth?: number; radius?: number;
+  /** Which corners the radius applies to. A header band rounds only 'top'. */
+  corners?: 'all' | 'top' | 'bottom';
 }
 export interface OpText {
   op: 'text'; name?: string; zone?: Zone; x: number; y: number; w: number; h: number;

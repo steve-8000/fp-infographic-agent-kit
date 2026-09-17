@@ -566,9 +566,18 @@ test('a long table cell wraps and every row gets a horizontal rule', () => {
   // A word is never hard-broken: the key column is floored at its longest word.
   const key = cells.find((c) => c.source === 'Custody & recordkeeping');
   assert.deepEqual(key!.lines, ['Custody &', 'recordkeeping'], 'the key column breaks between words');
+  const table = ops.find((op) => op.op === 'rect' && op.name === 'Table surface') as { w: number } | undefined;
   const rules = ops.filter((op) => op.op === 'rect' && String(op.name).startsWith('Row rule')) as Array<{ w: number; h: number }>;
   assert.equal(rules.length, 2, 'a rule under the header and between the rows');
-  for (const rule of rules) assert.ok(rule.w > rule.h * 10, 'rules are horizontal; the pack draws no vertical grid');
+  for (const rule of rules) {
+    assert.ok(rule.w > rule.h * 10, 'rules are horizontal; the pack draws no vertical grid');
+    assert.equal(rule.w, table!.w, 'a rule spans the table, not an inset slice of it');
+  }
+  // The header band rounds only into the surface's top corners; a rounded bottom left a
+  // pill floating above the first row instead of a table head.
+  const band = ops.find((op) => op.op === 'rect' && op.name === 'Header band') as { corners?: string; radius?: number } | undefined;
+  assert.equal(band?.corners, 'top');
+  assert.ok((band?.radius ?? 0) > 0);
 });
 
 test('a series with no accent of its own takes the pack order, not another datum\'s hue', () => {

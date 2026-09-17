@@ -168,7 +168,17 @@ async function draw(op, parent) {
     n.fills = op.fill ? solid(op.fill) : [];
     n.strokes = op.stroke ? solid(op.stroke) : [];
     if (op.strokeWidth) n.strokeWeight = op.strokeWidth;
-    if (op.radius) n.cornerRadius = op.radius;
+    if (op.radius) {
+      if (op.corners === 'top') {
+        n.topLeftRadius = op.radius; n.topRightRadius = op.radius;
+        n.bottomLeftRadius = 0; n.bottomRightRadius = 0;
+      } else if (op.corners === 'bottom') {
+        n.topLeftRadius = 0; n.topRightRadius = 0;
+        n.bottomLeftRadius = op.radius; n.bottomRightRadius = op.radius;
+      } else {
+        n.cornerRadius = op.radius;
+      }
+    }
     parent.appendChild(n);
     return n;
   }
