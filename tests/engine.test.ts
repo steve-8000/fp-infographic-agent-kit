@@ -542,6 +542,35 @@ test('an accent lands in exactly one channel of a surface', () => {
   assert.equal(spec('tint').filter((op) => op.name === 'Accent tint').length, 1);
 });
 
+test('a long table cell wraps and every row gets a horizontal rule', () => {
+  // Regression: cells were drawn with maxLines 1 against a fixed row pitch, so a sentence
+  // was clipped to "Split - Oasis Pro TA for recordkeeping; third-party regulated…" and
+  // the data the table exists to carry was gone. Raising the pitch only grew the frame.
+  const long = 'Split - Oasis Pro TA for recordkeeping; third-party regulated institutions for custody';
+  const { program } = render({
+    title: 'Redraw', source: 's',
+    blocks: [{
+      kind: 'table', keyColumn: 'Function', columns: ['Function', 'Role', 'Status'],
+      rows: [
+        { id: 'a', Function: 'Asset issuance', Role: 'Supply of eligible collateral', Status: 'Established' },
+        { id: 'b', Function: 'Custody & recordkeeping', Role: 'Asset custody and ownership records', Status: long },
+      ],
+    }],
+  });
+  const ops = program.ops.flatMap((op) => (op.op === 'group' ? op.children : [op]));
+  const cells = ops.filter((op) => op.op === 'text') as Array<{ text: string; source?: string; lines: string[] }>;
+  assert.ok(!cells.some((c) => c.text.endsWith('…')), 'no cell is clipped');
+  const wrapped = cells.find((c) => c.source === long);
+  assert.ok(wrapped && wrapped.lines.length > 1, 'the long cell wraps onto more lines');
+  assert.equal(wrapped!.lines.join(' '), long, 'wrapping keeps every word');
+  // A word is never hard-broken: the key column is floored at its longest word.
+  const key = cells.find((c) => c.source === 'Custody & recordkeeping');
+  assert.deepEqual(key!.lines, ['Custody &', 'recordkeeping'], 'the key column breaks between words');
+  const rules = ops.filter((op) => op.op === 'rect' && String(op.name).startsWith('Row rule')) as Array<{ w: number; h: number }>;
+  assert.equal(rules.length, 2, 'a rule under the header and between the rows');
+  for (const rule of rules) assert.ok(rule.w > rule.h * 10, 'rules are horizontal; the pack draws no vertical grid');
+});
+
 test('a series with no accent of its own takes the pack order, not another datum\'s hue', () => {
   // Regression: the fallback used to reuse whichever accent had already been assigned,
   // which silently claimed an unrelated series meant the same thing as the highlight.

@@ -18,6 +18,9 @@ export interface Area { x: number; y: number; w: number }
 type Compose = (ctx: Ctx, blocks: Block[], area: Area) => number;
 
 const DEFAULT_GAP = 40;
+// A table cell wraps up to four lines. Past that the cell is not a cell any more, and the
+// audit's truncation finding is then a real editorial problem instead of a layout bug.
+const MAX_CELL_LINES = 4;
 
 export const composeBlocks: Compose = (ctx, blocks, area) => {
   let y = area.y;
@@ -511,9 +514,23 @@ function sectionBlock(ctx: Ctx, block: Extract<Block, { kind: 'section' }>, area
   return composeBlocks(ctx, block.blocks, { ...area, y }) + spec.betweenSections - DEFAULT_GAP;
 }
 
+/** Widest run the wrapper cannot break: a whole Latin word, or one CJK character. */
+function atomWidth(ctx: Ctx, role: string, text: string): number {
+  const CJK = /[\u1100-\u11ff\u3000-\u30ff\u3130-\u318f\u4e00-\u9fff\uac00-\ud7a3]/;
+  let widest = 0;
+  for (const token of String(text).split(/\s+/)) {
+    if (!token) continue;
+    for (const atom of CJK.test(token) ? [...token] : [token]) {
+      widest = Math.max(widest, ctx.measure(role, atom));
+    }
+  }
+  return widest;
+}
+
 /**
- * Editorial table: one surface, a tinted header band, a constant row pitch and no row
- * rules. Whitespace separates rows; a line between every row reads as a spreadsheet.
+ * Editorial table: one surface, a tinted header band, a horizontal rule under the header
+ * and between rows, and rows as tall as their content needs. No vertical rules — the
+ * column gutters separate them, and a full grid reads as a spreadsheet.
  */
 function tableBlock(ctx: Ctx, block: Extract<Block, { kind: 'table' }>, area: Area): number {
   const t = ctx.theme.surface.table;
@@ -526,53 +543,81 @@ function tableBlock(ctx: Ctx, block: Extract<Block, { kind: 'table' }>, area: Ar
   const placement = block.accentPlacement ?? 'text';
   const v = surfaceOf(ctx.theme, block.variant ?? t.variant, ctx.theme.surface.panel);
   const pad = v.padding ?? t.padding;
+  // `rowPitch` is the MINIMUM row height, never a fixed step. A sentence that needs two
+  // lines gets two lines: clipping it to one with an ellipsis throws away the data the
+  // table exists to carry, and raising the pitch to "make room" only stretches the frame.
   const pitch = block.rowPitch ?? t.rowPitch;
-  const height = pitch * (rows.length + 1);
-
-  // Widths follow intrinsic content, then share the remainder, so a short status column
-  // cannot be stretched into a column of whitespace.
   const roleOf = (c: string) => (c === key ? t.keyColumnRole : t.bodyRole);
   const intrinsic = columns.map((c) => Math.max(
     ctx.measure(t.headerRole, c),
     ...rows.map((r) => ctx.measure(roleOf(c), formatValue(r[c], ctx.locale)))) + pad);
   // Slack is shared in proportion to content, so the widest column stays the widest
-  // instead of every spare pixel piling up in the last one.
+  // instead of every spare pixel piling up in the last one. A column never shrinks below
+  // its longest unbreakable atom, because a proportional share narrower than one word
+  // makes the wrapper hard-break inside it ("recordkeepin / g").
+  const floors = columns.map((c, i) => Math.max(
+    atomWidth(ctx, t.headerRole, c),
+    ...rows.map((r) => atomWidth(ctx, roleOf(c), formatValue(r[c], ctx.locale)))) + pad);
+  const avail = area.w - pad * 2;
   const total = intrinsic.reduce((a, b) => a + b, 0);
-  const widths = intrinsic.map((w) => w * ((area.w - pad * 2) / total));
+  let widths = intrinsic.map((w) => w * (avail / total));
+  // One pass can push a second column under its floor, so settle rather than guess.
+  for (let pass = 0; pass < columns.length && floors.reduce((a, b) => a + b, 0) <= avail; pass += 1) {
+    const pinned = widths.map((w, i) => w < floors[i]);
+    if (!pinned.some(Boolean)) break;
+    const fixed = floors.reduce((a, f, i) => a + (pinned[i] ? f : 0), 0);
+    const flex = widths.reduce((a, w, i) => a + (pinned[i] ? 0 : w), 0);
+    const room = avail - fixed;
+    widths = widths.map((w, i) => (pinned[i] ? floors[i] : (flex > 0 ? w * (room / flex) : w)));
+  }
+  // One pad of gutter stays between columns, so wrapped lines never touch the next cell.
+  const cellW = (i: number) => Math.max(48, widths[i] - pad);
+  // Wrap once; the wrapped line count is what drives row height and vertical centring.
+  const wrapped = rows.map((r) => columns.map((c, i) => ctx.text(
+    roleOf(c), formatValue(r[c], ctx.locale), 0, 0, cellW(i), { maxLines: MAX_CELL_LINES },
+  ).op.lines));
+  const rowHeights = wrapped.map((cells) => Math.max(pitch,
+    ...cells.map((lines, i) => lines.length * ctx.lineHeight(roleOf(columns[i])) + pad)));
+  const headerH = pitch;
+  const height = headerH + rowHeights.reduce((a, b) => a + b, 0);
 
   ctx.group(block.name ?? 'Table', (into) => {
     into.push(surfaceOps(ctx, 'Table surface', v, area.x, area.y, area.w, height));
     into.push({
-      op: 'rect', name: 'Header band', x: round(area.x), y: round(area.y), w: round(area.w), h: pitch,
+      op: 'rect', name: 'Header band', x: round(area.x), y: round(area.y), w: round(area.w), h: headerH,
       fill: { ...paint(ctx.theme, t.headerFill), opacity: t.headerOpacity }, radius: v.radius,
     });
-    const cellY = (rowTop: number, role: string) => rowTop + (pitch - ctx.lineHeight(role)) / 2;
     let x = area.x + pad;
     columns.forEach((c, i) => {
-      into.push(ctx.text(t.headerRole, c, x, cellY(area.y, t.headerRole), widths[i], {
+      into.push(ctx.text(t.headerRole, c, x, area.y + (headerH - ctx.lineHeight(t.headerRole)) / 2, cellW(i), {
         align: block.align?.[c] ?? 'left', maxLines: 1,
       }).op);
       x += widths[i];
     });
+    let top = area.y + headerH;
     rows.forEach((row, ri) => {
-      const top = area.y + pitch * (ri + 1);
+      const rowH = rowHeights[ri];
       const accent = ctx.accent(block.accents?.[String(row.id ?? '')] ?? '');
-      into.push(...accentOps(ctx, placement, accent, area.x, top, area.w, pitch));
-      if (t.rowRules && ri > 0) {
-        into.push(ctx.rect('Row rule', area.x + pad, top, area.w - pad * 2, ctx.theme.surface.divider.width, {
+      into.push(...accentOps(ctx, placement, accent, area.x, top, area.w, rowH));
+      // A horizontal rule under the header and between every pair of rows. No vertical
+      // rules: the column gutters already separate them and a full grid fights the frame.
+      if (t.rowRules) {
+        into.push(ctx.rect(`Row rule ${ri}`, area.x + pad, top, area.w - pad * 2, ctx.theme.surface.divider.width, {
           fill: ctx.theme.surface.divider.color, fillOpacity: ctx.theme.surface.divider.opacity,
         }));
       }
       let cx = area.x + pad;
       columns.forEach((c, i) => {
         const role = roleOf(c);
-        const cell = ctx.text(role, formatValue(row[c], ctx.locale), cx, cellY(top, role), widths[i], {
-          align: block.align?.[c] ?? 'left', maxLines: 1,
-          color: placement === 'text' && accent && c !== key ? accent.color : undefined,
-        });
-        into.push(cell.op);
+        const lines = wrapped[ri][i].length;
+        into.push(ctx.text(role, formatValue(row[c], ctx.locale), cx,
+          top + (rowH - lines * ctx.lineHeight(role)) / 2, cellW(i), {
+            align: block.align?.[c] ?? 'left', maxLines: MAX_CELL_LINES,
+            color: placement === 'text' && accent && c !== key ? accent.color : undefined,
+          }).op);
         cx += widths[i];
       });
+      top += rowH;
     });
   });
   return area.y + height;
