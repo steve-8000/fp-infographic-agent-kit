@@ -11,6 +11,7 @@ export { normalize, selectTemplate } from './normalize.js';
 export { compile } from './plan.js';
 export { composeBlocks, collectAccentKeys, collectText } from './blocks.js';
 export { auditProgram } from './audit.js';
+export { describeProgram, type LayoutReport } from './describe.js';
 export { checkComposition } from './compose-rules.js';
 export { checkDirection, type DirectionCheck } from './direction.js';
 export { buildTokenDoc, buildTokenSpec } from './tokens.js';

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { accentPalette, auditProgram, buildBrief, buildTokenSpec, checkDirection, toFigmaSheet, compile, loadTheme, normalize, render, toFigmaScript, toSvg, validateTheme } from '../src/index.js';
+import { accentPalette, auditProgram, buildBrief, describeProgram, buildTokenSpec, checkDirection, toFigmaSheet, compile, loadTheme, normalize, render, toFigmaScript, toSvg, validateTheme } from '../src/index.js';
 import type { FPInput, Op, RenderProgram, Theme } from '../src/types.js';
 import { TEMPLATE_IDS } from '../src/types.js';
 import { RENDERERS } from '../src/renderers.js';
@@ -699,6 +699,43 @@ test('a colour mode the pack does not serve is named, not a crash three frames l
     title: 't', source: 's', colorMode: 'series' as never,
     blocks: [{ kind: 'chart', template: 'bar', style: 'editorial', rows: [{ id: 'a', K: 'P', V: 3 }] }],
   }), /colorMode "series" does not exist/);
+});
+
+test('the frame describes itself, so nobody has to read outlined glyphs', () => {
+  const input: FPInput = {
+    title: 'Validator economics', source: 'Explorer', colorMode: 'pair',
+    blocks: [{
+      kind: 'chart', template: 'bar', style: 'paired',
+      rows: [{ id: 'v', M: 'Validators', A: 146, B: 84 }, { id: 's', M: 'Staked', A: 839800000, B: 753200000 }],
+      fields: { category: 'M', columns: ['A', 'B'] },
+    }],
+  };
+  const rendered = render(input);
+  const report = describeProgram(rendered, input);
+
+  assert.deepEqual(report.blocks, [{ kind: 'chart', template: 'bar', style: 'paired' }]);
+  assert.equal(report.frame.colorMode, 'pair');
+  assert.deepEqual(report.swatches.map((s) => s.label), ['A', 'B'], 'the legend says which colour is which series');
+  assert.ok(report.swatches.every((s) => /^#[0-9a-f]{6}$/iu.test(s.color)), 'each swatch carries its hex');
+  assert.notEqual(report.swatches[0].color, report.swatches[1].color);
+  // A printed string the author never wrote is the renderer's own work: a thousands
+  // separator here, an axis tick elsewhere, and an indexed 100 in a botched redraw.
+  assert.ok(report.derived.includes('839,800,000'), 'a formatted value is reported');
+  assert.ok(!report.derived.includes('Validators') && !report.derived.includes('146'),
+    "copy and values the author wrote are not echoed back");
+  assert.deepEqual(report.clipped, []);
+
+  const long = new Array(9).fill('Institutional custody, recordkeeping and reconciliation duties assigned to the named operator').join('; ');
+  const table = describeProgram(render({
+    title: 't', source: 's',
+    blocks: [{
+      kind: 'table', rows: [{ id: 'a', Item: long, Note: 'x' }],
+      columns: ['Item', 'Note'], rowPitch: 28,
+    }],
+  }), { title: "t", source: "s" });
+  const cut = table.clipped.find((c) => long.startsWith(c.wanted.slice(0, 40)));
+  assert.ok(cut, 'copy that did not fit is named');
+  assert.ok(cut.shown.includes('\u2026'), 'and what a reader sees ends in an ellipsis');
 });
 
 test('a bare-label card strip is refused and a claim strip is not', () => {
