@@ -551,24 +551,34 @@ function tableBlock(ctx: Ctx, block: Extract<Block, { kind: 'table' }>, area: Ar
   const intrinsic = columns.map((c) => Math.max(
     ctx.measure(t.headerRole, c),
     ...rows.map((r) => ctx.measure(roleOf(c), formatValue(r[c], ctx.locale)))) + pad);
-  // Slack is shared in proportion to content, so the widest column stays the widest
-  // instead of every spare pixel piling up in the last one. A column never shrinks below
-  // its longest unbreakable atom, because a proportional share narrower than one word
-  // makes the wrapper hard-break inside it ("recordkeepin / g").
+  // A column never shrinks below its longest unbreakable atom: a share narrower than one
+  // word makes the wrapper hard-break inside it ("recordkeepin / g").
   const floors = columns.map((c, i) => Math.max(
     atomWidth(ctx, t.headerRole, c),
     ...rows.map((r) => atomWidth(ctx, roleOf(c), formatValue(r[c], ctx.locale)))) + pad);
   const avail = area.w - pad * 2;
   const total = intrinsic.reduce((a, b) => a + b, 0);
-  let widths = intrinsic.map((w) => w * (avail / total));
-  // One pass can push a second column under its floor, so settle rather than guess.
-  for (let pass = 0; pass < columns.length && floors.reduce((a, b) => a + b, 0) <= avail; pass += 1) {
-    const pinned = widths.map((w, i) => w < floors[i]);
-    if (!pinned.some(Boolean)) break;
-    const fixed = floors.reduce((a, f, i) => a + (pinned[i] ? f : 0), 0);
-    const flex = widths.reduce((a, w, i) => a + (pinned[i] ? 0 : w), 0);
-    const room = avail - fixed;
-    widths = widths.map((w, i) => (pinned[i] ? floors[i] : (flex > 0 ? w * (room / flex) : w)));
+  // Over-wide tables are capped largest-first, not shrunk in proportion: a short column
+  // keeps the width its own content needs and the deficit comes out of the long prose
+  // column, which is the one that can afford to wrap. Proportional shrinking squeezed
+  // "Custody & recordkeeping" onto two lines to buy width a status sentence did not need.
+  const capped = (limit: number) => intrinsic.map((w, i) =>
+    Math.max(Math.min(w, limit), Math.min(floors[i], w)));
+  let widths: number[];
+  if (total <= avail) {
+    widths = intrinsic.map((w) => w + (avail - total) * (w / total));
+  } else {
+    let lo = 0;
+    let hi = Math.max(...intrinsic);
+    for (let pass = 0; pass < 40; pass += 1) {
+      const mid = (lo + hi) / 2;
+      if (capped(mid).reduce((a, b) => a + b, 0) > avail) hi = mid; else lo = mid;
+    }
+    widths = capped(lo);
+    // Floors alone can exceed the surface; then every column gives up the same fraction
+    // and the wrapper hard-breaks, which is honest about content that does not fit.
+    const sum = widths.reduce((a, b) => a + b, 0);
+    if (sum > avail) widths = widths.map((w) => w * (avail / sum));
   }
   // One pad of gutter stays between columns, so wrapped lines never touch the next cell.
   const cellW = (i: number) => Math.max(48, widths[i] - pad);
@@ -578,7 +588,9 @@ function tableBlock(ctx: Ctx, block: Extract<Block, { kind: 'table' }>, area: Ar
   ).op.lines));
   const rowHeights = wrapped.map((cells) => Math.max(pitch,
     ...cells.map((lines, i) => lines.length * ctx.lineHeight(roleOf(columns[i])) + pad)));
-  const headerH = pitch;
+  // The head is never shorter than its own line: a document that lowers `rowPitch` used to
+  // collapse the band and push the column labels out above the surface edge.
+  const headerH = Math.max(pitch, ctx.lineHeight(t.headerRole) + pad);
   const height = headerH + rowHeights.reduce((a, b) => a + b, 0);
 
   ctx.group(block.name ?? 'Table', (into) => {

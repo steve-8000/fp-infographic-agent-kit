@@ -563,9 +563,10 @@ test('a long table cell wraps and every row gets a horizontal rule', () => {
   const wrapped = cells.find((c) => c.source === long);
   assert.ok(wrapped && wrapped.lines.length > 1, 'the long cell wraps onto more lines');
   assert.equal(wrapped!.lines.join(' '), long, 'wrapping keeps every word');
-  // A word is never hard-broken: the key column is floored at its longest word.
+  // A word is never hard-broken, and a short column is not squeezed to buy width for a
+  // long prose column: the key column keeps the width its own content needs.
   const key = cells.find((c) => c.source === 'Custody & recordkeeping');
-  assert.deepEqual(key!.lines, ['Custody &', 'recordkeeping'], 'the key column breaks between words');
+  assert.deepEqual(key!.lines, ['Custody & recordkeeping']);
   const table = ops.find((op) => op.op === 'rect' && op.name === 'Table surface') as { w: number } | undefined;
   const rules = ops.filter((op) => op.op === 'rect' && String(op.name).startsWith('Row rule')) as Array<{ w: number; h: number }>;
   assert.equal(rules.length, 2, 'a rule under the header and between the rows');
@@ -578,6 +579,24 @@ test('a long table cell wraps and every row gets a horizontal rule', () => {
   const band = ops.find((op) => op.op === 'rect' && op.name === 'Header band') as { corners?: string; radius?: number } | undefined;
   assert.equal(band?.corners, 'top');
   assert.ok((band?.radius ?? 0) > 0);
+});
+
+test('a table head keeps its own height when a document lowers the row pitch', () => {
+  // Regression: headerH was the row pitch, so `rowPitch: 40` collapsed the band and the
+  // column labels were drawn above the surface's top edge, on top of the first row.
+  const { program } = render({
+    title: 'Pitch', source: 's',
+    blocks: [{
+      kind: 'table', rowPitch: 40, keyColumn: 'Function', columns: ['Function', 'Role'],
+      rows: [{ id: 'a', Function: 'Asset issuance', Role: 'Supply of eligible collateral' }],
+    }],
+  });
+  const ops = program.ops.flatMap((op) => (op.op === 'group' ? op.children : [op]));
+  const band = ops.find((op) => op.op === 'rect' && op.name === 'Header band') as { y: number; h: number };
+  const label = ops.find((op) => op.op === 'text' && op.source === 'Function') as { y: number; h: number };
+  assert.ok(band.h >= label.h, 'the band is at least as tall as the label it holds');
+  assert.ok(label.y >= band.y, 'the label sits inside the band, not above the surface');
+  assert.ok(label.y + label.h <= band.y + band.h);
 });
 
 test('a series with no accent of its own takes the pack order, not another datum\'s hue', () => {
