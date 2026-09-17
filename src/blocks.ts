@@ -428,7 +428,10 @@ function chartBlock(ctx: Ctx, block: Extract<Block, { kind: 'chart' }>, area: Ar
       rows: block.rows ?? [], columns: columnsOf(block.rows ?? []),
       numericColumns: numericOf(block.rows ?? []), graph: block.diagram,
     },
-    visual: { ...ctx.ir.visual, template: block.template, style: block.style ?? ctx.ir.visual.style, fields: block.fields },
+    visual: {
+      ...ctx.ir.visual, template: block.template, style: block.style ?? ctx.ir.visual.style,
+      fields: block.fields, scale: block.scale,
+    },
   }, area.x, area.w, block.height ?? Math.max(360, ctx.budget - (top - area.y)));
 
   const bottom = renderTemplate(nested, block.template, top);

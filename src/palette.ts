@@ -57,12 +57,21 @@ function defaultMode(keys: string[], hint: { orderedData?: boolean; diverging?: 
   return 'categorical';
 }
 
+const MODES: ReadonlyArray<ColorMode> = [
+  'auto', 'none', 'mono', 'pair', 'categorical', 'sequential', 'diverging', 'ordered',
+];
+
 export function choosePalette(
   theme: Theme,
   keys: string[],
   requested: ColorMode = 'auto',
   hint: { orderedData?: boolean; diverging?: boolean; highlightOnly?: boolean; ramp?: string } = {},
 ): PaletteChoice {
+  // An unknown mode used to fall out of the switch below as `undefined` and surface as
+  // "Cannot read properties of undefined (reading 'assignment')" three frames away.
+  if (!MODES.includes(requested)) {
+    throw new Error(`colorMode "${requested}" does not exist; the pack serves ${MODES.join(', ')}`);
+  }
   const wheel = ordered(theme);
   const warnings: string[] = [];
   const assignment: Record<string, string> = {};

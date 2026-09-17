@@ -641,6 +641,66 @@ test('share rows spend the neutral tail on the remainder instead of a hue', () =
   assert.ok(!ir.visual.seriesKeys.includes('Other') || true);
 });
 
+test('paired rows draw a bar per series, print both values and scale each row on its own', () => {
+  const rows = [
+    { id: 'v', M: 'Validators', G: 'SET', A: '146', B: '84', D: '-42%' },
+    { id: 's', M: 'Total staked', U: 'APT', G: 'SET', A: '839.8M', B: '753.2M', D: '-10%' },
+    { id: 'p', M: 'APT price', U: 'USD', G: 'ECONOMICS', A: '$9.50', B: '$0.58', D: '-94%' },
+  ];
+  const { program } = render({
+    title: 't', source: 's', colorMode: 'pair',
+    blocks: [{
+      kind: 'chart', template: 'bar', style: 'paired', rows,
+      fields: { category: 'M', columns: ['A', 'B'], unit: 'U', delta: 'D', group: 'G' },
+    }],
+  });
+  const ops = program.ops.flatMap((op) => (op.op === 'group' && op.name === 'Paired rows' ? op.children : []));
+  const bars = ops.filter((op) => op.op === 'rect' && op.name?.startsWith('Bar ')) as Array<{ name: string; w: number; y: number }>;
+  assert.equal(bars.length, 6, 'two bars per row');
+  const text = ops.flatMap((op) => (op.op === 'text' ? [op.text] : []));
+  for (const r of rows) {
+    for (const printed of [r.A, r.B, r.D, r.M]) assert.ok(text.includes(printed), `${printed} is printed`);
+  }
+  assert.ok(text.includes('APT') && text.includes('USD'), 'per-row units are printed');
+  assert.equal(text.filter((t) => t === 'SET' || t === 'ECONOMICS').length, 2, 'one heading per group');
+  assert.ok(text.includes('A') && text.includes('B'), 'the legend names the series');
+
+  // Each row owns its scale, so the larger series fills the plot in every row: a count
+  // and a token supply cannot share a length. The printed numbers carry the comparison.
+  const first = bars.filter((b) => b.name.startsWith('Bar Validators'));
+  const staked = bars.filter((b) => b.name.startsWith('Bar Total staked'));
+  assert.equal(Math.round(first[0].w), Math.round(staked[0].w), 'every row normalises to its own maximum');
+  assert.ok(first[1].w / first[0].w < 0.62 && first[1].w / first[0].w > 0.54, '84 of 146 is a little over half');
+  assert.ok(staked[1].w / staked[0].w > 0.85, '753.2M of 839.8M is nearly the whole bar');
+  const price = bars.filter((b) => b.name.startsWith('Bar APT price'));
+  assert.ok(price[1].w / price[0].w < 0.1, '$0.58 against $9.50 is a stub');
+});
+
+test('paired rows can share one scale, and refuse a single series', () => {
+  const rows = [{ id: 'a', M: 'North', A: 40, B: 10 }, { id: 'b', M: 'South', A: 20, B: 5 }];
+  const shared = render({
+    title: 't', source: 's',
+    blocks: [{ kind: 'chart', template: 'bar', style: 'paired', scale: 'shared', rows, fields: { category: 'M', columns: ['A', 'B'] } }],
+  });
+  const bars = shared.program.ops.flatMap((op) => (op.op === 'group' && op.name === 'Paired rows' ? op.children : []))
+    .filter((op) => op.op === 'rect' && op.name?.startsWith('Bar ')) as Array<{ name: string; w: number }>;
+  const north = bars.filter((b) => b.name.startsWith('Bar North'));
+  const south = bars.filter((b) => b.name.startsWith('Bar South'));
+  assert.ok(south[0].w / north[0].w > 0.48 && south[0].w / north[0].w < 0.52, 'shared scale compares rows to each other');
+
+  assert.throws(() => render({
+    title: 't', source: 's',
+    blocks: [{ kind: 'chart', template: 'bar', style: 'paired', rows, fields: { category: 'M', columns: ['A'] } }],
+  }), /two or three series/);
+});
+
+test('a colour mode the pack does not serve is named, not a crash three frames later', () => {
+  assert.throws(() => render({
+    title: 't', source: 's', colorMode: 'series' as never,
+    blocks: [{ kind: 'chart', template: 'bar', style: 'editorial', rows: [{ id: 'a', K: 'P', V: 3 }] }],
+  }), /colorMode "series" does not exist/);
+});
+
 test('a bare-label card strip is refused and a claim strip is not', () => {
   const labels = render({ title: 't', blocks: [{ kind: 'cards', columns: 3, items: [
     { id: 'a', title: 'Security' }, { id: 'b', title: 'Scalability' }, { id: 'c', title: 'Decentralization' }] }] });

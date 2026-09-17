@@ -118,7 +118,25 @@
       ],
       "budget": {
         "categories": 14
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "one series against an axis: measured quantities in one unit"
+        },
+        {
+          "id": "editorial",
+          "when": "a printed ranking: label, one bar, its value, no axis"
+        },
+        {
+          "id": "share",
+          "when": "what each subject is made of: one full-width bar split into segments"
+        },
+        {
+          "id": "paired",
+          "when": "before/after or two dates per measure: two or three bars inside one row, each printed with its own value; fields.columns names the series, fields.unit/delta/group print copy, scale 'row' (mixed units, default) or 'shared'"
+        }
+      ]
     },
     {
       "id": "line",

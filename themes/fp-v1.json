@@ -262,6 +262,11 @@
         "status": "measured",
         "source": "fp-contract",
         "note": "'Flowchart Text Boxes' 28868:14636 - the base hue every flow node sits on, 12% fill and 38% stroke. Promoted from a loose hex in surface.node to a named token so the pack has no unnamed colour."
+      },
+      "chart.pairedBar": {
+        "status": "measured",
+        "source": "user-reference",
+        "note": "Measured from the paired-bar reference the user supplied on 2026-09-17, scaled from its 1568px frame to the pack's 1920: bar height 14->24, the two bars 25->30 apart centre to centre (14 gap), rows pitched 65->104, value column left-aligned past the longest bar, change column right-aligned to the safe edge. Type roles, hues and neutrals are the pack's own; only the geometry comes from the reference."
       }
     }
   },
@@ -851,6 +856,33 @@
       "secondaryRole": "sectionSub",
       "secondaryColor": "neutral.400",
       "segmentGap": 2
+    },
+    "pairedBar": {
+      "rowPitch": 104,
+      "barHeight": 24,
+      "seriesGap": 14,
+      "rowGap": 34,
+      "radius": 3,
+      "labelGutter": 30,
+      "valueGap": 28,
+      "deltaGap": 56,
+      "groupGap": 18,
+      "groupLead": 26,
+      "legendGap": 40,
+      "labelRole": "tableKey",
+      "labelColor": "neutral.100",
+      "unitRole": "detail",
+      "unitColor": "neutral.400",
+      "valueRole": "tableKey",
+      "leadRole": "tableCell",
+      "leadColor": "neutral.300",
+      "deltaRole": "tableKey",
+      "deltaColor": "neutral.100",
+      "groupRole": "sectionLabel",
+      "groupColor": "neutral.475",
+      "legendRole": "label",
+      "legendColor": "neutral.300",
+      "swatch": 20
     }
   },
   "chrome": {

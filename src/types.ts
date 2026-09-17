@@ -95,6 +95,17 @@ export interface Theme {
       labelRole: string; labelColor: string; valueRole: string;
       secondaryRole: string; secondaryColor: string; segmentGap: number;
     };
+    /**
+     * Paired rows: one row per measure, two or three bars inside it, each printed with
+     * its own value. `rowPitch` is a minimum, not a step: a row grows for its content.
+     */
+    pairedBar?: {
+      rowPitch: number; barHeight: number; seriesGap: number; rowGap: number; radius: number;
+      labelGutter: number; valueGap: number; deltaGap: number; groupGap: number; groupLead: number; legendGap: number;
+      labelRole: string; labelColor: string; unitRole: string; unitColor: string;
+      valueRole: string; leadRole: string; leadColor: string; deltaRole: string; deltaColor: string;
+      groupRole: string; groupColor: string; legendRole: string; legendColor: string; swatch: number;
+    };
   };
   chrome?: {
     titleTop?: number; contentTop?: number; bottomBand?: number; footerBaseline?: number;
@@ -226,7 +237,10 @@ export interface FPInput {
   options?: {
     strictFidelity?: boolean; allowTemplateSplit?: boolean; targetDensity?: number;
     /** Column order / axis field hints. Everything is inferred when omitted. */
-    fields?: { category?: string; value?: string; series?: string; x?: string; y?: string; columns?: string[]; line?: string };
+    fields?: {
+      category?: string; value?: string; series?: string; x?: string; y?: string;
+      columns?: string[]; line?: string; unit?: string; delta?: string; group?: string;
+    };
     maxHeight?: number;
   };
 }
@@ -286,7 +300,21 @@ export type Block =
   | (BlockBase & { kind: 'panel'; blocks: Block[]; tone?: 'base' | 'quiet'; accent?: string; padding?: number; variant?: string; accentPlacement?: AccentPlacement })
   | (BlockBase & { kind: 'kpi'; items: Array<{ value: string; label: string; note?: string; accent?: string }>; gap?: number })
   | (BlockBase & { kind: 'steps'; items: Array<{ eyebrow?: string; title: string; body?: string; accent?: string }>; direction?: 'vertical' | 'horizontal'; gap?: number })
-  | (BlockBase & { kind: 'chart'; template: TemplateId; style?: string; title?: string; height?: number; rows?: Row[]; diagram?: Diagram; fields?: { category?: string; value?: string; line?: string } })
+  | (BlockBase & {
+      kind: 'chart'; template: TemplateId; style?: string; title?: string; height?: number;
+      rows?: Row[]; diagram?: Diagram;
+      /**
+       * Which column plays which part. `columns` names the series a multi-series
+       * grammar draws, in drawing order; `unit`, `delta` and `group` are printed as
+       * copy, never as geometry.
+       */
+      fields?: {
+        category?: string; value?: string; line?: string; columns?: string[];
+        unit?: string; delta?: string; group?: string;
+      };
+      /** Paired rows: one scale per row (mixed units) or one for the block. */
+      scale?: 'row' | 'shared';
+    })
   | (BlockBase & { kind: 'stages'; items: Stage[]; connectors?: StageConnector[]; gap?: number })
   | (BlockBase & { kind: 'section'; heading: string; subtitle?: string; blocks: Block[] })
   | (BlockBase & {
@@ -320,7 +348,12 @@ export interface FPIR {
     style?: string; background?: string;
     accents: Record<string, string>; highlightIds: string[]; density: number;
     colorMode: string; colorRationale: string; colorWarnings: string[]; seriesKeys: string[];
-    fields?: { category?: string; value?: string; series?: string; x?: string; y?: string; columns?: string[]; line?: string };
+    fields?: {
+      category?: string; value?: string; series?: string; x?: string; y?: string;
+      columns?: string[]; line?: string; unit?: string; delta?: string; group?: string;
+    };
+    /** Paired rows: one scale per row (mixed units) or one for the whole block. */
+    scale?: 'row' | 'shared';
   };
   fidelity: { immutableFacts: string[]; checksum: string; rowCount: number };
 }

@@ -294,6 +294,130 @@ const shareRows: Renderer = (ctx, top) => {
   return top + spec.rowPitch * rows.length;
 };
 
+/** The number behind a printed value: `839.8M` is 839,800,000 and `$0.58` is 0.58. */
+function magnitude(raw: unknown): number {
+  if (typeof raw === 'number') return Number.isFinite(raw) ? raw : 0;
+  const text = String(raw ?? '').replace(/[\s,\u00a0\u2009]/g, '');
+  const match = /-?\d+(?:\.\d+)?/.exec(text);
+  if (!match) return 0;
+  const suffix = /^([KMBT])/i.exec(text.slice(match.index + match[0].length));
+  const scale: Record<string, number> = { K: 1e3, M: 1e6, B: 1e9, T: 1e12 };
+  return Number(match[0]) * (suffix ? scale[suffix[1].toUpperCase()] : 1);
+}
+
+/**
+ * Paired rows: one row per measure, two or three bars inside it, each printed with its
+ * own value.
+ *
+ * Rows of different units cannot share a scale, so by default each row is normalised to
+ * its own largest series and the printed numbers carry what the bars cannot: the pair
+ * says "this halved", the numbers say from what to what. A block whose rows really do
+ * share a unit asks for `scale: 'shared'` and gets one scale for the whole block.
+ *
+ * Values may be given as numbers or as the source's own strings (`839.8M`, `$0.58`):
+ * the string is printed verbatim and its magnitude drives the bar, which is what a
+ * redraw of someone else's chart needs.
+ */
+const pairedRows: Renderer = (ctx, top) => {
+  const spec = ctx.theme.chart.pairedBar;
+  if (!spec) throw new Error('the pack declares no paired bar treatment');
+  const hint = ctx.ir.visual.fields;
+  const { category } = fields(ctx);
+  const rows = ctx.ir.data.rows;
+  if (!rows.length) throw new Error('paired rows need at least one row');
+  const series = (hint?.columns?.length ? hint.columns : ctx.ir.data.numericColumns).slice(0, 3);
+  if (series.length < 2) {
+    throw new Error('paired rows need two or three series columns, named in fields.columns');
+  }
+  const shared = ctx.ir.visual.scale === 'shared';
+  const printed = rows.map((row) => series.map((col) => labelOf(ctx, row, col)));
+  const sizes = rows.map((row) => series.map((col) => magnitude(row[col])));
+  const globalMax = Math.max(...sizes.flat(), 0);
+
+  const labels = rows.map((r) => labelOf(ctx, r, category));
+  const units = hint?.unit ? rows.map((r) => labelOf(ctx, r, hint.unit!)) : undefined;
+  const deltas = hint?.delta ? rows.map((r) => labelOf(ctx, r, hint.delta!)) : undefined;
+  const groups = hint?.group ? rows.map((r) => labelOf(ctx, r, hint.group!)) : undefined;
+
+  const labelW = Math.max(
+    ...labels.map((l) => ctx.measure(spec.labelRole, l)),
+    ...(units ? units.map((u) => ctx.measure(spec.unitRole, u)) : [0]),
+  );
+  const valueW = Math.max(...printed.flat().map((t, i) => ctx.measure(
+    i % series.length === series.length - 1 ? spec.valueRole : spec.leadRole, t)));
+  const deltaW = deltas ? Math.max(...deltas.map((d) => ctx.measure(spec.deltaRole, d))) : 0;
+  const plotX = ctx.safeX + labelW + spec.labelGutter;
+  const right = ctx.safeX + ctx.safeWidth;
+  const plotW = right - plotX - spec.valueGap - valueW - (deltas ? spec.deltaGap + deltaW : 0);
+  if (plotW < 200) throw new Error('labels, values and changes leave no room for the bars; shorten them or split the frame');
+
+  const pairH = series.length * spec.barHeight + (series.length - 1) * spec.seriesGap;
+  const labelH = ctx.lineHeight(spec.labelRole) + (units ? ctx.lineHeight(spec.unitRole) : 0);
+  const rowH = Math.max(spec.rowPitch, pairH + spec.rowGap, labelH + spec.rowGap);
+  let cursor = top;
+
+  ctx.group('Paired rows', (into) => {
+    // The legend names the series, because a bar pair with no names is two colours.
+    let swatchX = ctx.safeX;
+    const legendMid = cursor + Math.max(0, (spec.swatch - ctx.lineHeight(spec.legendRole)) / 2);
+    series.forEach((col, si) => {
+      into.push({
+        op: 'rect', name: `Legend ${col}`, x: round(swatchX), y: round(cursor), w: spec.swatch, h: spec.swatch,
+        fill: ctx.accent(col) ?? ctx.seriesPaint(si), radius: 2,
+      });
+      const text = ctx.text(spec.legendRole, col, swatchX + spec.swatch + 12, legendMid, plotW, {
+        maxLines: 1, color: paint(ctx.theme, spec.legendColor).color,
+      });
+      into.push(text.op);
+      swatchX += spec.swatch + 12 + ctx.measure(spec.legendRole, col) + 40;
+    });
+    cursor += Math.max(spec.swatch, ctx.lineHeight(spec.legendRole)) + spec.legendGap;
+
+    rows.forEach((row, ri) => {
+      if (groups && groups[ri] && (ri === 0 || groups[ri] !== groups[ri - 1])) {
+        if (ri > 0) cursor += spec.groupLead;
+        into.push(ctx.text(spec.groupRole, groups[ri], ctx.safeX, cursor, ctx.safeWidth, {
+          maxLines: 1, color: paint(ctx.theme, spec.groupColor).color,
+        }).op);
+        cursor += ctx.lineHeight(spec.groupRole) + spec.groupGap;
+      }
+      const pairY = cursor + (rowH - spec.rowGap - pairH) / 2;
+      const labelY = pairY + (pairH - labelH) / 2;
+      into.push(ctx.text(spec.labelRole, labels[ri], ctx.safeX, labelY, labelW, {
+        maxLines: 1, color: paint(ctx.theme, spec.labelColor).color,
+      }).op);
+      if (units && units[ri]) {
+        into.push(ctx.text(spec.unitRole, units[ri], ctx.safeX, labelY + ctx.lineHeight(spec.labelRole), labelW, {
+          maxLines: 1, color: paint(ctx.theme, spec.unitColor).color,
+        }).op);
+      }
+      const rowMax = shared ? globalMax : Math.max(...sizes[ri], 0);
+      series.forEach((col, si) => {
+        const barY = pairY + si * (spec.barHeight + spec.seriesGap);
+        const w = rowMax > 0 ? Math.max(2, (Math.max(0, sizes[ri][si]) / rowMax) * plotW) : 2;
+        into.push({
+          op: 'rect', name: `Bar ${labels[ri]} ${col}`,
+          x: round(plotX), y: round(barY), w: round(w), h: spec.barHeight,
+          fill: ctx.accent(col) ?? ctx.seriesPaint(si), radius: spec.radius,
+        });
+        ctx.encode(row[col]);
+        const lead = si === series.length - 1;
+        into.push(ctx.text(lead ? spec.valueRole : spec.leadRole, printed[ri][si],
+          plotX + plotW + spec.valueGap,
+          barY + (spec.barHeight - ctx.lineHeight(lead ? spec.valueRole : spec.leadRole)) / 2,
+          valueW, { maxLines: 1, color: lead ? undefined : paint(ctx.theme, spec.leadColor).color }).op);
+      });
+      if (deltas && deltas[ri]) {
+        into.push(ctx.text(spec.deltaRole, deltas[ri], right - deltaW,
+          pairY + (pairH - ctx.lineHeight(spec.deltaRole)) / 2, deltaW,
+          { align: 'right', maxLines: 1, color: paint(ctx.theme, spec.deltaColor).color }).op);
+      }
+      cursor += rowH;
+    });
+  });
+  return cursor;
+};
+
 const bar: Renderer = (ctx, top) => {
   const { category, value } = fields(ctx);
   if (!value) throw new Error('bar needs at least one numeric column');
@@ -1560,6 +1684,7 @@ export const RENDERERS: Record<TemplateId, Renderer> = {
     const style = ctx.ir.visual.style;
     if (style === 'editorial') return editorialBar(ctx, top);
     if (style === 'share') return shareRows(ctx, top);
+    if (style === 'paired') return pairedRows(ctx, top);
     return bar(ctx, top);
   },
   table, line, scatter, waterfall, donut, loop, timeline, quadrant, layers, sankey, area, combo,
