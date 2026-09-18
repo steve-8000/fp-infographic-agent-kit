@@ -1,6 +1,7 @@
 import type { AccentPlacement, Block, Card, Op, Row, SolidPaint, Stage, SurfaceVariant, TemplateId, Theme } from './types.js';
 import { Ctx, round } from './draw.js';
 import { paint } from './theme.js';
+import { resolveGradient } from './chrome.js';
 import { formatValue } from './text.js';
 import { tint } from './palette.js';
 
@@ -135,7 +136,7 @@ function cardsBlock(ctx: Ctx, block: Extract<Block, { kind: 'cards' }>, area: Ar
         } else into.push(c
           ? {
               op: 'rect', name: 'Card surface', x: round(x), y: round(y), w: round(w), h: round(h),
-              fill: typeof c.fill === 'string' ? paint(ctx.theme, c.fill, c.fillOpacity) : c.fill,
+              fill: typeof c.fill === 'string' ? paint(ctx.theme, c.fill, c.fillOpacity) : resolveGradient(ctx.theme, c.fill),
               stroke: { color: colorOf(ctx, c.stroke), opacity: c.strokeOpacity },
               strokeWidth: c.strokeWidth, radius: c.radius,
             }
@@ -469,7 +470,8 @@ export function surfaceOf(theme: Theme, name: string | undefined, fallback: Surf
 function surfaceOps(ctx: Ctx, name: string, v: SurfaceVariant, x: number, y: number, w: number, h: number): Op {
   return {
     op: 'rect', name, x: round(x), y: round(y), w: round(w), h: round(h),
-    fill: typeof v.fill === 'string' ? paint(ctx.theme, v.fill, v.fillOpacity) : v.fill,
+    fill: typeof v.fill === 'string' ? paint(ctx.theme, v.fill, v.fillOpacity)
+      : v.fill ? resolveGradient(ctx.theme, v.fill) : undefined,
     stroke: v.stroke ? { color: paint(ctx.theme, v.stroke).color, opacity: v.strokeOpacity } : undefined,
     strokeWidth: v.strokeWidth, radius: v.radius,
   };

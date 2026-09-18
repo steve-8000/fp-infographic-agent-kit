@@ -13,6 +13,12 @@ export interface VectorAsset { w: number; h: number; paths: Array<{ dx: number; 
 
 export interface Theme {
   id: string; version: string; label?: string; locale?: string;
+  /** Light or dark. The user's declaration selects the pack; the pack states which it is. */
+  appearance?: 'dark' | 'light';
+  /** Pack this one is the measured difference from. Resolved leaf-first by `loadTheme`. */
+  extends?: string;
+  /** Inheritance chain `loadTheme` actually merged, nearest parent first. */
+  inherits?: string[];
   /** Vector assets loaded from the pack's sibling asset file, keyed by name. */
   assets?: Record<string, VectorAsset>;
   provenance: { default: Evidence; sources?: Array<Record<string, string>>; fields: Record<string, Evidence> };
@@ -422,7 +428,7 @@ export type Op = OpRect | OpText | OpLine | OpPolygon | OpArc | OpEllipse | OpPa
 
 export interface RenderProgram {
   version: 'fp-plan/1';
-  theme: { id: string; version: string; family: string; fallbacks: string[]; labelColor: string };
+  theme: { id: string; version: string; appearance: 'dark' | 'light'; family: string; fallbacks: string[]; labelColor: string };
   frame: { name: string; width: number; height: number; background: Paint };
   safe: { x: number; width: number };
   template: TemplateId;

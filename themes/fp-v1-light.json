@@ -1,0 +1,160 @@
+{
+  "$schema": "../schemas/theme.schema.json",
+  "id": "fp-v1-light",
+  "extends": "fp-v1",
+  "version": "1.1.0",
+  "label": "FOUR PILLARS Infographic v1 · light",
+  "appearance": "light",
+  "provenance": {
+    "sources": [
+      {
+        "id": "fp-light-templates",
+        "kind": "figma-file",
+        "ref": "FP Infographic Studio / Patrick works 28:3 — Template WhiteH:1080px 28:92 and 28:177, and the six #E5E5E5 works"
+      }
+    ],
+    "fields": {
+      "color.neutral": {
+        "status": "measured",
+        "source": "fp-light-templates",
+        "note": "the dark ramp mirrored by rank, so every step keeps a measured brand grey and the ends trade places; 100 = #151618 (Template WhiteH:1080px 28:176 title fill); 150 = #191919 (Template WhiteH:1080px 28:174 title fill); 780 = #CCCECE (Background Image 28:94 decoration gradient, last stop); 790 = #D4D4D4 (FP logo 28:98 watermark gradient, last stop); 910 = #DFDFDF (FP logo 28:98 watermark gradient, first stop); 1000 = #E5E5E5 (Template WhiteH:1080px 28:92 frame fill)"
+      },
+      "color.accent": {
+        "status": "declared",
+        "source": "fp-light-templates",
+        "note": "hue and saturation are the dark pack's measured hues; lightness is lowered only until the colour clears 3:1 against the paper, which is the floor WCAG sets for a graphical object. The light works use no consistent accent vocabulary - #4E81EE, #E28F62, #5470C6, #F2A01E, #1A3487 and #5C9BD6 appear across six frames - so there was nothing to measure"
+      },
+      "canvas.overlay": {
+        "status": "measured",
+        "source": "fp-light-templates",
+        "note": "the light template 28:92 and all six light works are a flat fill plus the corner blobs: no edge gradient. The dark overlay is measured from published report frames, and mirroring it puts a grey wash over paper, so the light pack deletes it rather than inventing a pale one"
+      },
+      "chrome.decoration.fill": {
+        "status": "measured",
+        "source": "fp-light-templates",
+        "note": "Background Image 28:94: the corner blobs run from paper white, so the light pack points the first stop at neutral.1050 instead of neutral.0, which is ink here"
+      },
+      "chrome.topMark.color": {
+        "status": "measured",
+        "source": "fp-light-templates",
+        "note": "Four Pillars image 28:116 strokes #151618"
+      }
+    }
+  },
+  "canvas": {
+    "overlay": null
+  },
+  "color": {
+    "neutral": {
+      "0": "#040404",
+      "100": "#151618",
+      "120": "#151618",
+      "150": "#191919",
+      "175": "#1D1D1D",
+      "200": "#1A1B1D",
+      "250": "#1B1B1B",
+      "300": "#222324",
+      "350": "#212327",
+      "400": "#333131",
+      "450": "#373737",
+      "475": "#2B2B2B",
+      "500": "#3C3E41",
+      "525": "#3C3E44",
+      "550": "#3C3E44",
+      "600": "#4F5358",
+      "650": "#51555C",
+      "675": "#4F5358",
+      "700": "#777B80",
+      "725": "#82868A",
+      "750": "#6C707A",
+      "775": "#898989",
+      "780": "#CCCECE",
+      "790": "#D4D4D4",
+      "800": "#BCBCBC",
+      "850": "#B1B4B9",
+      "895": "#CBCBCB",
+      "900": "#D4D5D9",
+      "910": "#DFDFDF",
+      "950": "#E8E8E8",
+      "960": "#E1E0D9",
+      "1000": "#E5E5E5",
+      "1050": "#FFFFFF"
+    },
+    "accentSets": {
+      "guide": {
+        "hues": {
+          "violet": "#654EDA",
+          "indigo": "#4E6ADA",
+          "blue": "#3380D4",
+          "cyan": "#1F8B94",
+          "teal": "#1E8E6F",
+          "green": "#22902D",
+          "lime": "#718622",
+          "amber": "#A27522",
+          "orange": "#C4642A",
+          "coral": "#D75142",
+          "pink": "#D8487E"
+        }
+      },
+      "report": {
+        "hues": {
+          "blue": "#4781C4",
+          "green": "#4A8B57",
+          "coral": "#C06440",
+          "amber": "#A37629"
+        }
+      }
+    },
+    "ramps": {
+      "sequential": {
+        "blue": [
+          "#81B1E4",
+          "#5F9CDD",
+          "#3D86D6",
+          "#2971C2",
+          "#2E5F94",
+          "#244A75"
+        ]
+      },
+      "diverging": {
+        "coral-teal": [
+          "#87271D",
+          "#95544E",
+          "#A38183",
+          "#ADB1B8",
+          "#76AFA7",
+          "#3AA98E",
+          "#1D8769"
+        ]
+      }
+    },
+    "base": {
+      "slate": "#5E7388"
+    },
+    "tail": "#797F88"
+  },
+  "chrome": {
+    "topMark": {
+      "color": "neutral.100"
+    },
+    "decoration": {
+      "fill": {
+        "gradient": "linear",
+        "angle": 90,
+        "opacity": 0.06,
+        "stops": [
+          {
+            "pos": 0,
+            "color": "neutral.1050",
+            "alpha": 1
+          },
+          {
+            "pos": 1,
+            "color": "neutral.780",
+            "alpha": 1
+          }
+        ]
+      }
+    }
+  }
+}

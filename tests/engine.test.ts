@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { accentPalette, auditProgram, buildBrief, describeProgram, buildTokenSpec, checkDirection, toFigmaSheet, compile, loadTheme, normalize, render, toFigmaScript, toSvg, validateTheme } from '../src/index.js';
+import { accentPalette, auditProgram, buildBrief, describeProgram, buildTokenSpec, checkDirection, toFigmaSheet, color, compile, loadTheme, normalize, render, toFigmaScript, toSvg, validateTheme } from '../src/index.js';
 import type { FPInput, Op, RenderProgram, Theme } from '../src/types.js';
 import { TEMPLATE_IDS } from '../src/types.js';
 import { RENDERERS } from '../src/renderers.js';
@@ -847,4 +847,75 @@ test('a structure diagram colours the distinction it declares and nothing else',
   });
   assert.equal(plain.ir.visual.colorMode, 'none', 'no declared distinction, no hue');
   assert.deepEqual(plain.ir.visual.accents, {});
+});
+
+test('the light pack is the dark pack\'s measured difference, not a second copy', () => {
+  const light = loadTheme('fp-v1-light');
+  assert.equal(light.appearance, 'light');
+  assert.deepEqual(light.inherits, ['fp-v1']);
+  // Inherited, not restated: the light delta declares no typography at all.
+  assert.equal(light.typography.family, theme.typography.family);
+  assert.equal(light.canvas.safe.width, theme.canvas.safe.width);
+  assert.equal(light.chrome!.titleBlock!.y, theme.chrome!.titleBlock!.y);
+  // Swapped: paper and ink trade places without one role reference changing.
+  assert.equal(color(light, light.canvas.background), '#E5E5E5');
+  assert.equal(color(light, light.typography.roles.hero.color), '#151618');
+  assert.equal(color(theme, theme.canvas.background), '#0C0D0F');
+  // A flat fill plus blobs was what the light template measured, so there is no wash.
+  assert.equal(light.canvas.overlay, undefined);
+  assert.ok(theme.canvas.overlay, 'the dark pack keeps its measured overlay');
+});
+
+test('the committed light pack matches its derivation', async () => {
+  const script = new URL('../../scripts/derive-light.mjs', import.meta.url).href;
+  const { deriveLight, darkPack } = await import(script);
+  const url = ['../themes/fp-v1-light.json', '../../themes/fp-v1-light.json']
+    .map((rel) => new URL(rel, import.meta.url)).find((u) => existsSync(u))!;
+  assert.deepEqual(JSON.parse(readFileSync(url, 'utf8')), deriveLight(darkPack()),
+    'run `node scripts/derive-light.mjs --write` after changing the dark pack');
+});
+
+test('every light accent clears the 3:1 floor for a graphical object', () => {
+  const light = loadTheme('fp-v1-light');
+  const relative = (hex: string) => [1, 3, 5]
+    .map((i) => parseInt(hex.slice(i, i + 2), 16) / 255)
+    .map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4))
+    .reduce((sum, c, i) => sum + c * [0.2126, 0.7152, 0.0722][i], 0);
+  const paper = relative(color(light, light.canvas.background));
+  for (const key of accentPalette(light)) {
+    const ratio = (paper + 0.05) / (relative(color(light, `accent.${key}`)) + 0.05);
+    assert.ok(ratio >= 3, `accent.${key} is ${ratio.toFixed(2)}:1 on paper`);
+  }
+});
+
+test('neither pack carries a colour the palette does not name', () => {
+  for (const id of ['fp-v1', 'fp-v1-light']) {
+    const url = [`../themes/${id}.json`, `../../themes/${id}.json`]
+      .map((rel) => new URL(rel, import.meta.url)).find((u) => existsSync(u))!;
+    const pack = JSON.parse(readFileSync(url, 'utf8')) as Record<string, unknown>;
+    delete pack.provenance;
+    const loose: string[] = [];
+    const walkValue = (value: unknown, path: string): void => {
+      if (typeof value === 'string') { if (/^#[0-9A-Fa-f]{6,8}$/.test(value)) loose.push(path); return; }
+      if (Array.isArray(value)) { value.forEach((v, i) => walkValue(v, `${path}[${i}]`)); return; }
+      if (value && typeof value === 'object') for (const [k, v] of Object.entries(value)) walkValue(v, `${path}.${k}`);
+    };
+    for (const [key, value] of Object.entries(pack)) if (key !== 'color') walkValue(value, key);
+    assert.deepEqual(loose, [], `${id} spends colour the palette does not name`);
+  }
+});
+
+test('a light render says which pack drew it', () => {
+  const input: FPInput = {
+    title: 'Paper', source: 's', template: 'bar', theme: 'fp-v1-light',
+    content: [{ id: 'a', K: 'A', V: 3 }, { id: 'b', K: 'B', V: 5 }],
+  };
+  const result = render(input);
+  assert.equal(result.program.theme.appearance, 'light');
+  assert.equal(result.program.theme.id, 'fp-v1-light');
+  assert.equal(describeProgram(result, input).frame.appearance, 'light');
+  assert.equal(describeProgram(result, input).frame.theme, 'fp-v1-light');
+  const dark = render({ ...input, theme: 'fp-v1' });
+  assert.equal(describeProgram(dark, input).frame.appearance, 'dark');
+  assert.notDeepEqual(result.program.frame.background, dark.program.frame.background);
 });

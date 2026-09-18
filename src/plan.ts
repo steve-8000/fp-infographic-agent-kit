@@ -74,7 +74,7 @@ export function compile(ir: FPIR, theme: Theme, direction?: Direction): RenderPr
   return {
     version: 'fp-plan/1',
     theme: {
-      id: theme.id, version: theme.version,
+      id: theme.id, version: theme.version, appearance: theme.appearance ?? 'dark',
       family: theme.typography.family, fallbacks: theme.typography.fallbacks ?? [],
       // Sheet furniture is part of the pack too; no backend may hold a hex of its own.
       labelColor: color(theme, theme.typography.roles.footer?.color ?? 'neutral.400'),

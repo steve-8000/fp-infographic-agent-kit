@@ -6,7 +6,7 @@ import { auditProgram } from './audit.js';
 import { checkComposition } from './compose-rules.js';
 
 export * from './types.js';
-export { loadTheme, listThemes, validateTheme, unverifiedFields, accentPalette } from './theme.js';
+export { loadTheme, listThemes, validateTheme, unverifiedFields, accentPalette, color } from './theme.js';
 export { normalize, selectTemplate } from './normalize.js';
 export { compile } from './plan.js';
 export { composeBlocks, collectAccentKeys, collectText } from './blocks.js';

@@ -24,13 +24,48 @@ export function listThemes(extra: string[] = []): Array<{ id: string; version: s
 
 const cache = new Map<string, Theme>();
 
-export function loadTheme(id = 'fp-v1', extra: string[] = []): Theme {
-  const cached = cache.get(id);
-  if (cached) return cached;
+/**
+ * RFC 7386 merge: objects merge key by key, arrays and scalars replace outright, null
+ * deletes. A light pack is the measured DIFFERENCES from the dark pack, not a second copy
+ * of 560 fields — two copies drift, and the drift is invisible until it renders.
+ */
+function mergePack(base: unknown, patch: unknown): unknown {
+  if (patch === null || typeof patch !== 'object' || Array.isArray(patch)) return patch;
+  const out: Record<string, unknown> =
+    base !== null && typeof base === 'object' && !Array.isArray(base)
+      ? { ...(base as Record<string, unknown>) }
+      : {};
+  for (const [key, value] of Object.entries(patch as Record<string, unknown>)) {
+    if (value === null) delete out[key];
+    else out[key] = mergePack(out[key], value);
+  }
+  return out;
+}
+
+function packPath(id: string, extra: string[]): string {
   const direct = id.endsWith('.json') ? resolve(id) : undefined;
   const path = direct && existsSync(direct) ? direct : listThemes(extra).find((t) => t.id === id)?.path;
   if (!path) throw new Error(`Unknown theme "${id}". Available: ${listThemes(extra).map((t) => t.id).join(', ') || 'none'}`);
-  const theme = JSON.parse(readFileSync(path, 'utf8')) as Theme;
+  return path;
+}
+
+export function loadTheme(id = 'fp-v1', extra: string[] = []): Theme {
+  const cached = cache.get(id);
+  if (cached) return cached;
+  const path = packPath(id, extra);
+  let raw = JSON.parse(readFileSync(path, 'utf8')) as Theme;
+  // Resolve the inheritance chain leaf-first, so the pack the caller named always wins.
+  const chain: string[] = [];
+  for (let base = raw.extends; base; base = raw.extends) {
+    if (chain.includes(base)) throw new Error(`Theme "${id}" inherits in a cycle through "${base}"`);
+    chain.push(base);
+    const parent = JSON.parse(readFileSync(packPath(base, extra), 'utf8')) as Theme;
+    const leaf = { ...raw };
+    delete leaf.extends;
+    raw = mergePack(parent, leaf) as Theme;
+  }
+  const theme = raw;
+  if (chain.length) theme.inherits = chain;
   // A pack may ship several measured accent vocabularies; exactly one is active, and
   // every `accent.*` reference resolves against it so there is never a second truth.
   const setName = theme.color.accentSet;

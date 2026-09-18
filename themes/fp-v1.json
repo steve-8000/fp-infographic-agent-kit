@@ -1,9 +1,10 @@
 {
   "$schema": "../schemas/theme.schema.json",
   "id": "fp-v1",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "label": "FOUR PILLARS Infographic v1",
   "locale": "ko-KR",
+  "appearance": "dark",
   "provenance": {
     "default": {
       "status": "unverified"
@@ -83,7 +84,7 @@
       "color.neutral": {
         "status": "measured",
         "source": "fp-contract",
-        "note": "FP Color System Slate ramp plus the Foundation/BW paint styles read from the live file"
+        "note": "FP Color System Slate ramp plus the Foundation/BW paint styles read from the live file. Steps 0, 120, 775, 780, 790, 895 and 910 name values this pack already carried as literals in surface.card, surface.variants, chart.axis, chrome.topMark, chrome.watermark and chrome.decoration; naming them is what lets a light pack swap them"
       },
       "color.accent": {
         "status": "measured",
@@ -438,7 +439,7 @@
       "cardBody": {
         "size": 23,
         "weight": 400,
-        "color": "#888888",
+        "color": "neutral.450",
         "lineHeight": 1.45
       },
       "cardNote": {
@@ -518,7 +519,14 @@
       "850": "#212327",
       "960": "#151618",
       "1050": "#040404",
-      "175": "#BDBDBD"
+      "175": "#BDBDBD",
+      "0": "#FFFFFF",
+      "120": "#E1E0D9",
+      "775": "#373737",
+      "780": "#333131",
+      "790": "#2B2B2B",
+      "895": "#1B1B1B",
+      "910": "#1D1D1D"
     },
     "accent": {
       "violet": "#9A86FF",
@@ -678,17 +686,17 @@
         "stops": [
           {
             "pos": 0,
-            "color": "#1B1B1B",
+            "color": "neutral.895",
             "alpha": 1
           },
           {
             "pos": 1,
-            "color": "#373737",
+            "color": "neutral.775",
             "alpha": 1
           }
         ]
       },
-      "stroke": "#E1E0D9",
+      "stroke": "neutral.120",
       "strokeWidth": 1,
       "strokeOpacity": 0.22,
       "radius": 16,
@@ -716,9 +724,9 @@
     },
     "variants": {
       "flat": {
-        "fill": "#1A1B1D",
+        "fill": "neutral.900",
         "fillOpacity": 1,
-        "stroke": "#6C707A",
+        "stroke": "neutral.525",
         "strokeWidth": 1,
         "radius": 10,
         "padding": 33,
@@ -751,17 +759,17 @@
           "stops": [
             {
               "pos": 0,
-              "color": "#1B1B1B",
+              "color": "neutral.895",
               "alpha": 1
             },
             {
               "pos": 1,
-              "color": "#373737",
+              "color": "neutral.775",
               "alpha": 1
             }
           ]
         },
-        "stroke": "#E1E0D9",
+        "stroke": "neutral.120",
         "strokeWidth": 1,
         "strokeOpacity": 0.16,
         "radius": 10,
@@ -778,7 +786,7 @@
       "variant": "glass",
       "rowPitch": 94,
       "padding": 29,
-      "headerFill": "#3C3E44",
+      "headerFill": "neutral.700",
       "headerOpacity": 0.25,
       "headerRole": "tableHead",
       "bodyRole": "tableCell",
@@ -810,7 +818,7 @@
   "chart": {
     "strokeWidth": 4,
     "axis": {
-      "color": "#777B80",
+      "color": "neutral.550",
       "width": 2,
       "opacity": 1
     },
@@ -894,7 +902,7 @@
       "y": 0,
       "height": 41,
       "width": 131,
-      "color": "#FFFFFF",
+      "color": "neutral.0",
       "clipWidth": 24,
       "groupOffsets": [
         0,
@@ -950,12 +958,12 @@
         "stops": [
           {
             "pos": 0,
-            "color": "#1D1D1D",
+            "color": "neutral.910",
             "alpha": 1
           },
           {
             "pos": 1,
-            "color": "#2B2B2B",
+            "color": "neutral.790",
             "alpha": 1
           }
         ]
@@ -1014,12 +1022,12 @@
         "stops": [
           {
             "pos": 0,
-            "color": "#FFFFFF",
+            "color": "neutral.0",
             "alpha": 1
           },
           {
             "pos": 1,
-            "color": "#333131",
+            "color": "neutral.780",
             "alpha": 1
           }
         ]

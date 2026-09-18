@@ -14,6 +14,8 @@ export interface LayoutReport {
     width: number; height: number;
     /** The composed frame's own template, and the colour mode that resolved. */
     template: string; colorMode: string;
+    /** Light or dark, and the pack id that decided it. */
+    appearance: 'dark' | 'light'; theme: string;
   };
   /** Which grammar and style each block resolved to - not the ones asked for. */
   blocks: Array<{ kind: string; template?: string; style?: string }>;
@@ -106,6 +108,8 @@ export function describeProgram(result: { ir: FPIR; program: RenderProgram }, in
     frame: {
       width: program.frame.width, height: program.frame.height,
       template: program.template, colorMode: ir.visual.colorMode,
+      // Which pack drew it: the user declares light or dark, and the frame confirms it.
+      appearance: program.theme.appearance, theme: program.theme.id,
     },
     blocks, swatches, derived, clipped, warnings: program.meta.warnings,
   };
