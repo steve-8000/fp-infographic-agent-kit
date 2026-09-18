@@ -38,6 +38,11 @@
         "status": "measured",
         "source": "fp-light-templates",
         "note": "Four Pillars image 28:116 strokes #151618"
+      },
+      "chart.barFillFrom": {
+        "status": "measured",
+        "source": "fp-light-templates",
+        "note": "the light works fill a bar with a solid accent: 2_01 32:652, 1_02 32:1247 and 3_03 32:1364 carry no bar gradient. The dark ramp fades a bar from 40% to 5% accent, which reads as a glow above ink and as a bar dissolving into the page on paper, so emphasis here rides the stroke instead"
       }
     }
   },
@@ -156,5 +161,11 @@
         ]
       }
     }
+  },
+  "chart": {
+    "barFillFrom": 1,
+    "barFillTo": 1,
+    "barHighlightFrom": 1,
+    "barHighlightTo": 1
   }
 }

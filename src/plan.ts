@@ -3,6 +3,7 @@ import { Ctx } from './draw.js';
 import { color, paint, unverifiedFields } from './theme.js';
 import { backgroundOps, brandMarkOps, footerOps, titleOps, topMarkOps, watermarkOps } from './chrome.js';
 import { RENDERERS } from './renderers.js';
+import { categoryLegend } from './blocks.js';
 import { checkDirection } from './direction.js';
 
 /**
@@ -28,7 +29,7 @@ export function compile(ir: FPIR, theme: Theme, direction?: Direction): RenderPr
   const contentTop = Math.max(title.bottom + (chrome.titleGap ?? 32), chrome.contentTop ?? 0);
   const renderer = RENDERERS[ir.visual.template];
   if (!renderer) throw new Error(`No renderer registered for template "${ir.visual.template}"`);
-  const contentBottom = renderer(ctx, contentTop);
+  const contentBottom = categoryLegend(ctx, renderer(ctx, contentTop));
 
   // Content shorter than its budget is centred in the reserved band rather than pinned
   // under the title, which is what produced the large dead margin at the bottom.

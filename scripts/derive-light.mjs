@@ -182,6 +182,11 @@ export function deriveLight(dark) {
           + 'neutral.1050 instead of neutral.0, which is ink here',
         ),
         'chrome.topMark.color': cite(MEASURED.topMarkColor[1]),
+        'chart.barFillFrom': cite(
+          'the light works fill a bar with a solid accent: 2_01 32:652, 1_02 32:1247 and 3_03 32:1364 carry no bar '
+          + 'gradient. The dark ramp fades a bar from 40% to 5% accent, which reads as a glow above ink and as a bar '
+          + 'dissolving into the page on paper, so emphasis here rides the stroke instead',
+        ),
       },
     },
     canvas: { overlay: null },
@@ -190,6 +195,7 @@ export function deriveLight(dark) {
       topMark: { color: MEASURED.topMarkColor[0] },
       decoration: { fill: { ...dark.chrome.decoration.fill, stops: [{ pos: 0, color: 'neutral.1050', alpha: 1 }, { pos: 1, color: 'neutral.780', alpha: 1 }] } },
     },
+    chart: { barFillFrom: 1, barFillTo: 1, barHighlightFrom: 1, barHighlightTo: 1 },
   };
 }
 

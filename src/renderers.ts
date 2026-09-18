@@ -1,7 +1,7 @@
 import type { Diagram, DiagramNode, Op, Row, SolidPaint, TemplateId } from './types.js';
 import { Ctx, niceScale, round } from './draw.js';
 import { paint } from './theme.js';
-import { tint } from './palette.js';
+import { inkOn, tint } from './palette.js';
 import { formatValue } from './text.js';
 import { bindTemplateRenderer, composeBlocks } from './blocks.js';
 
@@ -678,19 +678,29 @@ function nodeBox(ctx: Ctx, node: DiagramNode, x: number, y: number, w: number, h
     radius: 8, paddingX: 32, paddingY: 20, gapX: 56, gapY: 36, minWidth: 180,
   };
   const accent = ctx.nodeAccent(node);
+  // A tinted node is FILLED by its category instead of washed by it, which is how the
+  // delivered light frames read a category: the surface carries the colour and the label
+  // is ink against that surface, not against the canvas behind it.
+  const tinted = ctx.ir.visual.style === 'tinted' && accent ? style.tinted : undefined;
+  const fillHex = tinted ? tint(accent!.color, tinted.tint) : undefined;
+  const ink = fillHex ? inkOn(ctx.theme, fillHex) : undefined;
   // Measured rule: 12% fill, stroke at 38% for a base node and 100% for a point colour.
   const ops: Op[] = [{
     op: 'rect', name: `Node ${node.id}`, x: round(x), y: round(y), w: round(w), h: round(h),
-    fill: accent ? { ...accent, opacity: style.fillOpacity ?? 0.12 } : paint(ctx.theme, style.fill, style.fillOpacity),
-    stroke: accent ?? paint(ctx.theme, style.stroke, ctx.theme.surface.nodeStrokeOpacity),
+    fill: fillHex ? { color: fillHex }
+      : accent ? { ...accent, opacity: style.fillOpacity ?? 0.12 }
+      : paint(ctx.theme, style.fill, style.fillOpacity),
+    stroke: tinted ? { ...accent!, opacity: tinted.strokeOpacity }
+      : accent ?? paint(ctx.theme, style.stroke, ctx.theme.surface.nodeStrokeOpacity),
     strokeWidth: style.strokeWidth, radius: style.radius,
   }];
   const label = ctx.text('body', node.label, x + style.paddingX, y + style.paddingY, w - style.paddingX * 2, {
-    align: 'center', color: accent ? tint(accent.color, ctx.theme.chart.labelTint ?? 0.62) : undefined,
+    align: 'center', color: ink ?? (accent ? tint(accent.color, ctx.theme.chart.labelTint ?? 0.62) : undefined),
   });
   ops.push(label.op);
   if (node.note) {
-    ops.push(ctx.text('detail', node.note, x + style.paddingX, y + style.paddingY + label.height + 4, w - style.paddingX * 2, { align: 'center', maxLines: 2 }).op);
+    ops.push(ctx.text('detail', node.note, x + style.paddingX, y + style.paddingY + label.height + 4, w - style.paddingX * 2,
+      { align: 'center', maxLines: 2, color: ink }).op);
   }
   return ops;
 }

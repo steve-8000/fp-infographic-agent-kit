@@ -52,7 +52,14 @@ export interface Theme {
     panel: { fill: string; fillOpacity: number; stroke: string; strokeWidth: number; strokeOpacity?: number; radius: number; padding: number };
     header?: { fill: string; fillOpacity?: number };
     divider: { color: string; width: number; opacity?: number };
-    node?: { fill: string; fillOpacity?: number; stroke: string; strokeWidth: number; radius: number; paddingX: number; paddingY: number; gapX: number; gapY: number; minWidth: number };
+    node?: { fill: string; fillOpacity?: number; stroke: string; strokeWidth: number; radius: number; paddingX: number; paddingY: number; gapX: number; gapY: number; minWidth: number;
+      /**
+       * A node the accent FILLS rather than washes: the surface becomes the label's
+       * background, so its text is ink chosen against the fill, not against the canvas.
+       * `tint` mixes the authorised hue toward white; the same value reads on paper and
+       * on ink, which is why a tinted node needs no light-pack override.
+       */
+      tinted?: { tint: number; strokeOpacity?: number } };
     nodeStrokeOpacity?: number;
     /** Named surface treatments. A block names one; it never invents fills. */
     variants?: Record<string, SurfaceVariant>;
@@ -95,6 +102,12 @@ export interface Theme {
     barFillFrom?: number; barFillTo?: number; barStrokeOpacity?: number;
     barHighlightFrom?: number; barHighlightTo?: number; barHighlightStroke?: number;
     areaOpacity?: number; labelTint?: number;
+    /**
+     * Category chips under a diagram. A coloured node group with no name is a colour the
+     * reader has to guess, but a legend also takes the eye away from the graphic - so the
+     * author asks for it (`legend: true`) and the pack decides how it looks.
+     */
+    legend?: { swatch: number; radius: number; gap: number; columnGap: number; top: number; role: string };
     /** Horizontal bar rows: label, bar, value. No axis, no gridlines. */
     editorialBar?: {
       rowPitch: number; barHeight: number; radius: number; labelGutter: number; valueGap: number;
@@ -308,6 +321,8 @@ export type Block =
   | (BlockBase & { kind: 'steps'; items: Array<{ eyebrow?: string; title: string; body?: string; accent?: string }>; direction?: 'vertical' | 'horizontal'; gap?: number })
   | (BlockBase & {
       kind: 'chart'; template: TemplateId; style?: string; title?: string; height?: number;
+      /** Name the coloured node categories under a diagram. Off unless the author asks. */
+      legend?: boolean;
       rows?: Row[]; diagram?: Diagram;
       /**
        * Which column plays which part. `columns` names the series a multi-series
@@ -360,6 +375,8 @@ export interface FPIR {
     };
     /** Paired rows: one scale per row (mixed units) or one for the whole block. */
     scale?: 'row' | 'shared';
+    /** Name the coloured node categories under a diagram; the author asks for it. */
+    legend?: boolean;
   };
   fidelity: { immutableFacts: string[]; checksum: string; rowCount: number };
 }

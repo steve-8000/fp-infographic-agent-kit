@@ -155,3 +155,32 @@ export function tint(hex: string, amount: number): string {
   return `#${[mix((n >> 16) & 255), mix((n >> 8) & 255), mix(n & 255)]
     .map((c) => c.toString(16).padStart(2, '0')).join('').toUpperCase()}`;
 }
+
+/** WCAG relative luminance, for choosing ink against a surface rather than a canvas. */
+function relativeLuminance(hex: string): number {
+  return [1, 3, 5]
+    .map((i) => parseInt(hex.slice(i, i + 2), 16) / 255)
+    .map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4))
+    .reduce((sum, c, i) => sum + c * [0.2126, 0.7152, 0.0722][i], 0);
+}
+
+/**
+ * Text colour for a label sitting ON a filled surface.
+ *
+ * A filled node IS the background for its own label, so the canvas no longer decides: a
+ * pastel node wants ink whether the frame around it is paper or ink. Both ends of the
+ * pack's own ramp are candidates and the better contrast wins, so no appearance needs a
+ * second rule and no hex is invented.
+ */
+export function inkOn(theme: Theme, fill: string): string {
+  const ramp = Object.values(theme.color.neutral);
+  if (!ramp.length) return fill;
+  const sorted = [...ramp].sort((a, b) => relativeLuminance(a) - relativeLuminance(b));
+  const surface = relativeLuminance(fill);
+  const ratio = (candidate: string) => {
+    const other = relativeLuminance(candidate);
+    return (Math.max(surface, other) + 0.05) / (Math.min(surface, other) + 0.05);
+  };
+  const darkest = sorted[0], lightest = sorted[sorted.length - 1];
+  return (ratio(darkest) >= ratio(lightest) ? darkest : lightest).toUpperCase();
+}

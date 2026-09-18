@@ -919,3 +919,97 @@ test('a light render says which pack drew it', () => {
   assert.equal(describeProgram(dark, input).frame.appearance, 'dark');
   assert.notDeepEqual(result.program.frame.background, dark.program.frame.background);
 });
+
+
+test('a tinted node is filled by its category and labelled in ink', () => {
+  const input: FPInput = {
+    title: 'Roles', source: 's', colorMode: 'categorical',
+    blocks: [{
+      kind: 'chart', template: 'flowchart', style: 'tinted', legend: true,
+      diagram: {
+        nodes: [
+          { id: 'a', label: 'User action', group: 'Actor' },
+          { id: 'b', label: 'Atomic execution', group: 'Execution' },
+          { id: 'c', label: 'validateUserOp()', group: 'Validation' },
+        ],
+        edges: [{ from: 'a', to: 'b' }, { from: 'b', to: 'c' }],
+      },
+    }],
+  };
+  const { program, ir } = render(input);
+  // A composed diagram declares its distinctions on the nodes; before this they were lost.
+  assert.deepEqual(Object.keys(ir.visual.accents), ['Actor', 'Execution', 'Validation']);
+  const ops = flatten(program.ops);
+  const boxes = ops.filter((op) => op.op === 'rect' && op.name?.startsWith('Node '));
+  assert.equal(boxes.length, 3);
+  for (const box of boxes) {
+    const fill = box.op === 'rect' ? box.fill : undefined;
+    assert.ok(fill && 'color' in fill, 'a tinted node carries a solid fill');
+    // Filled, not washed: no 12% wash, and the pastel is lighter than the hue it came from.
+    assert.equal((fill as { opacity?: number }).opacity, undefined);
+  }
+  const labels = ops.filter((op): op is Extract<Op, { op: 'text' }> =>
+    op.op === 'text' && ['User action', 'Atomic execution', 'validateUserOp()'].includes(op.lines.join('')));
+  assert.equal(labels.length, 3);
+  const ramp = Object.values(loadTheme('fp-v1').color.neutral).map((hex) => hex.toUpperCase());
+  for (const label of labels) assert.ok(ramp.includes(label.color.color.toUpperCase()),
+    `label ink ${label.color.color} is a pack neutral, not a tint of the accent`);
+  // The same document on paper keeps ink dark, because the fill is the background now.
+  const paper = render({ ...input, theme: 'fp-v1-light' });
+  const paperLabels = flatten(paper.program.ops).filter((op): op is Extract<Op, { op: 'text' }> =>
+    op.op === 'text' && op.lines.join('') === 'User action');
+  assert.equal(paperLabels.length, 1);
+  assert.equal(paperLabels[0].color.color.toUpperCase(), labels.find((l) => l.lines.join('') === 'User action')!.color.color.toUpperCase(),
+    'a pastel node wants the same ink whether the frame around it is paper or ink');
+});
+
+test('a washed node is still the default, so existing frames do not change', () => {
+  const diagram = {
+    nodes: [{ id: 'a', label: 'One', group: 'X' }, { id: 'b', label: 'Two', group: 'Y' }],
+    edges: [{ from: 'a', to: 'b' }],
+  };
+  const { program } = render({ title: 'Plain', source: 's', colorMode: 'categorical',
+    blocks: [{ kind: 'chart', template: 'flowchart', diagram }] });
+  const box = flatten(program.ops).find((op) => op.op === 'rect' && op.name === 'Node a');
+  assert.ok(box && box.op === 'rect' && box.fill && 'opacity' in box.fill);
+  assert.equal((box.fill as { opacity?: number }).opacity, theme.surface.node!.fillOpacity);
+});
+
+test('category chips are named only when the author asks for them', () => {
+  const diagram = {
+    nodes: [{ id: 'a', label: 'One', group: 'Actor' }, { id: 'b', label: 'Two', group: 'Execution' }],
+    edges: [{ from: 'a', to: 'b' }],
+  };
+  const base = { title: 'Legend', source: 's', colorMode: 'categorical' } as const;
+  const withLegend = render({ ...base, blocks: [{ kind: 'chart', template: 'flowchart', legend: true, diagram }] });
+  const chips = flatten(withLegend.program.ops).filter((op) => op.name?.startsWith('Legend '));
+  assert.deepEqual(chips.map((op) => op.name), ['Legend Actor', 'Legend Execution']);
+  const without = render({ ...base, blocks: [{ kind: 'chart', template: 'flowchart', diagram }] });
+  assert.deepEqual(flatten(without.program.ops).filter((op) => op.name?.startsWith('Legend ')), []);
+  // One category is not a legend: there is nothing to tell apart.
+  const single = render({ ...base, blocks: [{ kind: 'chart', template: 'flowchart', legend: true,
+    diagram: { nodes: [{ id: 'a', label: 'One', group: 'Actor' }, { id: 'b', label: 'Two', group: 'Actor' }], edges: [] } }] });
+  assert.deepEqual(flatten(single.program.ops).filter((op) => op.name?.startsWith('Legend ')), []);
+});
+
+test('the catalog advertises tinted exactly where a node box is drawn', () => {
+  const url = ['../templates/registry.json', '../../templates/registry.json']
+    .map((rel) => new URL(rel, import.meta.url)).find((u) => existsSync(u))!;
+  const registry = JSON.parse(readFileSync(url, 'utf8')) as
+    { templates: Array<{ id: string; styles?: Array<{ id: string }> }> };
+  const advertised = registry.templates
+    .filter((t) => (t.styles ?? []).some((s) => s.id === 'tinted')).map((t) => t.id).sort();
+  assert.deepEqual(advertised, ['architecture', 'data-flow', 'dependency', 'deployment', 'flowchart',
+    'loop', 'org-chart', 'process', 'sequence', 'state', 'swimlane', 'tree']);
+  // Every advertised grammar really honours it: a tinted render differs from a washed one.
+  for (const id of advertised) {
+    const diagram = { nodes: [{ id: 'a', label: 'One', group: 'X' }, { id: 'b', label: 'Two', group: 'Y' }], edges: [{ from: 'a', to: 'b' }] };
+    const plain = render({ title: id, source: 's', colorMode: 'categorical', blocks: [{ kind: 'chart', template: id as never, diagram }] });
+    const tinted = render({ title: id, source: 's', colorMode: 'categorical', blocks: [{ kind: 'chart', template: id as never, style: 'tinted', diagram }] });
+    const fillOf = (result: typeof plain) => {
+      const box = flatten(result.program.ops).find((op) => op.op === 'rect' && op.name === 'Node a');
+      return box && box.op === 'rect' ? JSON.stringify(box.fill) : undefined;
+    };
+    assert.notEqual(fillOf(tinted), fillOf(plain), `${id} ignores style 'tinted'`);
+  }
+});

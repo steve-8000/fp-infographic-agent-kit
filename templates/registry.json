@@ -215,7 +215,17 @@
       ],
       "budget": {
         "steps": 8
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "timeline",
@@ -236,7 +246,17 @@
       ],
       "budget": {
         "steps": 10
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "flowchart",
@@ -248,7 +268,17 @@
       ],
       "budget": {
         "nodes": 10
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "architecture",
@@ -259,7 +289,17 @@
       ],
       "budget": {
         "nodes": 12
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "data-flow",
@@ -270,7 +310,17 @@
       ],
       "budget": {
         "nodes": 12
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "deployment",
@@ -282,7 +332,17 @@
       ],
       "budget": {
         "nodes": 14
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "dependency",
@@ -294,7 +354,17 @@
       ],
       "budget": {
         "nodes": 15
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "tree",
@@ -305,7 +375,17 @@
       ],
       "budget": {
         "nodes": 15
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "sequence",
@@ -316,7 +396,17 @@
       "budget": {
         "lanes": 6,
         "steps": 14
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "swimlane",
@@ -327,7 +417,17 @@
       "budget": {
         "lanes": 5,
         "steps": 15
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "layers",
@@ -369,7 +469,17 @@
       ],
       "budget": {
         "nodes": 12
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "er",
@@ -419,7 +529,17 @@
       ],
       "budget": {
         "nodes": 15
-      }
+      },
+      "styles": [
+        {
+          "id": "",
+          "when": "a washed box: the canvas shows through the category at 12% with an accent stroke"
+        },
+        {
+          "id": "tinted",
+          "when": "the category FILLS each box instead of washing it: a pastel of the authorised hue with ink chosen against that fill, which is how a delivered frame reads a role. Pair it with legend:true to name the groups under the graphic"
+        }
+      ]
     },
     {
       "id": "venn",

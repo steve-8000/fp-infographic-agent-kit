@@ -432,14 +432,52 @@ function chartBlock(ctx: Ctx, block: Extract<Block, { kind: 'chart' }>, area: Ar
     visual: {
       ...ctx.ir.visual, template: block.template, style: block.style ?? ctx.ir.visual.style,
       fields: block.fields, scale: block.scale,
+      legend: block.legend ?? (block.diagram ? ctx.ir.visual.legend : false),
     },
   }, area.x, area.w, block.height ?? Math.max(360, ctx.budget - (top - area.y)));
 
-  const bottom = renderTemplate(nested, block.template, top);
+  const bottom = categoryLegend(nested, renderTemplate(nested, block.template, top));
   ctx.push(...nested.ops);
   ctx.warnings.push(...nested.warnings);
   for (const v of nested.encoded) ctx.encode(v);
   return bottom;
+}
+
+/**
+ * Category chips under a diagram, centred.
+ *
+ * A coloured node group with no name is a colour the reader has to guess; a legend that
+ * appears uninvited takes the eye off the graphic. So the author asks for it and the pack
+ * decides how it looks. Order is first appearance in the graph, never alphabetical.
+ */
+export function categoryLegend(ctx: Ctx, top: number): number {
+  const spec = ctx.theme.chart.legend;
+  const nodes = ctx.ir.data.graph?.nodes;
+  if (!spec || !ctx.ir.visual.legend || !nodes?.length) return top;
+  const entries: Array<{ label: string; color: string }> = [];
+  for (const node of nodes) {
+    const key = node.group ?? node.kind;
+    if (!key || entries.some((e) => e.label === key)) continue;
+    const accent = ctx.nodeAccent(node);
+    if (accent) entries.push({ label: key, color: accent.color });
+  }
+  if (entries.length < 2) return top;
+  const widths = entries.map((e) => spec.swatch + spec.gap + ctx.measure(spec.role, e.label));
+  const total = widths.reduce((a, b) => a + b, 0) + spec.columnGap * (entries.length - 1);
+  const lh = ctx.lineHeight(spec.role);
+  const y = top + spec.top;
+  let x = ctx.safeX + Math.max(0, (ctx.safeWidth - total) / 2);
+  ctx.group('Legend', (into) => {
+    entries.forEach((entry, i) => {
+      into.push({
+        op: 'rect', name: `Legend ${entry.label}`, x: round(x), y: round(y + (lh - spec.swatch) / 2),
+        w: spec.swatch, h: spec.swatch, fill: { color: entry.color }, radius: spec.radius,
+      });
+      into.push(ctx.text(spec.role, entry.label, x + spec.swatch + spec.gap, y, widths[i], { maxLines: 1 }).op);
+      x += widths[i] + spec.columnGap;
+    });
+  });
+  return y + lh;
 }
 
 function columnsOf(rows: Array<Record<string, unknown>>): string[] {
@@ -660,6 +698,14 @@ export function collectAccentKeys(blocks: Block[], out: string[] = []): string[]
         break;
       case 'panel': if (block.accent) out.push(block.accent); collectAccentKeys(block.blocks, out); break;
       case 'section': collectAccentKeys(block.blocks, out); break;
+      // A composed diagram declares its distinctions on the nodes, exactly as a top-level
+      // one does. Without this a category-coloured block came out uniformly slate.
+      case 'chart':
+        for (const node of block.diagram?.nodes ?? []) {
+          const key = node.group ?? node.kind;
+          if (key) out.push(key);
+        }
+        break;
       case 'table': for (const key of Object.values(block.accents ?? {})) out.push(key); break;
       case 'columns': for (const c of block.columns) collectAccentKeys(c.blocks, out); break;
       default: break;

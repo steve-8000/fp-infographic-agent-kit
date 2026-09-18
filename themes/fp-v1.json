@@ -49,6 +49,11 @@
         "id": "tpl-svg",
         "kind": "svg-export",
         "ref": "Template 1_1_H_1080px.svg"
+      },
+      {
+        "id": "fp-delivered-frames",
+        "kind": "figma-file",
+        "ref": "FP Infographic Studio / Patrick works 28:3 - delivered frames 35:4142 and 32:1364"
       }
     ],
     "fields": {
@@ -268,6 +273,16 @@
         "status": "measured",
         "source": "user-reference",
         "note": "Measured from the paired-bar reference the user supplied on 2026-09-17, scaled from its 1568px frame to the pack's 1920: bar height 14->24, the two bars 25->30 apart centre to centre (14 gap), rows pitched 65->104, value column left-aligned past the longest bar, change column right-aligned to the safe edge. Type roles, hues and neutrals are the pack's own; only the geometry comes from the reference."
+      },
+      "surface.node.tinted": {
+        "status": "measured",
+        "source": "fp-delivered-frames",
+        "note": "delivered frames fill a category node instead of washing it: 'Coinbase Dominance' 35:4142 stacks four pastel cards with dark labels on the dark canvas, and '3_03 Account And Transaction Abstraction' 32:1364 does the same on paper. 0.78 toward white is the measured pastel; the label is ink chosen against the fill, so one rule serves both appearances"
+      },
+      "chart.legend": {
+        "status": "measured",
+        "source": "fp-delivered-frames",
+        "note": "'3_03 Account And Transaction Abstraction' 32:1364 names its three node categories in a centred row of chips under the graphic: an 18px rounded swatch, 12px gap, label at 24, 40px between chips"
       }
     }
   },
@@ -676,7 +691,11 @@
       "paddingY": 24,
       "gapX": 64,
       "gapY": 40,
-      "minWidth": 200
+      "minWidth": 200,
+      "tinted": {
+        "tint": 0.78,
+        "strokeOpacity": 0.3
+      }
     },
     "nodeStrokeOpacity": 0.38,
     "card": {
@@ -891,6 +910,14 @@
       "legendRole": "label",
       "legendColor": "neutral.300",
       "swatch": 20
+    },
+    "legend": {
+      "swatch": 18,
+      "radius": 4,
+      "gap": 12,
+      "columnGap": 40,
+      "top": 28,
+      "role": "label"
     }
   },
   "chrome": {
